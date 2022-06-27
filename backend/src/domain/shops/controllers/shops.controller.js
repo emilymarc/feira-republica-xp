@@ -6,7 +6,7 @@ const ShopsController = {
 
     async getAllShops(req, res) {
         try {
-            const getShops = await ShopsService.getAll(req, res)
+            const getShops = await ShopsService.getAll(req)
             res.status(200).json(getShops);
         } catch (error) {
             res.status(500).json(error);
