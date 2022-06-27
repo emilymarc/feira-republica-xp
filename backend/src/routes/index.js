@@ -1,15 +1,16 @@
+const ShopsController = require('../domain/shops/controllers/shops.controller');
 const express = require("express");
 const routes = express.Router();
 
 // routes.get("/login/shops", products.create);
 // routes.get("/login/clients", products.create);
 
-// routes.get("/shops", shops.create);
-// routes.get("/shops/:idShops", shops.create);
-// routes.get("/shops/:idShops/products", shops.create);
-// routes.post("/shops", shops.create);
-// routes.put("/shops/:idShops", shops.create);
-// routes.delete("/shops/:idShops", shops.create);
+routes.get("/shops", ShopsController.getAllShops);
+routes.get("/shops/:idShops", ShopsController.getOneShop);
+// routes.get("/shops/:idShops/products", shops.create); 
+routes.post("/shops", ShopsController.createShop);
+routes.put("/shops/:idShops", ShopsController.updateShop);
+routes.put("/shops/:idShops/deletar", ShopsController.deleteShop);
 
 // routes.get("/products", products.create);
 // routes.get("/products/category/:nameCategory", products.create);
