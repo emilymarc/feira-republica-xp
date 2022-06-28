@@ -1,4 +1,5 @@
 const ShopsController = require('../domain/shops/controllers/shops.controller');
+const orderController = require("../domain/orders/controllers/orders.controller");
 const express = require("express");
 const routes = express.Router();
 
@@ -28,7 +29,7 @@ routes.put("/shops/:idShops/deletar", ShopsController.deleteShop);
 // routes.get("/orders", orders.create);
 // routes.get("/orders/:idClient", controlerss.create);
 // routes.get("/orders/:idClient/:idOrder", controlerss.create);
-// routes.post("/orders/:idClient", orders.create);
+routes.post("/orders/:idClient", orderController.createOrder);
 // routes.put("/orders/:idClient/:idOrder", orders.create);
 // routes.delete("/orders/:idClient/:idOrder", orders.create);
 
