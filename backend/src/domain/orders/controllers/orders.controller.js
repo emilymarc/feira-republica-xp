@@ -40,6 +40,27 @@ const orderController = {
     } catch (error) {
       return res.status(500).json(error);
     }
+  },
+
+  async updateOrder(req, res) {
+    try {
+      const alteredOrder = await orderService.alterOrder(req.body, req.params);
+      return res.status(200).json(alteredOrder);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  },
+
+  async cancelOrder(req, res) {
+    try {
+      const deletedOrder = await orderService.excludeOrder(req.params);   
+      if(deletedOrder != 1){
+        return res.status(400).json("order não encontrada!");
+      }   
+      return res.sendStatus(204);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
   }
 };
 

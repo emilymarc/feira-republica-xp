@@ -30,8 +30,8 @@ routes.get("/orders", orderController.allOrders);
 routes.get("/orders/:idClient", orderController.clientOrders);
 routes.get("/orders/:idClient/:idOrder", orderController.detailOrder);
 routes.post("/orders/:idClient", orderController.createOrder);
-// routes.put("/orders/:idClient/:idOrder", orders.create);
-// routes.delete("/orders/:idClient/:idOrder", orders.create);
+routes.put("/orders/:idClient/:idOrder", orderController.updateOrder);
+routes.delete("/orders/:idClient/:idOrder", orderController.cancelOrder);
 
 
 module.exports = routes;

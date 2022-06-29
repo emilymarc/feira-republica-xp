@@ -145,6 +145,78 @@ class OrderService {
 
         return responseOrder;
     }
+
+    async alterOrder(data, params) {
+        const {
+            idClient,
+            idOrder
+        } = params;
+
+        const {
+            progress
+        } = data;
+
+        const tryModifyOrder = await Orders.update({
+            progress
+        }, {
+            where: {
+                order: idOrder,
+                id_client_order: idClient,
+                data_status: 1
+            }
+        });
+
+        if (tryModifyOrder != 1) {
+            return
+        }
+
+        const modifyOrder = await Orders.findOne({
+            where: {
+                order: idOrder,
+                id_client_order: idClient
+            }
+        });
+
+        return modifyOrder;
+    }
+
+    async excludeOrder(params) {
+        const {
+            idClient,
+            idOrder
+        } = params;
+
+        const hasOrder = await Orders.count({
+            where: {
+                order: idOrder,
+                id_client_order: idClient
+            },
+        });
+
+        if (hasOrder != 1) {
+            return
+        }
+
+        const tryDeleteOrder = await Orders.update({
+            data_status: 0
+        }, {
+            where: {
+                order: idOrder,
+                id_client_order: idClient,
+                data_status: 1
+            }
+        });
+
+        const tryDeleteItemsOrder = await ItemOrder.update({
+            data_status: 0
+        }, {
+            where: {
+                id_order_item_order: idOrder,
+                data_status: 1
+            }
+        });
+        return tryDeleteOrder
+    }
 }
 
 module.exports = OrderService;
