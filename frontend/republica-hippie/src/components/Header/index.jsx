@@ -22,17 +22,15 @@ const Header = () => {
                </div>
             </S.LogoArea>
 
-            <div>
-                <nav>
-                    <ul>
-                        <li>HOME</li>
-                        <li>CERÂMICAS</li>
-                        <li>COLARES</li>
-                        <li>PINTURAS</li>
-                        <li>EXPOSITORES</li>
-                    </ul>
-                </nav>
-            </div>
+            <S.NavArea>
+                    <S.Nav>
+                        <S.NavItem>HOME</S.NavItem>
+                        <S.NavItem>CERÂMICAS</S.NavItem>
+                        <S.NavItem>COLARES</S.NavItem>
+                        <S.NavItem>PINTURAS</S.NavItem>
+                        <S.NavItem>EXPOSITORES</S.NavItem>
+                    </S.Nav>
+            </S.NavArea>
         </S.Header>
     )
 }
