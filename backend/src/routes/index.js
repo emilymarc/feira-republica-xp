@@ -26,7 +26,7 @@ routes.put("/shops/:idShops/deletar", ShopsController.deleteShop);
 // routes.put("/clients/:id", clients.create);
 // routes.delete("/clients/:id", clients.create);
 
-// routes.get("/orders", orders.create);
+routes.get("/orders", orderController.allOrders);
 // routes.get("/orders/:idClient", controlerss.create);
 // routes.get("/orders/:idClient/:idOrder", controlerss.create);
 routes.post("/orders/:idClient", orderController.createOrder);

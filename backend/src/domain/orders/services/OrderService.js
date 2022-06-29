@@ -42,9 +42,7 @@ class OrderService {
     }
 
     async registerItemsOrder(data, order) {
-
-        data.forEach(async (item, index) => {
-            
+        data.forEach(async (item, index) => {            
             const OrderItem = await ItemOrder.create({
                 id_order_item_order: order.order,
                 id_product_item_order: parseInt(item.id_product),
@@ -59,7 +57,6 @@ class OrderService {
             order.price_gross += await (OrderItem.dataValues.price_total)
             order.price_order_total += await (OrderItem.dataValues.price_total) + (OrderItem.dataValues.shipping*OrderItem.dataValues.quantity)
             order.items_order[index] = await OrderItem.dataValues
-
         })
 
         const cincoMil = () => new Promise((resolve, reject) => {
@@ -67,7 +64,6 @@ class OrderService {
         })
 
         const newOrder = await cincoMil().then((res) => {
-
             Orders.update({
                 ...res,            
             }, {
@@ -75,16 +71,19 @@ class OrderService {
                     order: res.order,
                     data_status: 1
                 },
-            });
-            
+            });            
             return res
         })
-
-        
-
-
-
         return newOrder
+    }
+
+    async findAllOrders() {
+        const fullPosts = await Orders.findAll({
+            where:{
+                data_status: 1
+            }
+        });
+        return fullPosts;
     }
 }
 
