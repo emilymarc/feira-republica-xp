@@ -55,4 +55,11 @@ export const NavItem = styled.li`
     font-size: 24px;
 `
 
+export const Menu = styled.div`
+    display: flex;
+    gap: 100px;
+`
 
+export const Icon = styled.img`
+    width: 20%;
+`

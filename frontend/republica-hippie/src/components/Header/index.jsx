@@ -16,10 +16,11 @@ const Header = () => {
                     <img src={search}/>
                 </S.SearchContainer>
                
-               <div>
-                <img src={cart}/>
-                <img src={cart}/>
-               </div>
+               <S.Menu>
+                <S.Icon src={cart}/>
+                <S.Icon src={cart}/>
+               </S.Menu>
+
             </S.LogoArea>
 
             <S.NavArea>
