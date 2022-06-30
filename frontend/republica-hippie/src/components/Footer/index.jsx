@@ -8,7 +8,7 @@ const Footer = () => {
         <S.Footer>
             <div>
                 <img src={logo} alt="Republica Hippie"/>
-                <p>Redes Socias</p>
+                <p>Redes Sociais</p>
                 <img src={icon}/>
                 <img src={icon}/>
                 <img src={icon}/>
