@@ -1,7 +1,8 @@
 const express = require("express");
+const ClientsController = require("../domain/clients/controllers/clientsController");
 const routes = express.Router();
 
-// routes.get("/login/shops", products.create);
+// routes.get("/login/shops", products.create); //DELETADO
 // routes.get("/login/clients", products.create);
 
 // routes.get("/shops", shops.create);
@@ -18,11 +19,11 @@ const routes = express.Router();
 // routes.put("/products/:idProduct", products.create);
 // routes.delete("/products/:idProduct", products.create);
 
-// routes.get("/clients", clients.create);
-// routes.get("/clients/:id", clients.create);
-// routes.post("/clients", clients.create);
-// routes.put("/clients/:id", clients.create);
-// routes.delete("/clients/:id", clients.create);
+routes.get("/clients", );
+routes.get("/clients/:id", ClientsController.listClientPerId);
+routes.post("/clients", ClientsController.createClient);
+routes.put("/clients/:id", ClientsController.updateClient);
+routes.delete("/clients/:id", ClientsController.deleteClient);
 
 // routes.get("/orders", orders.create);
 // routes.get("/orders/:idClient", controlerss.create);
