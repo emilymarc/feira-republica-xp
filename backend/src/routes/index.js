@@ -1,7 +1,11 @@
 const ShopsController = require('../domain/shops/controllers/shops.controller');
 const productsController = require("../domain/products/controllers/productsController");
 const categoriesController = require("../domain/categories/controllers/categoriesController");
+const imagesProductsController = require("../domain/imagesProducts/controllers/imagesProductsController");
+const createProductValidation = require("../domain/products/validations/createProductValidation");
+const editProductValidation = require("../domain/products/validations/editProductValidation");
 const orderController = require("../domain/orders/controllers/orders.controller");
+
 const express = require("express");
 const routes = express.Router();
 
@@ -17,18 +21,23 @@ routes.put("/shops/:idShops/deletar", ShopsController.deleteShop);
 
 
 routes.get("/products", productsController.list);
-routes.post("/products", productsController.create);
-routes.get("/products/:code_product", productsController.findOne);
-routes.put("/products/:code_product", productsController.edit);
-routes.put("/products/:code_product/remove", productsController.remove);
+routes.post("/products", createProductValidation, productsController.create);
+routes.get("/products/:code_product",  editProductValidation, productsController.findOne);
+routes.put("/products/:code_product",  editProductValidation, productsController.edit);
+routes.put("/products/:code_product/remove", editProductValidation, productsController.remove);
 
-// routes.put("/products/:idProduct", products.create);
-// routes.delete("/products/:idProduct", products.create);
 
 //CATEGORIES
 routes.get("/categories", categoriesController.list);
 routes.post("/categories", categoriesController.create);
 // routes.get("/products/category/:nameCategory", products.create);
+
+
+//IMAGES PRODUCTS
+routes.get("/images", imagesProductsController.list);
+routes.post("/images", imagesProductsController.create);
+routes.put("/images/:id_img/remove", imagesProductsController.remove);
+
 
 // routes.get("/clients", clients.create);
 // routes.get("/clients/:id", clients.create);

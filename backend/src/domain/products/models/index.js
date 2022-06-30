@@ -1,7 +1,6 @@
 const Products = require("../models/Products");
 const { Shops } = require("../../shops/models/index");
 const { Categories } = require("../../categories/models/index");
-
 Products.belongsTo(Shops, {
     foreignKey: "id_shoop_product",
 });
@@ -18,8 +17,7 @@ Categories.hasMany(Products, {
     foreignKey: "id_category_product",
 });
 
-
 module.exports = {
     Products,
-    Shops
+    Shops,
 };
