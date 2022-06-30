@@ -6,6 +6,7 @@ export const Header = styled.header`
     flex-wrap: wrap;
     flex-direction: column;
     padding-top: 55px;
+    background-color: #fff;
 `
 
 export const LogoArea = styled.div`
