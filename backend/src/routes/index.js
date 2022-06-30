@@ -22,7 +22,7 @@ const routes = express.Router();
 routes.get("/clients", );
 routes.get("/clients/:id", ClientsController.listClientPerId);
 routes.post("/clients", ClientsController.createClient);
-routes.put("/clients/:id", ClientsController.updateClient);
+routes.patch("/clients/:id", ClientsController.updateClient);
 routes.delete("/clients/:id", ClientsController.deleteClient);
 
 // routes.get("/orders", orders.create);
