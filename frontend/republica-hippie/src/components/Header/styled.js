@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Header = styled.header`
     display: flex;
@@ -12,10 +13,6 @@ export const LogoArea = styled.div`
     justify-content: space-around;
     gap: 50px;
     align-items: center;
-`
-export const Logo = styled.img`
-    width: 263px;
-    height: 120px;
 `
 
 export const SearchContainer = styled.div`
@@ -57,12 +54,20 @@ export const Nav = styled.ul`
     justify-content: center;
     gap: 20%;
     list-style: none;
-    margin: 60px auto;
+    margin: 40px auto 65px auto;
+`
+
+export const NavLink = styled(Link)`
+    text-decoration: none;
 `
 
 export const NavItem = styled.li`
     color:#D8A691;
-    font-size: 24px;
+    font-size: 20px;
+    transition: .3s;
+    &:hover {
+        color: #C57E5F;
+    }
 `
 
 export const ContainerExpositores = styled.div`
@@ -75,11 +80,25 @@ export const ContainerExpositores = styled.div`
 
 export const Menu = styled.div`
     display: flex;
+    align-items: center;
     gap: 55px;
 `
 
 export const Icon = styled.img`
+    height: 66px;
+    width: 66px;
     padding: 20px;
     background-color: #FEDC96;
+    border-radius: 50%;
+    transition: .3s;
+    &:hover {
+        background-color: #F8CE78;
+        transition: .3s;
+    }
+`
+
+export const IconLink = styled(Link)`
+    height: 66px;
+    width: 66px;
     border-radius: 50%;
 `

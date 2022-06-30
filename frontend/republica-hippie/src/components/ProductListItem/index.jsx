@@ -5,9 +5,9 @@ const ProductListItem = (props) => {
   return (
     <>
         <S.Container>
-          <img src={props.productImg} alt='Imagem do produto'></img>
-          <h3>{props.productTitle}</h3>
-          <span>R$ {props.productValue}</span>
+          <S.ProductImage src={props.productImg} alt='Imagem do produto'></S.ProductImage>
+          <S.ProductTitle>{props.productTitle}</S.ProductTitle>
+          <S.ProductPrice>R$ {props.productValue}</S.ProductPrice>
         </S.Container>
     </>
   );
