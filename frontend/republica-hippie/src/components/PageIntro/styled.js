@@ -5,7 +5,7 @@ export const IntroSection = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 1000px;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 `
 
 export const TitleContainer = styled.div`
@@ -13,17 +13,15 @@ export const TitleContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 35px;
 `
 
 export const Title = styled.h1`
-  font-size: 80px;
+  font-size: 70px;
   color: #C57E5F;
 `
 
 export const TitleContent = styled.p`
-  font-size: 24px;
-  line-height: 32px;
   text-align: center;
 `
 

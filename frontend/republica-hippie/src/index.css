@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,6 +19,12 @@ code {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 24px;
-  color:#525252;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+  color:#404040;
+}
+
+h1 {
+  font-family: 'Shadows Into Light', cursive;
 }

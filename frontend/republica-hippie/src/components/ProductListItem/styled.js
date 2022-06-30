@@ -1,5 +1,28 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-  max-width: 100%;
+  max-width: 480px;
+  max-height: 440px;
+  background-color: #F3EEE9;
+  border-radius: 20px;
+  padding: 20px 15px 32px 15px;
+`
+
+export const ProductImage = styled.img`
+  max-width: 450px;
+  max-height: 300px;
+  margin-bottom: 17px;
+`
+
+export const ProductTitle = styled.h3`
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 5px;
+`
+
+export const ProductPrice = styled.span`
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 40px;
 `
