@@ -12,7 +12,7 @@ routes.get("/exhibitors/:idExhibitors", ExhibitorsController.getOneExhibitor);
 // routes.get("/shops/:idShops/products", shops.create); 
 routes.post("/exhibitors", ExhibitorsController.createExhibitor);
 routes.put("/exhibitors/:idExhibitors",  ExhibitorsController.updateExhibitor);
-routes.put("/exhibitors/:idExhibitors/deletar",  ExhibitorsController.deleteExhibitor);
+routes.delete("/exhibitors/:idExhibitors/deletar",  ExhibitorsController.deleteExhibitor);
 
 // routes.get("/products", products.create);
 // routes.get("/products/category/:nameCategory", products.create);
