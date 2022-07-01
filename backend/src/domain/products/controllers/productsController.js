@@ -20,7 +20,12 @@ module.exports = {
           },
           {
             model: ImagesProducts,
-            attributes: ["url_img", "id_product_img", "createdAt", "data_status"],
+            attributes: [
+              "url_img",
+              "id_product_img",
+              "createdAt",
+              "data_status",
+            ],
           },
         ],
         where: {
@@ -56,6 +61,54 @@ module.exports = {
       }
 
       res.status(201).json(product);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json(error);
+    }
+  },
+
+  async findByCategory(req, res) {
+    const { id_category_product } = req.query;
+
+    const categoryExist = await Categories.count({
+      where: {
+        id_category: id_category_product,
+        data_status: 1
+      },
+    });
+
+    if(!categoryExist){
+      return res.status(200).json("Category not found!");
+    }
+
+    try {
+      const products = await Products.findAll({
+        include: [
+          {
+            model: Shops,
+            attributes: ["name", "email", "createdAt", "data_status"],
+          },
+          {
+            model: Categories,
+            attributes: ["name", "createdAt", "data_status"],
+          },
+          {
+            model: ImagesProducts,
+            attributes: [
+              "url_img",
+              "id_product_img",
+              "createdAt",
+              "data_status",
+            ],
+          },
+        ],
+        where: {
+          id_category_product,
+          data_status: 1,
+        },
+      });
+
+      res.status(201).json(products);
     } catch (error) {
       console.log(error);
       return res.status(400).json(error);
@@ -157,13 +210,17 @@ module.exports = {
         return res.status(400).json("Product not found!");
       }
 
-      const removedProduct = await Products.update({
-        data_status: 0
-      },{
-        where: { 
-          code_product,
-          data_status: 1, },
-      });
+      const removedProduct = await Products.update(
+        {
+          data_status: 0,
+        },
+        {
+          where: {
+            code_product,
+            data_status: 1,
+          },
+        }
+      );
 
       res.status(201).json("Product removed!");
     } catch (error) {
@@ -172,13 +229,14 @@ module.exports = {
     }
   },
 
-  async find(req, res)
-  {
-    try{
+  async find(req, res) {
+    try {
       const { term } = req.query;
-     const search = await Products.findAll({
-        where: { name: { [Op.like]:  "%" + term + "%"},
-       data_status: 1 },
+      const search = await Products.findAll({
+        where: {
+          name: { [Op.like]: "%" + term + "%" },
+          data_status: 1,
+        },
 
         include: [
           {
@@ -191,20 +249,24 @@ module.exports = {
           },
           {
             model: ImagesProducts,
-            attributes: ["url_img", "id_product_img", "createdAt", "data_status"],
+            attributes: [
+              "url_img",
+              "id_product_img",
+              "createdAt",
+              "data_status",
+            ],
           },
         ],
-      })
+      });
 
-        if(search.length == 0){
-          return res.status(201).json("Product not found!");
-        }
+      if (search.length == 0) {
+        return res.status(201).json("Product not found!");
+      }
 
-        res.status(201).json(search);
-  }
-  catch(error){
-    console.log(error)
-    return res.status(error).json(error);
-  }
-}
+      res.status(201).json(search);
+    } catch (error) {
+      console.log(error);
+      return res.status(error).json(error);
+    }
+  },
 };

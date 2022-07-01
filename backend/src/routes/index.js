@@ -21,7 +21,8 @@ routes.put("/shops/:idShops/deletar", ShopsController.deleteShop);
 
 
 routes.get("/products", productsController.list);
-routes.get("/products/find", productsController.find); 
+routes.get("/products/find", productsController.find);
+routes.get("/products/categories", productsController.findByCategory);
 routes.post("/products", createProductValidation, productsController.create);
 routes.get("/products/:code_product",  editProductValidation, productsController.findOne);
 routes.put("/products/:code_product",  editProductValidation, productsController.edit);
