@@ -1,6 +1,9 @@
 const { Products } = require("../models/index");
 const { Shops } = require("../../shops/models");
 const { Categories } = require("../../categories/models");
+const { ImagesProducts } = require("../../imagesProducts/models");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = {
   async list(req, res) {
@@ -14,6 +17,10 @@ module.exports = {
           {
             model: Categories,
             attributes: ["name", "createdAt", "data_status"],
+          },
+          {
+            model: ImagesProducts,
+            attributes: ["url_img", "id_product_img", "createdAt", "data_status"],
           },
         ],
         where: {
@@ -60,6 +67,7 @@ module.exports = {
       const {
         id_shoop_product,
         id_category_product,
+        id_image_product,
         name,
         description,
         stock_product,
@@ -74,6 +82,7 @@ module.exports = {
       const newProduct = await Products.create({
         id_shoop_product,
         id_category_product,
+        id_image_product,
         name,
         description,
         stock_product,
@@ -162,4 +171,40 @@ module.exports = {
       return res.status(400).json(error);
     }
   },
+
+  async find(req, res)
+  {
+    try{
+      const { term } = req.query;
+     const search = await Products.findAll({
+        where: { name: { [Op.like]:  "%" + term + "%"},
+       data_status: 1 },
+
+        include: [
+          {
+            model: Shops,
+            attributes: ["name", "email", "createdAt", "data_status"],
+          },
+          {
+            model: Categories,
+            attributes: ["name", "createdAt", "data_status"],
+          },
+          {
+            model: ImagesProducts,
+            attributes: ["url_img", "id_product_img", "createdAt", "data_status"],
+          },
+        ],
+      })
+
+        if(search.length == 0){
+          return res.status(201).json("Product not found!");
+        }
+
+        res.status(201).json(search);
+  }
+  catch(error){
+    console.log(error)
+    return res.status(error).json(error);
+  }
+}
 };

@@ -14,6 +14,10 @@ const Products = db.define(
         allowNull: false,
         type: DataTypes.INTEGER
       },
+      id_image_product: {
+        allowNull: true,
+        type: DataTypes.INTEGER
+      },
       name: {
         allowNull: false,
         type: DataTypes.STRING

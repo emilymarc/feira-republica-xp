@@ -5,7 +5,7 @@ const imagesProductsController = require("../domain/imagesProducts/controllers/i
 const createProductValidation = require("../domain/products/validations/createProductValidation");
 const editProductValidation = require("../domain/products/validations/editProductValidation");
 const orderController = require("../domain/orders/controllers/orders.controller");
-
+const Product = require("../domain/products/models")
 const express = require("express");
 const routes = express.Router();
 
@@ -21,6 +21,7 @@ routes.put("/shops/:idShops/deletar", ShopsController.deleteShop);
 
 
 routes.get("/products", productsController.list);
+routes.get("/products/find", productsController.find); 
 routes.post("/products", createProductValidation, productsController.create);
 routes.get("/products/:code_product",  editProductValidation, productsController.findOne);
 routes.put("/products/:code_product",  editProductValidation, productsController.edit);
