@@ -1,5 +1,5 @@
-const  Shops  = require("./shops");
+const  Exhibitors  = require("./shops");
 
 module.exports = {
-    Shops
+    Exhibitors
 };
