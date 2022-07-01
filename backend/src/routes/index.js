@@ -1,24 +1,25 @@
-const ShopsController = require('../domain/shops/controllers/shops.controller');
+const ExhibitorsController = require('../domain/shops/controllers/Exhibitors.controller');
 const orderController = require("../domain/orders/controllers/orders.controller");
 const express = require("express");
 const routes = express.Router();
 
+
 // routes.get("/login/shops", products.create);
 // routes.get("/login/clients", products.create);
 
-routes.get("/shops", ShopsController.getAllShops);
-routes.get("/shops/:idShops", ShopsController.getOneShop);
+routes.get("/exhibitors", ExhibitorsController.getAllExhibitors);
+routes.get("/exhibitors/:idExhibitors", ExhibitorsController.getOneExhibitor);
 // routes.get("/shops/:idShops/products", shops.create); 
-routes.post("/shops", ShopsController.createShop);
-routes.put("/shops/:idShops", ShopsController.updateShop);
-routes.put("/shops/:idShops/deletar", ShopsController.deleteShop);
+routes.post("/exhibitors", ExhibitorsController.createExhibitor);
+routes.put("/exhibitors/:idExhibitors",  ExhibitorsController.updateExhibitor);
+routes.put("/exhibitors/:idExhibitors/deletar",  ExhibitorsController.deleteExhibitor);
 
 // routes.get("/products", products.create);
 // routes.get("/products/category/:nameCategory", products.create);
 // routes.get("/products/:idProduct", products.create);
 // routes.post("/products", products.create);
 // routes.put("/products/:idProduct", products.create);
-// routes.delete("/products/:idProduct", products.create);
+// routes.delete("/products/:idProduct", products.create);v
 
 // routes.get("/clients", clients.create);
 // routes.get("/clients/:id", clients.create);
