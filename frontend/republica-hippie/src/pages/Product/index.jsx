@@ -1,7 +1,18 @@
 import React from 'react';
-
-const Artesoes = () => {
-  return <div />;
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import DetailedBg from '../../components/DetailedBg';
+import SingleProduct from '../../components/SingleProduct';
+const Product = () => {
+  return ( 
+    <>
+        <Header></Header>
+          <DetailedBg>
+            <SingleProduct></SingleProduct>
+          </DetailedBg>
+        <Footer></Footer>
+    </>
+  )
 }
 
-export default Artesoes;
+export default Product;
