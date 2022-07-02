@@ -6,6 +6,7 @@ import Colares from '../pages/Colares';
 import Pinturas from '../pages/Pinturas';
 import Artesaos from '../pages/Artesaos';
 import Profile from '../pages/Profile';
+import Product from '../pages/Product';
 
 const AppRoutes = () => {
     return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
                         <Route path="/pinturas" element={<Pinturas />}/>
                         <Route path="/expositores" element={<Artesaos />}/>
                         <Route path="/profile" element={<Profile />}/>
+                        <Route path='/product/:id' element={<Product />} />
                     </Routes>
         </BrowserRouter>
     )
