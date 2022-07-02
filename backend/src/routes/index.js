@@ -19,11 +19,11 @@ routes.delete("/exhibitors/:idExhibitors/deletar", ExhibitorsController.deleteEx
 
 routes.get("/products", ProductsController.list);
 routes.get("/products/:code_product", ProductsController.findOne);
-routes.get("/categories/:id_product_category", ProductsController.findByCategory);
-// routes.post("/products", createProductValidation, productsController.create);
+routes.get("/products/categories/:categoryName", ProductsController.findByCategory);
+// routes.post("/products/:idExhibitors", ProductsController.createProduct);
 // routes.get("/products/:code_product", editProductValidation, productsController.findOne);
 // routes.put("/products/:code_product", editProductValidation, productsController.edit);
-// routes.put("/products/:code_product/remove", editProductValidation, productsController.remove);
+routes.delete("/products/:code_product/remove", ProductsController.deleteProduct);
 
 
 // //CATEGORIES

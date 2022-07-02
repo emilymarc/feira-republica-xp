@@ -1,5 +1,5 @@
 const {
-    Products, Exhibitors, Categories
+    Products, Exhibitors, Categories, ImagesProducts
 } = require("../models");
 
 const ProductsService = {
@@ -16,6 +16,22 @@ const ProductsService = {
 
 
         Object.assign(filter, {
+            include: [
+                {
+                    model: Categories,
+                    attributes: ["name"],
+                },
+                {
+                    model: Exhibitors,
+                    attributes: ["name", "profession","phrase", "description", "birth_date", "phone", "email" ],
+                },
+                {
+                    model: ImagesProducts,
+                    attributes: [
+                        "url_img",
+                    ],
+                },
+            ],
             where: {
                 data_status: 1,
             }
@@ -26,16 +42,25 @@ const ProductsService = {
         return getShops;
     },
 
-    async findOne(req) {
-        const { code_product } = req.params;
+    async findOne(params) {
+        const { code_product } = params;
 
         const product = await Products.findOne({
             include: [
                 {
-                    model: Exhibitors,
-                    attributes: ["name", "email", "createdAt", "data_status"],
+                    model: Categories,
+                    attributes: ["name"],
                 },
-                
+                {
+                    model: Exhibitors,
+                    attributes: ["name", "profession","phrase", "description", "birth_date", "phone", "email" ],
+                },
+                {
+                    model: ImagesProducts,
+                    attributes: [
+                        "url_img",
+                    ],
+                },
             ],
             where: {
                 code_product,
@@ -44,53 +69,97 @@ const ProductsService = {
         });
 
         if (!product) {
-            return json("Product not found!");
+            return;
         }
 
         return product
     },
 
-    async findByCategory(req) {
-        const { id_product_category } = req.query;
+    async findByCategory(params) {
+        const { categoryName } = params;
 
-        // const categoryExist = await Categories.count({
-        //     where: {
-        //         id_category: id_product_category,
-        //         data_status: 1
-        //     },
-        // });
+        const categoryExist = await Categories.count({
+            where: {
+                name: categoryName,
+                data_status: 1
+            },
+        });
 
-        // if (!categoryExist) {
-        //     return res.status(200).json("Category not found!");
-        // }
+        if (!categoryExist) {
+            return;
+        }
 
         const products = await Products.findAll({
             include: [
                 {
                     model: Categories,
-                    attributes: ["name", "createdAt", "data_status"],
+                    attributes: ["name"],
+                    where: {
+                        name: categoryName,
+                    },
                 },
                 {
                     model: Exhibitors,
-                    attributes: ["name", "email", "createdAt", "data_status"],
+                    attributes: ["name", "profession","phrase", "description", "birth_date", "phone", "email" ],
                 },
-                // {
-                //     model: ImagesProducts,
-                //     attributes: [
-                //         "url_img",
-                //         "id_product_img",
-                //         "createdAt",
-                //         "data_status",
-                //     ],
-                // },
+                {
+                    model: ImagesProducts,
+                    attributes: [
+                        "url_img",
+                    ],
+                },
             ],
             where: {
-                id_product_category,
                 data_status: 1,
             },
         });
 
         return products;
+    },
+
+    async excludeProduct(params) {
+        const {
+            code_product,
+        } = params;
+
+        const hasProduct = await Products.count({
+            where: {
+                code_product,
+                data_status: 1
+            }
+        })
+
+        if (hasProduct != 1) {
+            return hasProduct
+        }
+
+        await Products.update({
+            data_status: 0
+        }, {
+            where: {
+                code_product,
+                data_status: 1
+            }
+        });
+
+        await ImagesProducts.update({
+            data_status: 0
+        }, {
+            where: {
+                id_product_img: code_product,
+                data_status: 1
+            }
+        });
+
+        await Categories.update({
+            data_status: 0
+        }, {
+            where: {
+                id_product_category: code_product,
+                data_status: 1
+            }
+        });
+        return hasProduct
     },
 
 
