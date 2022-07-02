@@ -38,7 +38,6 @@ const Header = () => {
                             <img src={iconExpositores} alt='Icon Expositores'></img>
                             <S.NavLink to='/expositores'><S.NavItem>EXPOSITORES</S.NavItem></S.NavLink>
                         </S.ContainerExpositores>
-                        
                     </S.Nav>
             </S.NavArea>
         </S.Header>

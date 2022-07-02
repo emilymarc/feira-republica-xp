@@ -1,11 +1,18 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   max-width: 480px;
   max-height: 440px;
   background-color: #F3EEE9;
   border-radius: 20px;
   padding: 20px 15px 32px 15px;
+  text-decoration: none;
+  transition: .3s;
+  &:hover {
+    transition: .3s;
+    background-color: #e0d0bf;
+  }
 `
 
 export const ProductImage = styled.img`
