@@ -18,8 +18,7 @@ const ClientsController = {
                 data_status: 1
             });
 
-            return res.status(201).json(newUser);
-        
+            return res.status(201).json(newUser);        
         } catch (error) {
             res.status(400).json("Erro ao criar usuário");
         }

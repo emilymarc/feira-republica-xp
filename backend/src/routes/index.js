@@ -1,15 +1,16 @@
 const ShopsController = require('../domain/shops/controllers/shops.controller');
+const ClientsController = require('../domain/clients/controllers/clientsController');
 const orderController = require("../domain/orders/controllers/orders.controller");
-const AuthController = require("../domain/clients/controllers/authController");
-const loginValidation = require("../domain/clients/validations/loginValidation"); 
-const loginauthentication = require("../middlewares/authenticator");
+const AuthController = require("../domain/auth/controllers/authController");
+const loginValidation = require("../domain/auth/validations/loginValidation"); 
 const authenticator = require('../middlewares/authenticator');
+
 
 const express = require("express");
 const routes = express.Router();
 
 //routes.get("/login/shops", products.create);
-routes.get("/login/clients", loginValidation, authenticator , AuthController.login);
+routes.post("/login/clients", loginValidation, authenticator , AuthController.login);
 
 routes.get("/shops", ShopsController.getAllShops);
 routes.get("/shops/:idShops", ShopsController.getOneShop);
@@ -27,7 +28,7 @@ routes.put("/shops/:idShops/deletar", ShopsController.deleteShop);
 
 // routes.get("/clients", clients.create);
 // routes.get("/clients/:id", clients.create);
-// routes.post("/clients", clients.create);
+routes.post("/clients", ClientsController.createClient);
 // routes.put("/clients/:id", clients.create);
 // routes.delete("/clients/:id", clients.create);
 

@@ -1,4 +1,4 @@
-const { Clients } = require("../models/clients");
+const { Clients } = require("../../clients/controllers/clientsController");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const secret = require("../../config/secret");
