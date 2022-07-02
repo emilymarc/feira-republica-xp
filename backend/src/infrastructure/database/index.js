@@ -1,6 +1,8 @@
 require('dotenv').config()
 const Sequelize = require("sequelize");
 
+
+
 const DB_NAME = process.env.DB_NAME_DEV;
 const DB_USER = process.env.DB_USER;
 const DB_PASS = process.env.DB_PASSWORD;
@@ -15,6 +17,8 @@ let db = {};
 
 try {
   db = new Sequelize(DB_NAME, DB_USER, DB_PASS, DB_CONFIG);
+
+  
 } catch (error) {
   console.error("Error ao tentar uma conexão com banco dados");
 }
