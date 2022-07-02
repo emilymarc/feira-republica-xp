@@ -10,12 +10,8 @@ const Products = db.define(
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      id_shoop_product: {
+      id_exhibitors_product: {
         allowNull: false,
-        type: DataTypes.INTEGER
-      },
-      id_image_product: {
-        allowNull: true,
         type: DataTypes.INTEGER
       },
       name: {
