@@ -7,8 +7,8 @@ const {
 let seed = []
 for (let i = 0; i < 5; i++) {
   seed.push({
-    id_product_category: 1,
-    name: `Category ${i+1}`,
+    id_product_category: faker.random.numeric(),
+    name: `Category ${i + 1}`,
     createdAt: new Date(),
     updatedAt: new Date(),
     data_status: 1
