@@ -5,7 +5,7 @@ export const Header = styled.header`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    padding-top: 55px;
+    padding-top: 40px;
     background-color: #fff;
 `
 
@@ -92,6 +92,7 @@ export const Icon = styled.img`
     background-color: #FEDC96;
     border-radius: 50%;
     transition: .3s;
+    cursor: pointer;
     &:hover {
         background-color: #F8CE78;
         transition: .3s;
