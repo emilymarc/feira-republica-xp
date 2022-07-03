@@ -6,4 +6,4 @@ const getOneExhibitorsValidation = validate({
   }),
 });
 
-module.exports = getOne;
+module.exports = getOneExhibitorsValidation;

@@ -6,4 +6,4 @@ const destroyExhibitorsValidation = validate({
   }),
 });
 
-module.exports = destroy;
+module.exports = destroyExhibitorsValidation;
