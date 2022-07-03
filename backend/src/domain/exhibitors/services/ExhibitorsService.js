@@ -1,5 +1,6 @@
 const { Exhibitors } = require("../models");
 const bcrypt = require("bcryptjs");
+const { Products } = require("../../products/models");
 
 
 const ExhibitorsService = {
@@ -50,6 +51,36 @@ const ExhibitorsService = {
         }
     },
 
+    async getProducts(req, res) {
+
+        const { idExhibitors } = req.params;
+        const exhibitors = await Exhibitors.findOne({
+            where: {
+                id_exhibitors: idExhibitors,
+                data_status: 1,
+            },
+            attributes: {
+                exclude: ['password', 'data_status']
+            },
+            include: [
+                {
+                    model: Products,
+                    attributes: {
+                        exclude: ['data_status']
+                    },
+                },
+
+            ]
+
+        })
+
+        if (!exhibitors) {
+            res.status(404).json('exhibitors não encontrado')
+        } else {
+            return exhibitors
+        }
+    },
+
     async create(data) {
 
         const { name, email, password, img, profession, birth_date, phone, phrase, description } = data;
@@ -71,7 +102,7 @@ const ExhibitorsService = {
         return createShop
     },
 
-    async update(data, params, res) {
+    async update(data, params) {
         const { idExhibitors } = params;
         const { password } = data;
         const payloadUpdate = {};
@@ -83,6 +114,18 @@ const ExhibitorsService = {
             Object.assign(payloadUpdate, { password: newPassword });
         }
 
+        const user = await Exhibitors.count({
+            where: {
+                id_exhibitors: idExhibitors,
+                data_status: 1,
+            },
+
+        })
+
+        if (user != 1) {
+            return ('Expositor não encontrado');
+        }
+
         await Exhibitors.update({
             ...payloadUpdate,
         }, {
@@ -92,14 +135,8 @@ const ExhibitorsService = {
             },
         });
 
-        const user = await Exhibitors.findByPk(idExhibitors);
+        return ('Expositor atualizado');
 
-        if (!user) {
-            res.json('Shop não encontrado');
-        } else {
-
-            return user;
-        }
 
     },
 
@@ -116,10 +153,12 @@ const ExhibitorsService = {
 
         })
 
-        if (exhibitors != 1) { return }
-        // ('Shop não encontrado');
+        if (exhibitors != 1) {
+            return exhibitors
+        }
 
-        const a = await Exhibitors.update({
+
+        await Exhibitors.update({
             data_status: 0
         }, {
             where: {
@@ -127,7 +166,7 @@ const ExhibitorsService = {
                 data_status: 1
             },
         });
-        return a
+        return exhibitors
     }
 }
 
