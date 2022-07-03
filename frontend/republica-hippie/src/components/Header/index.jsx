@@ -32,13 +32,13 @@ const Header = () => {
 
             <S.NavArea>
                     <S.Nav>
-                        {fullUrl == `${compareUrl}/` ? <S.NavLink to='/'><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>HOME</S.NavItem></S.NavLink> : <S.NavLink to='/'><S.NavItem>HOME</S.NavItem></S.NavLink>}
-                        {fullUrl == `${compareUrl}/ceramicas` ? <S.NavLink to='/ceramicas'><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>CERÂMICAS</S.NavItem></S.NavLink> : <S.NavLink to='/ceramicas'><S.NavItem>CERÂMICAS</S.NavItem></S.NavLink>}
-                        {fullUrl == `${compareUrl}/colares` ? <S.NavLink to='/colares'><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>COLARES</S.NavItem></S.NavLink> : <S.NavLink to='/colares'><S.NavItem>COLARES</S.NavItem></S.NavLink>}
-                        {fullUrl == `${compareUrl}/pinturas` ? <S.NavLink to='/pinturas'><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>PINTURAS</S.NavItem></S.NavLink> : <S.NavLink to='/pinturas'><S.NavItem>PINTURAS</S.NavItem></S.NavLink>}
+                        {fullUrl == `${compareUrl}/` ? <S.NavLink to=''><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>HOME</S.NavItem></S.NavLink> : <S.NavLink to='/'><S.NavItem>HOME</S.NavItem></S.NavLink>}
+                        {fullUrl == `${compareUrl}/ceramicas` ? <S.NavLink to=''><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>CERÂMICAS</S.NavItem></S.NavLink> : <S.NavLink to='/ceramicas'><S.NavItem>CERÂMICAS</S.NavItem></S.NavLink>}
+                        {fullUrl == `${compareUrl}/colares` ? <S.NavLink to=''><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>COLARES</S.NavItem></S.NavLink> : <S.NavLink to='/colares'><S.NavItem>COLARES</S.NavItem></S.NavLink>}
+                        {fullUrl == `${compareUrl}/pinturas` ? <S.NavLink to=''><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>PINTURAS</S.NavItem></S.NavLink> : <S.NavLink to='/pinturas'><S.NavItem>PINTURAS</S.NavItem></S.NavLink>}
                         <S.ContainerExpositores>
                             {fullUrl == `${compareUrl}/expositores` ? <img src={iconExpositoresActive} alt='Icon Expositores'></img> : <img src={iconExpositores} alt='Icon Expositores'></img>}
-                            {fullUrl == `${compareUrl}/expositores` ? <S.NavLink to='/expositores'><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>EXPOSITORES</S.NavItem></S.NavLink> : <S.NavLink to='/expositores'><S.NavItem>EXPOSITORES</S.NavItem></S.NavLink>}
+                            {fullUrl == `${compareUrl}/expositores` ? <S.NavLink to=''><S.NavItem style={{color: '#98D2D3', fontWeight: '600'}}>EXPOSITORES</S.NavItem></S.NavLink> : <S.NavLink to='/expositores'><S.NavItem>EXPOSITORES</S.NavItem></S.NavLink>}
                         </S.ContainerExpositores>
                     </S.Nav>
             </S.NavArea>
