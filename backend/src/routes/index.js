@@ -1,4 +1,5 @@
 const ExhibitorsController = require('../domain/exhibitors/controllers/Exhibitors.controller');
+const { createExhibitorsValidation, getOneExhibitorsValidation, destroyExhibitorsValidation, updateExhibitorsValidation } = require('../domain/exhibitors/validations/exhibitors/')
 
 const orderController = require("../domain/orders/controllers/orders.controller");
 
@@ -10,11 +11,11 @@ const routes = express.Router();
 // routes.get("/login/clients", products.create);
 
 routes.get("/exhibitors", ExhibitorsController.getAllExhibitors);
-routes.get("/exhibitors/:idExhibitors", ExhibitorsController.getOneExhibitor);
-// routes.get("/shops/:idShops/products", shops.create); 
-routes.post("/exhibitors", ExhibitorsController.createExhibitor);
-routes.put("/exhibitors/:idExhibitors", ExhibitorsController.updateExhibitor);
-routes.delete("/exhibitors/:idExhibitors/deletar", ExhibitorsController.deleteExhibitor);
+routes.get("/exhibitors/:idExhibitors", getOneExhibitorsValidation, ExhibitorsController.getOneExhibitor);
+routes.get("/exhibitors/:idExhibitors/products", getOneExhibitorsValidation, ExhibitorsController.getProductsExhibitor);
+routes.post("/exhibitors", createExhibitorsValidation, ExhibitorsController.createExhibitor);
+routes.put("/exhibitors/:idExhibitors", updateExhibitorsValidation, ExhibitorsController.updateExhibitor);
+routes.delete("/exhibitors/:idExhibitors/deletar", destroyExhibitorsValidation, ExhibitorsController.deleteExhibitor);
 
 
 routes.get("/products", ProductsController.list);
