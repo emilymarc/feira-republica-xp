@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require("sequelize");
+const { DataTypes } = require("sequelize");
 const db = require("../../../infrastructure/database");
 
 const Categories = db.define(
@@ -8,6 +8,10 @@ const Categories = db.define(
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: DataTypes.INTEGER
+      },
+      id_product_category: {
+        allowNull: false,
         type: DataTypes.INTEGER
       },
       name: {
