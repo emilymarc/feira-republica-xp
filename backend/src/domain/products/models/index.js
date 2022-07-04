@@ -1,35 +1,35 @@
 const Products = require("../models/Products");
-const { Shops } = require("../../shops/models/index");
-const { Categories } = require("../../categories/models/index");
-const { ImagesProducts } = require("../../imagesProducts/models");
+const Categories  = require("../models/Categories");
+const { Exhibitors } = require("../../exhibitors/models/index");
+const ImagesProducts = require("../models/ImagesProducts");
 
-Products.belongsTo(Shops, {
-    foreignKey: "id_shoop_product",
+Products.belongsTo(Exhibitors, {
+    foreignKey: "id_exhibitors_product",
 });
 
-Shops.hasMany(Products, {
-    foreignKey: "id_shoop_product",
+Exhibitors.hasMany(Products, {
+    foreignKey: "id_exhibitors_product",
 });
 
-Products.belongsTo(Categories, {
-    foreignKey: "id_category_product",
+Products.hasMany(Categories, {
+    foreignKey: "id_product_category",
 });
 
-Categories.hasMany(Products, {
-    foreignKey: "id_category_product",
+Categories.belongsTo(Products, {
+    foreignKey: "id_product_category",
 });
 
-//
-Products.belongsTo(ImagesProducts, {
-    foreignKey: "id_image_product",
+Products.hasMany(ImagesProducts, {
+    foreignKey: "id_product_img",
 });
 
-ImagesProducts.hasMany(Products, {
-    foreignKey: "id_image_product",
+ImagesProducts.belongsTo(Products, {
+    foreignKey: "id_product_img",
 });
 
 module.exports = {
     Products,
-    Shops,
-    ImagesProducts
+    ImagesProducts,
+    Exhibitors,
+    Categories,
 };

@@ -7,9 +7,12 @@ const {
 let seed = []
 for (let i = 0; i < 20; i++) {
   seed.push({
-    id_shoop_product: faker.random.numeric(),
+    id_exhibitors_product: faker.random.numeric(),
     name: faker.name.findName(),
     description: faker.lorem.lines(1),
+    characteristics: faker.lorem.lines(1),
+    materials: faker.lorem.lines(1),
+    observations: faker.lorem.lines(1),
     stock_product: faker.random.numeric(2),
     price: faker.random.numeric(2),
     createdAt: new Date(),

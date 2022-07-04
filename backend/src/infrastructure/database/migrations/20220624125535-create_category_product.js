@@ -1,13 +1,23 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('category_products', {
       id_category: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
+      },
+      id_product_category: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'products',
+          },
+          key: 'code_product'
+        },
+        allowNull: false
       },
       name: {
         allowNull: false,

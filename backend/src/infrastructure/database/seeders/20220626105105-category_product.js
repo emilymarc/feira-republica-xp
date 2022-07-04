@@ -4,11 +4,14 @@ const {
   faker
 } = require('@faker-js/faker');
 
+const categories = ["Ceramicas","Colares", "Pinturas" ];
+
+
 let seed = []
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 20; i++) {
   seed.push({
-    id_product_category: faker.random.numeric(),
-    name: `Category ${i+1}`,
+    id_product_category: i + 1,
+    name: categories[Math.floor(Math.random() * 3)],
     createdAt: new Date(),
     updatedAt: new Date(),
     data_status: 1
@@ -17,7 +20,7 @@ for (let i = 0; i < 5; i++) {
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('category_product', seed)
+    await queryInterface.bulkInsert('category_products', seed)
   },
 
   async down(queryInterface, Sequelize) {
