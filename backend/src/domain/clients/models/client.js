@@ -1,5 +1,5 @@
-const db = require("../../../index");
-const { DataTypes } = require("sequelize");
+const db = require("../../../infrastructure/database/index");
+const DataTypes  = require("sequelize");
 
 const Clients = db.define("client", {
 	id_client: {
