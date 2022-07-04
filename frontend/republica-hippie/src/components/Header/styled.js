@@ -45,6 +45,7 @@ export const Search = styled.input`
 
 export const NavArea = styled.div`
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
 `
 
