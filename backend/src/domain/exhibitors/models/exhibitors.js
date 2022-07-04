@@ -1,10 +1,10 @@
 const db = require("../../../infrastructure/database");
 const { DataTypes } = require("sequelize");
 
-const Shops = db.define(
-  'shops',
+const Exhibitors = db.define(
+  'exhibitors',
   {
-    id_shop: {
+    id_exhibitors: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
@@ -13,6 +13,26 @@ const Shops = db.define(
     name: {
       allowNull: false,
       type: DataTypes.STRING
+    },
+    profession: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    birth_date: {
+      allowNull: false,
+      type: DataTypes.DATE
+    },
+    phone: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    phrase: {
+      allowNull: true,
+      type: DataTypes.STRING
+    },
+    description: {
+      allowNull: false,
+      type: DataTypes.TEXT
     },
     email: {
       allowNull: false,
@@ -41,4 +61,4 @@ const Shops = db.define(
   }
 )
 
-module.exports = Shops
+module.exports = Exhibitors

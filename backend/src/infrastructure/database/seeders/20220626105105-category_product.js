@@ -8,7 +8,7 @@ let seed = []
 for (let i = 0; i < 5; i++) {
   seed.push({
     id_product_category: faker.random.numeric(),
-    name: `Category ${i+1}`,
+    name: `Category ${i + 1}`,
     createdAt: new Date(),
     updatedAt: new Date(),
     data_status: 1
@@ -17,7 +17,7 @@ for (let i = 0; i < 5; i++) {
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('category_product', seed)
+    await queryInterface.bulkInsert('category_products', seed)
   },
 
   async down(queryInterface, Sequelize) {
