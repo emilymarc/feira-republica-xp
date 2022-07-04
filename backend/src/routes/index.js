@@ -22,27 +22,13 @@ routes.post("/exhibitors", createExhibitorsValidation, ExhibitorsController.crea
 routes.put("/exhibitors/:idExhibitors", updateExhibitorsValidation, ExhibitorsController.updateExhibitor);
 routes.delete("/exhibitors/:idExhibitors/deletar", destroyExhibitorsValidation, ExhibitorsController.deleteExhibitor);
 
-
 routes.get("/products", ProductsController.list);
 routes.get("/products/:code_product", ProductsController.findOne);
 routes.get("/products/categories/:categoryName", ProductsController.findByCategory);
-// routes.post("/products/:idExhibitors", ProductsController.createProduct);
-// routes.get("/products/:code_product", editProductValidation, productsController.findOne);
-// routes.put("/products/:code_product", editProductValidation, productsController.edit);
+routes.get("/products/search/:term", ProductsController.findByTerm);
+routes.post("/products/:idExhibitors", ProductsController.createProduct);
+routes.put("/products/:code_product", ProductsController.updateProduct);
 routes.delete("/products/:code_product/remove", ProductsController.deleteProduct);
-
-
-// //CATEGORIES
-// routes.get("/categories", categoriesController.list);
-// routes.post("/categories", categoriesController.create);
-// // routes.get("/products/category/:nameCategory", products.create);
-
-
-// //IMAGES PRODUCTS
-// routes.get("/images", imagesProductsController.list);
-// routes.post("/images", imagesProductsController.create);
-// routes.put("/images/:id_img/remove", imagesProductsController.remove);
-
 
 routes.get("/clients", Auth, ClientsController.listAllClients);
 routes.get("/clients/:id_client", Auth, ClientsController.listClientPerId);
