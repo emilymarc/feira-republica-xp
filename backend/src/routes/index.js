@@ -1,7 +1,7 @@
 const ExhibitorsController = require('../domain/exhibitors/controllers/Exhibitors.controller');
-const { createExhibitorsValidation, getOneExhibitorsValidation, destroyExhibitorsValidation, updateExhibitorsValidation } = require('../domain/exhibitors/validations/exhibitors/')
-
+const { createExhibitorsValidation, getOneExhibitorsValidation, destroyExhibitorsValidation, updateExhibitorsValidation } = require('../domain/exhibitors/validations/exhibitors/');
 const orderController = require("../domain/orders/controllers/orders.controller");
+const orderValidation = require('../domain/orders/validations');
 
 const express = require("express");
 const ProductsController = require('../domain/products/controllers/productsController');
@@ -36,12 +36,12 @@ routes.post("/clients", clientsCreateValidator, ClientsController.createClient);
 routes.patch("/clients/:id_client", Auth, clientsUpdateValidator, ClientsController.updateClient);
 routes.delete("/clients/:id_client", Auth, ClientsController.deleteClient);
 
-routes.get("/orders", Auth, orderController.allOrders);
-routes.get("/orders/:idClient", Auth, orderController.clientOrders);
-routes.get("/orders/:idClient/:idOrder", Auth, orderController.detailOrder);
-routes.post("/orders/:idClient", Auth, orderController.createOrder);
-routes.put("/orders/:idClient/:idOrder", Auth, orderController.updateOrder);
-routes.delete("/orders/:idClient/:idOrder", Auth, orderController.cancelOrder);
+routes.get("/orders", orderController.allOrders);
+routes.get("/orders/:idClient", orderValidation.clientOrders, orderController.clientOrders);
+routes.get("/orders/:idClient/:idOrder", orderValidation.detailOrder, orderController.detailOrder);
+routes.post("/orders/:idClient", orderValidation.createOrder, orderController.createOrder);
+routes.patch("/orders/:idClient/:idOrder", orderValidation.updateOrder, orderController.updateOrder);
+routes.delete("/orders/:idClient/:idOrder", orderValidation.cancelOrder, orderController.cancelOrder);
 
 
 module.exports = routes;
