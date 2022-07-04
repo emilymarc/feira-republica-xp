@@ -75,7 +75,8 @@ export const PriceLikeContainer = styled.div`
     display: flex;
     margin: 30px auto 45px auto;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 6rem;
 `
 
 export const Price = styled.span`
