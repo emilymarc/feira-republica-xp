@@ -38,21 +38,21 @@ const Ceramica = () => {
           ></PageIntro>
 
           <ProductListItemContainer>
-            {products.map(product => {
-              const path = `/product/${product.code_product}`;
-              return(
-                <ProductListItem
-                  productPath={path}
-                  productId={product.id}
-                  productTitle={product.name}
-                  productValue={product.price.replace(".", ",")}
-                  productImg={ceramica_xicara_casinha}
-                ></ProductListItem>
-              )
-            })}
-              
-            
-            
+            {products.length > 0 ? 
+              (products.map(product => {
+                const path = `/product/${product.code_product}`;
+                return(
+                  <ProductListItem
+                    key={product.code_product}
+                    productPath={path}
+                    productId={product.id}
+                    productTitle={product.name}
+                    productValue={product.price.replace(".", ",")}
+                    productImg={ceramica_xicara_casinha}
+                  ></ProductListItem>
+                )
+              }))
+            : <p style={{marginTop: '120px', marginBottom: '190px', textAlign: 'center'}}>Não há nenhum produto aqui :/</p>}   
           </ProductListItemContainer>
 
         </DetailedBg>
