@@ -1,4 +1,4 @@
-const db = require("../../../index");
+const db = require("../../../infrastructure/database/index");
 const { DataTypes } = require("sequelize");
 
 const Address = db.define("address_client", {
@@ -7,17 +7,17 @@ const Address = db.define("address_client", {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
-      },
+    },
     id_client_address: {
         type: DataTypes.INTEGER,
         references: {
             model: {
                 tableName: 'clients',
-          },
+            },
             key: 'id_client_address'
         },
         allowNull: false
-      },
+    },
     zip_cod: {
         allowNull: false,
         type: DataTypes.STRING
@@ -50,6 +50,12 @@ const Address = db.define("address_client", {
         allowNull: false,
         type: DataTypes.INTEGER
     },
-});
+
+},
+
+    {
+        tableName: 'address_client',
+
+    });
 
 module.exports = Address;
