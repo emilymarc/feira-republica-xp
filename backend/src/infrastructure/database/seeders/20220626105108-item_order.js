@@ -11,7 +11,7 @@ for (let i = 0; i < 10; i++) {
     id_product_item_order: faker.random.numeric(),
     quantity: faker.random.numeric(),
     price_unity: faker.random.numeric(),
-    shipping: faker.random.numeric(),
+    shipping: 0,
     price_total: faker.random.numeric(2),
     createdAt: new Date(),
     updatedAt: new Date(),

@@ -57,7 +57,7 @@ const ProductsController = {
       if(!createdProduct){
         return res.status(400).json("idExhibitors diferente do esperado!!");
       }
-      return res.status(200).json(createdProduct);
+      return res.status(201).json(createdProduct);
     } catch (error) {
       console.log(error);
       return res.status(400).json(error);
