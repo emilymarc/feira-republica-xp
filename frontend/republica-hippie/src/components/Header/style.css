@@ -5,7 +5,7 @@
 }
 
 .slide-pane .slide-pane__title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #fff;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
 }

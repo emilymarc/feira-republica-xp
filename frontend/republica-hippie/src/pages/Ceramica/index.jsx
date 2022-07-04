@@ -5,16 +5,28 @@ import PageIntro from "../../components/PageIntro";
 import ProductListItem from "../../components/ProductListItem";
 import ProductListItemContainer from "../../components/ProductListItemContainer";
 import DetailedBg from "../../components/DetailedBg";
+import { baseUrl, getProductsByCategory } from "../../services/api";
+import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 import ceramica_icon from "../../assets/ceramica/ceramica_icon.svg";
 import ceramica_xicara_casinha from "../../assets/ceramica/ceramica_xicara_casinha.svg";
-import ceramica_vaso_esferico from "../../assets/ceramica/ceramica_vaso_esferico.svg";
-import ceramica_conjunto_vasos from "../../assets/ceramica/ceramica_conjunto_vasos.svg";
-import ceramica_tigela_pintura_indiana from "../../assets/ceramica/ceramica_tigela_pintura_indiana.svg";
-import ceramica_cofre_abobada from "../../assets/ceramica/ceramica_cofre_abobada.svg";
-import ceramica_prato_argila from "../../assets/ceramica/ceramica_prato_argila.svg";
 
 const Ceramica = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try{
+        const response = await getProductsByCategory(window.location.pathname);
+        setProducts(response.data);
+      } catch (error) {
+        toast.error(`Erro ao carregar os produtos: ${error}`);
+      }
+    }
+    loadProducts();
+  }, [setProducts]);
+
   return (
     <>
       <Header></Header>
@@ -26,36 +38,21 @@ const Ceramica = () => {
           ></PageIntro>
 
           <ProductListItemContainer>
-            <ProductListItem
-              productImg={ceramica_xicara_casinha}
-              productTitle="Xícara casinha branca"
-              productValue="50,00"
-            ></ProductListItem>
-            <ProductListItem
-              productImg={ceramica_vaso_esferico}
-              productTitle="Vaso esférico marrom"
-              productValue="100,00"
-            ></ProductListItem>
-            <ProductListItem
-              productImg={ceramica_conjunto_vasos}
-              productTitle="Conjunto vasos brancos"
-              productValue="250,00"
-            ></ProductListItem>
-            <ProductListItem
-              productImg={ceramica_tigela_pintura_indiana}
-              productTitle="Tigela pintura indiana"
-              productValue="40,00"
-            ></ProductListItem>
-            <ProductListItem
-              productImg={ceramica_cofre_abobada}
-              productTitle="Cofre abóbada"
-              productValue="35,00"
-            ></ProductListItem>
-            <ProductListItem
-              productImg={ceramica_prato_argila}
-              productTitle="Prato de argila mosaico"
-              productValue="27,50"
-            ></ProductListItem>
+            {products.map(product => {
+              const path = `/product/${product.code_product}`;
+              return(
+                <ProductListItem
+                  productPath={path}
+                  productId={product.id}
+                  productTitle={product.name}
+                  productValue={product.price.replace(".", ",")}
+                  productImg={ceramica_xicara_casinha}
+                ></ProductListItem>
+              )
+            })}
+              
+            
+            
           </ProductListItemContainer>
 
         </DetailedBg>
