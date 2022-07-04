@@ -19,7 +19,7 @@
     "express": "^4.18.1",
     "express-jwt": "^7.6.2",
     "express-validation": "^3.0.8",
-    "express-validator": "^6.14.0",
+    "express-validator": "^6.14.2",
     "mysql2": "^2.3.3",
     "sequelize": "^6.15.0"
   },

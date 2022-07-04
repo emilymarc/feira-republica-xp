@@ -1,6 +1,9 @@
 const express = require("express");
-const ClientsController = require("../domain/clients/controllers/clientsController");
 const routes = express.Router();
+const ClientsController = require("../domain/clients/controllers/clientsController");
+const clientsCreateValidator = require("../domain/clients/validations/clientsCreateValidator");
+const clientsUpdateValidator = require("../domain/clients/validations/clientsUpdateValidator");
+
 
 // routes.get("/login/shops", products.create); //DELETADO
 // routes.get("/login/clients", products.create);
@@ -19,10 +22,10 @@ const routes = express.Router();
 // routes.put("/products/:idProduct", products.create);
 // routes.delete("/products/:idProduct", products.create);
 
-routes.get("/clients", );
+routes.get("/clients",ClientsController.listAllClients);
 routes.get("/clients/:id", ClientsController.listClientPerId);
-routes.post("/clients", ClientsController.createClient);
-routes.patch("/clients/:id", ClientsController.updateClient);
+routes.post("/clients", clientsCreateValidator, ClientsController.createClient);
+routes.patch("/clients/:id", clientsUpdateValidator, ClientsController.updateClient);
 routes.delete("/clients/:id", ClientsController.deleteClient);
 
 // routes.get("/orders", orders.create);

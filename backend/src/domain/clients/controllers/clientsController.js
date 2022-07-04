@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const { Clients } = require("../models/client")
+const Clients = require("../models/client")
 
 const ClientsController = {
 
