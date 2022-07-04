@@ -5,7 +5,7 @@ export const Header = styled.header`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    padding-top: 55px;
+    padding-top: 40px;
     background-color: #fff;
 `
 
@@ -29,7 +29,7 @@ export const Search = styled.input`
     border: none;
     outline: none;
     border-radius: 20px;
-    height: 60px;
+    height: 45px;
     width: 100%;
     padding: 8px 12px;
     &::-webkit-search-cancel-button {
@@ -45,6 +45,7 @@ export const Search = styled.input`
 
 export const NavArea = styled.div`
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
 `
 
@@ -55,7 +56,7 @@ export const Nav = styled.ul`
     justify-content: center;
     gap: 20%;
     list-style: none;
-    margin: 40px auto 65px auto;
+    margin: 20px auto 40px auto;
 `
 
 export const NavLink = styled(Link)`
@@ -86,12 +87,13 @@ export const Menu = styled.div`
 `
 
 export const Icon = styled.img`
-    height: 66px;
-    width: 66px;
-    padding: 20px;
+    height: 55px;
+    width: 55px;
+    padding: 15px;
     background-color: #FEDC96;
     border-radius: 50%;
     transition: .3s;
+    cursor: pointer;
     &:hover {
         background-color: #F8CE78;
         transition: .3s;
@@ -99,7 +101,7 @@ export const Icon = styled.img`
 `
 
 export const IconLink = styled(Link)`
-    height: 66px;
-    width: 66px;
+    height: 55px;
+    width: 55px;
     border-radius: 50%;
 `
