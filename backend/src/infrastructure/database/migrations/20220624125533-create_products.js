@@ -26,6 +26,15 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
+      characteristics: {
+        type: Sequelize.STRING
+      },
+      materials: {
+        type: Sequelize.STRING
+      },
+      observations: {
+        type: Sequelize.STRING
+      },
       stock_product: {
         allowNull: false,
         type: Sequelize.INTEGER
