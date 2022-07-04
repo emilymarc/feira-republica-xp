@@ -22,6 +22,18 @@ const Products = db.define(
         allowNull: false,
         type: DataTypes.STRING,
       },
+      characteristics: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      materials: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      observations: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
       stock_product: {
         allowNull: false,
         type: DataTypes.INTEGER
