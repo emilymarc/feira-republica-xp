@@ -113,19 +113,17 @@ const SingleProduct = ({ slides }) => {
         <S.ProductDescription>
           <S.DescriptionButton title="Características">
             <Dropdown.ItemText>
-              Tamanho: 7 cm de altura e 15 cm de comprimento
-              <br /> Peso: 110 g
+              {product.characteristics}
             </Dropdown.ItemText>
           </S.DescriptionButton>
           <S.DescriptionButton title="Materiais">
             <Dropdown.ItemText>
-              Argila, porcelana, tinta acrílica
+              {product.materials}
             </Dropdown.ItemText>
           </S.DescriptionButton>
           <S.DescriptionButton title="Observações">
             <Dropdown.ItemText>
-              Produto frágil, manusear com cuidado. Recomendado limpar com um
-              pano úmido. Usar coisas ásperas podem causar arranhões no produto
+              {product.observations}
             </Dropdown.ItemText>
           </S.DescriptionButton>
         </S.ProductDescription>
