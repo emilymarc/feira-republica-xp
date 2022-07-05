@@ -36,7 +36,7 @@ const Header = () => {
             src={IconCart}
             onClick={() => setCart({ isPaneOpen: true })}
           ></S.Icon>
-          <S.IconLink to="/profile">
+          <S.IconLink to="/login">
             <S.Icon src={profile} />
           </S.IconLink>
         </S.Menu>
