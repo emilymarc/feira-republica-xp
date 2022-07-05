@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo.png";
 import search from "../../assets/Icon.svg";
 import IconCart from "../../assets/shopping-cart.svg";
@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import style from './style.css'
+import { useSelector, useDispatch } from "react-redux";
+
 
 const Header = () => {
   const fullUrl = window.location.href;
@@ -18,6 +20,8 @@ const Header = () => {
   const [cart, setCart] = useState({
     isPaneOpen: false,
   });
+
+  const {items, totalAmount} = useSelector((state) => state.cart);
   return (
     <>
     <S.Header>
@@ -121,8 +125,35 @@ const Header = () => {
           }}
           width={window.innerWidth < 600 ? '100%' : '40%'}
         >
-          <div>And I am pane content. BTW, what rocks?</div>
-          <div style={{width: '100%', height: '50%', backgroundColor: 'green'}}></div>
+          <div className="cartItemContainer">
+            {items.map((item) => (
+              <>
+                <div className="cartItem">
+                  <div className="cartItemImg">
+                    <img src={item.image} alt="Imagem do produto"/>
+                  </div>
+                  <div className="cartItemInfo">
+                    <h4>{item.name}</h4>
+                    <span>R$ {item.price}</span>
+                    <span>Quantidade: {item.stock_product}</span>
+                    <div className="cartItemNumber">
+                      <button>-</button>
+                      <span>{item.quantity}</span>
+                      <button>+</button>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ))}
+            <div className="cartSubtotal">
+              <h4>Subtotal:</h4>
+              <span>R$ {totalAmount}</span>
+            </div>
+
+            <div className="cartBtnContainer">
+              <button>Finalizar a compra</button>
+            </div>
+          </div>
         </SlidingPane>
     </S.Header>
   </>
