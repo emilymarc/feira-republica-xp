@@ -11,7 +11,7 @@ let seed = []
 for (let i = 0; i < 20; i++) {
   seed.push({
     id_product_category: i + 1,
-    name: categories[Math.floor(Math.random() * 2)],
+    name: categories[Math.floor(Math.random() * 3)],
     createdAt: new Date(),
     updatedAt: new Date(),
     data_status: 1
