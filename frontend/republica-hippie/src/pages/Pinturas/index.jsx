@@ -54,7 +54,7 @@ const Pinturas = () => {
                   ></ProductListItem>
                 )
               }))
-            : <p style={{marginTop: '120px', marginBottom: '190px', textAlign: 'center'}}>Não há nenhum produto aqui :/</p>}   
+            : <p style={{marginTop: '120px', marginBottom: '190px', textAlign: 'center'}}>Que pena. Não há nenhum produto aqui :/</p>}   
           </ProductListItemContainer>
 
         </DetailedBg>
