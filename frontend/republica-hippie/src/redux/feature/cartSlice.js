@@ -1,48 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  Items: localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [],
+  totalAmount: 0,
+  numberCart: 0,
+}
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    items: [],
-    totalAmount: 0,
-    numberCart: 0,
-  },
+  initialState,
   reducers: {
     addItem: (state, action) => {
-      if (state.numberCart == 0) {
-        let cart = {
-          id: action.payload.id,
-          quantity: 1,
-          name: action.payload.name,
-          image: action.payload.image,
-          price: action.payload.price,
-        };
-        state.Carts.push(cart);
+      const itemIndex = state.Items.findIndex(item => item.id === action.payload.id);
+      if (itemIndex >= 0) {
+        state.Items[itemIndex].quantity += 1;
       } else {
-        let check = false;
-        state.Carts.map((item, key) => {
-          if (item.id == action.payload.id) {
-            state.Carts[key].quantity++;
-            check = true;
-          }
-        });
-        if (!check) {
-          let _cart = {
-            id: action.payload.id,
-            quantity: 1,
-            name: action.payload.name,
-            image: action.payload.image,
-            price: action.payload.price,
-          };
-          state.Carts.push(_cart);
-        }
+        let newItem = { ...action.payload, quantity: 1 };
+        state.Items.push(newItem);
       }
-      return {
-        ...state,
-        numberCart: state.numberCart + 1,
-      };
+      localStorage.setItem('cart', JSON.stringify(state.Items));
     },
   },
 });
+
+export const { addItem } = cartSlice.actions;
 
 export default cartSlice.reducer;
