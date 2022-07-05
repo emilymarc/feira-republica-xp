@@ -5,12 +5,8 @@ import IconCart from "../../assets/shopping-cart.svg";
 import profile from "../../assets/profile.svg";
 import iconExpositores from "../../assets/IconExpositores.svg";
 import iconExpositoresActive from "../../assets/IconExpositoresActive.svg";
-import iconChevronRight from "../../assets/IconChevronRight.svg";
 import * as S from "./styled";
 import { Link } from "react-router-dom";
-import SlidingPane from "react-sliding-pane";
-import "react-sliding-pane/dist/react-sliding-pane.css";
-import style from './style.css'
 import { useSelector, useDispatch } from "react-redux";
 
 
@@ -36,10 +32,11 @@ const Header = () => {
         </S.SearchContainer>
 
         <S.Menu>
-          <S.Icon
-            src={IconCart}
-            onClick={() => setCart({ isPaneOpen: true })}
-          ></S.Icon>
+          <S.IconLink to="/carrinho">
+            <S.Icon
+              src={IconCart}
+            ></S.Icon>
+          </S.IconLink>
           <S.IconLink to="/login">
             <S.Icon src={profile} />
           </S.IconLink>
@@ -112,49 +109,6 @@ const Header = () => {
           </S.ContainerExpositores>
         </S.Nav>
       </S.NavArea>
-      <SlidingPane
-          className=".slide-pane content-after-open"
-          overlayClassName="overlay-after-open"
-          isOpen={cart.isPaneOpen}
-          title="Carrinho"
-          closeIcon={<img src={iconChevronRight}/>}
-          onRequestClose={() => {
-            // triggered on "<" on left top click or on outside click
-            setCart({ isPaneOpen: false });
-    
-          }}
-          width={window.innerWidth < 600 ? '100%' : '40%'}
-        >
-          <div className="cartItemContainer">
-            {items.map((item) => (
-              <>
-                <div className="cartItem">
-                  <div className="cartItemImg">
-                    <img src={item.image} alt="Imagem do produto"/>
-                  </div>
-                  <div className="cartItemInfo">
-                    <h4>{item.name}</h4>
-                    <span>R$ {item.price}</span>
-                    <span>Quantidade: {item.stock_product}</span>
-                    <div className="cartItemNumber">
-                      <button>-</button>
-                      <span>{item.quantity}</span>
-                      <button>+</button>
-                    </div>
-                  </div>
-                </div>
-              </>
-            ))}
-            <div className="cartSubtotal">
-              <h4>Subtotal:</h4>
-              <span>R$ {totalAmount}</span>
-            </div>
-
-            <div className="cartBtnContainer">
-              <button>Finalizar a compra</button>
-            </div>
-          </div>
-        </SlidingPane>
     </S.Header>
   </>
   );
