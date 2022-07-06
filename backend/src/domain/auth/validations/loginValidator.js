@@ -6,3 +6,4 @@ module.exports = validate({
 		password: Joi.string().required()
 	})
 });
+ 

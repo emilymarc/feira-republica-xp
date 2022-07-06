@@ -2,7 +2,7 @@ const ShopsController = require('../domain/shops/controllers/shops.controller');
 const ClientsController = require('../domain/clients/controllers/clientsController');
 const orderController = require("../domain/orders/controllers/orders.controller");
 const AuthController = require("../domain/auth/controllers/authController");
-const loginValidation = require("../domain/auth/validations/loginValidation"); 
+const loginValidator = require("../domain/auth/validations/loginValidator"); 
 const authenticator = require('../middlewares/authenticator');
 
 
@@ -10,7 +10,8 @@ const express = require("express");
 const routes = express.Router();
 
 //routes.get("/login/shops", products.create);
-routes.post("/login/clients", loginValidation, authenticator , AuthController.login);
+
+routes.post("/login/clients", loginValidator, AuthController.login);
 
 routes.get("/shops", ShopsController.getAllShops);
 routes.get("/shops/:idShops", ShopsController.getOneShop);

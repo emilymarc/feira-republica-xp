@@ -4,6 +4,7 @@ const db = require("./infrastructure/database");
 const routes = require('./routes')
 const handleMiddleware = require('./middlewares/handleMiddleware');
 
+
 const app = express();
 
 db.hasConnection();

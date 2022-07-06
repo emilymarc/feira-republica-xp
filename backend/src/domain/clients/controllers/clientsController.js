@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const { Clients } = require("../models/clients")
+const Clients = require("../models/clients")
 
 const ClientsController = {
 
@@ -20,6 +20,7 @@ const ClientsController = {
 
             return res.status(201).json(newUser);        
         } catch (error) {
+            console.log(error)
             res.status(400).json("Erro ao criar usuário");
         }
     },
