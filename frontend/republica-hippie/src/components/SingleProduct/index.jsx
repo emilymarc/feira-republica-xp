@@ -114,7 +114,7 @@ const SingleProduct = ({ slides }) => {
         </S.PriceLikeContainer>
 
         <S.BtnContainer>
-          <S.BtnComprar>Comprar agora</S.BtnComprar>
+          <S.BtnComprar onClick={() => {handleAddItem(product); navigate('/carrinho')}}>Comprar agora</S.BtnComprar>
           <S.BtnCarrinho onClick={() => handleAddItem(product)}>Adicionar ao carrinho</S.BtnCarrinho>
         </S.BtnContainer>
 
