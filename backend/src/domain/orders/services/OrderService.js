@@ -2,16 +2,20 @@ const {
     Orders,
     ItemOrder
 } = require("../models");
+const {
+    Clients,
+    Address
+} = require("../../clients/models");
+
 
 class OrderService {
 
-    async registerOrder(params) {
+    async registerOrder(data, params) {
         const {
             idClient
         } = params;
 
         let responseOrder = {
-
             order: 0,
             id_client_order: 0,
             progress: 0,
@@ -25,12 +29,26 @@ class OrderService {
             items_order: {}
         };
 
+        const hasClient = await Clients.count({
+            where: {
+                id_client: idClient,
+                data_status: 1
+            },
+        });
+
+        if(hasClient != 1){
+            return
+        }
+
         const registeredOrder = await Orders.create({
             id_client_order: idClient,
             progress: 1,
             data_status: 1,
         });
 
+        if (!registeredOrder) {
+            return
+        }
         responseOrder.order = registeredOrder.dataValues.order;
         responseOrder.id_client_order = registeredOrder.dataValues.id_client_order;
         responseOrder.data_status = registeredOrder.dataValues.data_status;
@@ -38,7 +56,9 @@ class OrderService {
         responseOrder.updatedAt = registeredOrder.dataValues.updatedAt;
         responseOrder.createdAt = registeredOrder.dataValues.createdAt;
 
-        return responseOrder;
+        const newResponseOrder = await this.registerItemsOrder(data, responseOrder)
+
+        return newResponseOrder;
     }
 
     async registerItemsOrder(data, order) {
@@ -48,7 +68,7 @@ class OrderService {
                 id_product_item_order: parseInt(item.id_product),
                 quantity: parseInt(item.quantity),
                 price_unity: parseFloat(item.price_product).toFixed(2),
-                shipping: 20.00,
+                shipping: 0,
                 price_total: (item.price_product * item.quantity),
                 data_status: 1
             });
@@ -59,11 +79,11 @@ class OrderService {
             order.items_order[index] = await OrderItem.dataValues
         })
 
-        const cincoMil = () => new Promise((resolve, reject) => {
-            setTimeout(() => resolve(order), 5000)
+        const waitingInsertItems = () => new Promise((resolve, reject) => {
+            setTimeout(() => resolve(order), 2000)
         })
 
-        const newOrder = await cincoMil().then((res) => {
+        const newOrder = await waitingInsertItems().then((res) => {
             Orders.update({
                 ...res,
             }, {
@@ -79,9 +99,12 @@ class OrderService {
 
     async findAllOrders() {
         const fullOrders = await Orders.findAll({
+            include: {
+                model: ItemOrder,
+            },
             where: {
                 data_status: 1
-            }
+            },
         });
         return fullOrders;
     }
@@ -91,7 +114,21 @@ class OrderService {
             idClient
         } = params
 
+        const hasClient = await Clients.count({
+            where: {
+                id_client: idClient,
+                data_status: 1
+            },
+        });
+
+        if(hasClient != 1){
+            return
+        }
+
         const fullOrdersClient = await Orders.findAll({
+            include: [{
+                model: ItemOrder
+            }, ],
             where: {
                 id_client_order: idClient
             }
@@ -105,45 +142,35 @@ class OrderService {
             idOrder
         } = params
 
-        let responseOrder = {
-            order: 0,
-            id_client_order: 0,
-            progress: 0,
-            price_gross: 0,
-            discount: 0,
-            shipping_total: 0,
-            price_order_total: 0,
-            updatedAt: 0,
-            createdAt: 0,
-            data_status: 0,
-            items_order: {}
-        };
+        const hasClient = await Clients.count({
+            where: {
+                id_client: idClient,
+                data_status: 1
+            },
+        });
+
+        const hasOrder = await Orders.count({
+            where: {
+                order: idOrder,
+                data_status: 1
+            },
+        });
+
+        if(hasClient != 1 || hasOrder != 1){
+            return
+        }
 
         const OrdersClient = await Orders.findOne({
+            include: [{
+                model: ItemOrder
+            }, ],
             where: {
                 order: idOrder,
                 id_client_order: idClient
             }
         });
 
-        responseOrder.items_order = await ItemOrder.findAll({
-            where: {
-                id_order_item_order: idOrder
-            }
-        });
-
-        responseOrder.order = OrdersClient.dataValues.order;
-        responseOrder.id_client_order = OrdersClient.dataValues.id_client_order;
-        responseOrder.data_status = OrdersClient.dataValues.data_status;
-        responseOrder.progress = OrdersClient.dataValues.progress;
-        responseOrder.price_gross = OrdersClient.dataValues.updatedAt;
-        responseOrder.discount = OrdersClient.dataValues.updatedAt;
-        responseOrder.shipping_total = OrdersClient.dataValues.updatedAt;
-        responseOrder.price_order_total = OrdersClient.dataValues.updatedAt;
-        responseOrder.updatedAt = OrdersClient.dataValues.updatedAt;
-        responseOrder.createdAt = OrdersClient.dataValues.createdAt;
-
-        return responseOrder;
+        return OrdersClient;
     }
 
     async alterOrder(data, params) {
@@ -155,6 +182,24 @@ class OrderService {
         const {
             progress
         } = data;
+
+        const hasClient = await Clients.count({
+            where: {
+                id_client: idClient,
+                data_status: 1
+            },
+        });
+
+        const hasOrder = await Orders.count({
+            where: {
+                order: idOrder,
+                data_status: 1
+            },
+        });
+
+        if(hasClient != 1 || hasOrder != 1){
+            return
+        }
 
         const tryModifyOrder = await Orders.update({
             progress
@@ -171,6 +216,9 @@ class OrderService {
         }
 
         const modifyOrder = await Orders.findOne({
+            include: [{
+                model: ItemOrder,
+            }, ],
             where: {
                 order: idOrder,
                 id_client_order: idClient
@@ -186,14 +234,21 @@ class OrderService {
             idOrder
         } = params;
 
-        const hasOrder = await Orders.count({
+        const hasClient = await Clients.count({
             where: {
-                order: idOrder,
-                id_client_order: idClient
+                id_client: idClient,
+                data_status: 1
             },
         });
 
-        if (hasOrder != 1) {
+        const hasOrder = await Orders.count({
+            where: {
+                order: idOrder,
+                data_status: 1
+            },
+        });
+
+        if(hasClient != 1 || hasOrder != 1){
             return
         }
 

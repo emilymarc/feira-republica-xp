@@ -9,7 +9,7 @@ for (let i = 0; i < 10; i++) {
   seed.push({
     name: faker.name.findName(),
     email: faker.internet.email(),
-    password: '12345678',
+    password: '$2a$10$xnPtxKocGknHIF/yDTtbTuvMzr.gp9L1Eua6kbSbmeWleIU4gjMim',
     img: 'url_image_fake',
     createdAt: new Date(),
     updatedAt: new Date(),

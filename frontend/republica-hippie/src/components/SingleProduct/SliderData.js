@@ -1,14 +1,15 @@
 export const SliderData = [
   {
     image:
-      '../../../src/assets/carousel/ceramica.jpg'
+      'http://res.cloudinary.com/republica-hippie/image/upload/v1656943893/products/xupatrcvfqn9evgglpff.jpg'
   },
   {
     image:
-      '../../../src/assets/carousel/example1.jpg'
+      'https://res.cloudinary.com/republica-hippie/image/upload/v1656928244/products/bna2fhtgxidvbptvzswe.png'
   },
   {
     image:
-      '../../../src/assets/carousel/colar.jpg'
+      'https://res.cloudinary.com/republica-hippie/image/upload/v1656928244/products/bna2fhtgxidvbptvzswe.png'
   }
 ];
+
