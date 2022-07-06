@@ -25,7 +25,10 @@ const LoginForm = () => {
 
     return (
         <S.Container>
-            <S.Logo src={logo} alt="República Hippie"/>
+            <S.Logo to='/'>
+                <img src={logo} alt="República Hippie"/>
+            </S.Logo>
+            
 
             <S.FormContainer onSubmit={formik.handleSubmit}>
                 <S.TittleForm>LOGIN</S.TittleForm>
