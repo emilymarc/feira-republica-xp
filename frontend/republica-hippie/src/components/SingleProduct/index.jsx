@@ -29,9 +29,10 @@ const SingleProduct = ({ slides }) => {
       }
     }
     loadProduct();
+    
   }, [setProduct]);
 
-
+  console.log(`Product ${product}`);
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
   const length = slides.length;
