@@ -34,7 +34,7 @@ const ExpositoresList = () => {
           </p>
           <p>
             Contato: {expositor.phone} <br />
-            <S.LinkInfo to="/">Mais sobre {expositor.name}</S.LinkInfo>
+            <S.LinkInfo to={`/expositor/${expositor.id_exhibitors}`}>Mais sobre {expositor.name}</S.LinkInfo>
           </p>
         </S.InfoExpositores>
       </S.ExpositoresContainer>
