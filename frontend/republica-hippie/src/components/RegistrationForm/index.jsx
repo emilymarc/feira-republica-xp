@@ -33,33 +33,36 @@ const RegistrationForm = () => {
             <S.TittleForm>CADASTRO</S.TittleForm>
 
             <form>
-                <S.FloatContainer id="floatContainer1">
+                <S.FloatContainer className="floatContainer1">
                     <S.InputTittle for="floatField1 ">Nome Completo</S.InputTittle>
                     <S.InputName 
                     type="text" 
-                    id="floatField1 name"
+                    className="floatField1"
                     data-placeholder="Placeholder 1"
+                    id="name"
                     value={formik.values.name}
                     onChange={formik.handleChange}/>
                 </S.FloatContainer>
                 {formik.errors.name && <span>{formik.errors.name}</span>}
                 <S.FormColumn>
-                    <S.FloatContainer id="floatContainer2">
+                    <S.FloatContainer className="floatContainer2">
                         <S.InputTittle for="floatField2 ">E-mail</S.InputTittle>
                         <S.FormInput 
                         type="email" 
-                        id="floatField2 email" 
+                        className="floatField2" 
                         data-placeholder="Placeholder 2"
+                        id="email"
                         value={formik.values.email}
                         onChange={formik.handleChange}/>
                     </S.FloatContainer>
                     {formik.errors.email && <span>{formik.errors.email}</span>}
-                    <S.FloatContainer id="floatContainer3">
+                    <S.FloatContainer className="floatContainer3">
                         <S.InputTittle for="floatField3 ">Celular</S.InputTittle>
                         <S.FormInput 
                         type="text" 
-                        id="floatField3 cellphone" 
+                        className="floatField3" 
                         data-placeholder="Placeholder 3"
+                        id="cellphone"
                         value={formik.values.cellphone}
                         onChange={formik.handleChange}/>
                     </S.FloatContainer>
@@ -67,22 +70,24 @@ const RegistrationForm = () => {
                 </S.FormColumn>
 
                 <S.FormColumn>
-                    <S.FloatContainer id="floatContainer4">
+                    <S.FloatContainer className="floatContainer4">
                         <S.InputTittle for="floatField4 ">Senha</S.InputTittle>
                         <S.FormInput 
                         type="password" 
-                        id="floatField4 password"
+                        className="floatField4"
                         data-placeholder="Placeholder 4"
+                        id="password"
                         value={formik.values.password}
                         onChange={formik.handleChange}/>
                     </S.FloatContainer>
                     {formik.errors.password && <span>{formik.errors.password}</span>}
-                    <S.FloatContainer id="floatContainer5">
+                    <S.FloatContainer className="floatContainer5">
                         <S.InputTittle for="floatField5 ">Repetir Senha</S.InputTittle>
                         <S.FormInput 
                         type="password" 
-                        id="floatField5 password"
+                        className="floatField5"
                         data-placeholder="Placeholder 5"
+                        id="confirmPassword"
                         value={formik.values.confirmPassword}
                         onChange={formik.handleChange}/>
                     </S.FloatContainer>

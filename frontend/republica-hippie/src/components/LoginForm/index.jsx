@@ -29,19 +29,21 @@ const LoginForm = () => {
 
             <S.FormContainer onSubmit={formik.handleSubmit}>
                 <S.TittleForm>LOGIN</S.TittleForm>
-                <S.FloatContainer id="floatContainer1">
+                <S.FloatContainer className="floatContainer1">
                     <S.InputTittle for="floatField1">Email</S.InputTittle>
                     <S.FormInput 
                     type="email" 
-                    id="floatContainer1 email"
+                    className="floatContainer1"
+                    id="email"
                     value={formik.values.email}
                     onChange={formik.handleChange}/>
                 </S.FloatContainer>
                 {formik.errors.email && <span>{formik.errors.email}</span>}
-                <S.FloatContainer id="floatContainer2">
+                <S.FloatContainer className="floatContainer2">
                     <S.InputTittle for="floatField2">Senha</S.InputTittle>
                     <S.FormInput 
-                    type="password" id="floatContainer2 password"
+                    type="password" className="floatContainer2"
+                    id="password"
                     value={formik.values.password}
                     onChange={formik.handleChange}/>
                 </S.FloatContainer>
