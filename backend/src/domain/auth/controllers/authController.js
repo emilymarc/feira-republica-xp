@@ -1,7 +1,8 @@
 const Clients = require("../../clients/models/clients");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const secret = require("../../config/secret");
+const secret = require('dotenv').config();
+
         
 const AuthController = {
 	async login(req, res){
@@ -27,7 +28,7 @@ const AuthController = {
                 id: clientsLogged.id_client, 
                 name: clientsLogged.name,
                 email: clientsLogged.email,
-                }, secret.key);
+                }, process.env.SECRET_KEY);
 
             return res.json(token);
         }
