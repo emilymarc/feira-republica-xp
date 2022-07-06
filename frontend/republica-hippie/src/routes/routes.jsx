@@ -4,7 +4,7 @@ import Ceramica from '../pages/Ceramica';
 import Home from '../pages/Home';
 import Colares from '../pages/Colares';
 import Pinturas from '../pages/Pinturas';
-import Artesaos from '../pages/Artesaos';
+import Expositores from '../pages/Expositores';
 import Profile from '../pages/Profile';
 import Product from '../pages/Product';
 import Carrinho from '../pages/Carrinho';
@@ -19,7 +19,7 @@ const AppRoutes = () => {
                         <Route path="/ceramicas" element={<Ceramica />} />
                         <Route path="/colares" element={<Colares />}/>
                         <Route path="/pinturas" element={<Pinturas />}/>
-                        <Route path="/expositores" element={<Artesaos />}/>
+                        <Route path="/expositores" element={<Expositores />}/>
                         <Route path="/profile" element={<Profile />}/>
                         <Route path='/product/:id' element={<Product />} />
                         <Route path='/carrinho' element={<Carrinho />} />
