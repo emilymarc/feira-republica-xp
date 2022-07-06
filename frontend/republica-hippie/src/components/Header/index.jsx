@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo.png";
 import search from "../../assets/Icon.svg";
 import IconCart from "../../assets/shopping-cart.svg";
 import profile from "../../assets/profile.svg";
 import iconExpositores from "../../assets/IconExpositores.svg";
 import iconExpositoresActive from "../../assets/IconExpositoresActive.svg";
-import iconChevronRight from "../../assets/IconChevronRight.svg";
 import * as S from "./styled";
 import { Link } from "react-router-dom";
-import SlidingPane from "react-sliding-pane";
-import "react-sliding-pane/dist/react-sliding-pane.css";
-import style from './style.css'
+import { useSelector, useDispatch } from "react-redux";
+
 
 const Header = () => {
   const fullUrl = window.location.href;
@@ -18,6 +16,8 @@ const Header = () => {
   const [cart, setCart] = useState({
     isPaneOpen: false,
   });
+
+  const {items, totalAmount} = useSelector((state) => state.cart);
   return (
     <>
     <S.Header>
@@ -32,10 +32,11 @@ const Header = () => {
         </S.SearchContainer>
 
         <S.Menu>
-          <S.Icon
-            src={IconCart}
-            onClick={() => setCart({ isPaneOpen: true })}
-          ></S.Icon>
+          <S.IconLink to="/carrinho">
+            <S.Icon
+              src={IconCart}
+            ></S.Icon>
+          </S.IconLink>
           <S.IconLink to="/login">
             <S.Icon src={profile} />
           </S.IconLink>
@@ -108,22 +109,6 @@ const Header = () => {
           </S.ContainerExpositores>
         </S.Nav>
       </S.NavArea>
-      <SlidingPane
-          className=".slide-pane content-after-open"
-          overlayClassName="overlay-after-open"
-          isOpen={cart.isPaneOpen}
-          title="Carrinho"
-          closeIcon={<img src={iconChevronRight}/>}
-          onRequestClose={() => {
-            // triggered on "<" on left top click or on outside click
-            setCart({ isPaneOpen: false });
-    
-          }}
-          width={window.innerWidth < 600 ? '100%' : '40%'}
-        >
-          <div>And I am pane content. BTW, what rocks?</div>
-          <div style={{width: '100%', height: '50%', backgroundColor: 'green'}}></div>
-        </SlidingPane>
     </S.Header>
   </>
   );

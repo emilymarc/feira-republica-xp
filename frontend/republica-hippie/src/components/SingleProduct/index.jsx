@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import IconReturn from "../../assets/IconReturn.svg";
@@ -11,8 +10,11 @@ import LeftArrow from "../../assets/arrow/LeftArrow.svg";
 import { baseUrl, getProductsById } from "../../services/api";
 import { toast } from "react-toastify"; 
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/feature/cartSlice";
 import * as S from "./styled";
 import style from "./style.css";
+
 
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
@@ -44,6 +46,11 @@ const SingleProduct = ({ slides }) => {
   }
   
   const [like, setLike] = useState(false);
+  
+  const dispatch = useDispatch();
+  const handleAddItem = (Item) => {
+    dispatch(addItem(Item));
+  }
 
   return (
     <S.Container>
@@ -54,6 +61,7 @@ const SingleProduct = ({ slides }) => {
       </S.ReturnContainer>
 
       <S.LeftContainer>
+
         {/* Carousel */}
         <section className="slider">
           {SliderData.map((slide, index) => {
@@ -107,25 +115,23 @@ const SingleProduct = ({ slides }) => {
 
         <S.BtnContainer>
           <S.BtnComprar>Comprar agora</S.BtnComprar>
-          <S.BtnCarrinho>Adicionar ao carrinho</S.BtnCarrinho>
+          <S.BtnCarrinho onClick={() => handleAddItem(product)}>Adicionar ao carrinho</S.BtnCarrinho>
         </S.BtnContainer>
 
         <S.ProductDescription>
           <S.DescriptionButton title="Características">
             <Dropdown.ItemText>
-              Tamanho: 7 cm de altura e 15 cm de comprimento
-              <br /> Peso: 110 g
+              {product.characteristics}
             </Dropdown.ItemText>
           </S.DescriptionButton>
           <S.DescriptionButton title="Materiais">
             <Dropdown.ItemText>
-              Argila, porcelana, tinta acrílica
+              {product.materials}
             </Dropdown.ItemText>
           </S.DescriptionButton>
           <S.DescriptionButton title="Observações">
             <Dropdown.ItemText>
-              Produto frágil, manusear com cuidado. Recomendado limpar com um
-              pano úmido. Usar coisas ásperas podem causar arranhões no produto
+              {product.observations}
             </Dropdown.ItemText>
           </S.DescriptionButton>
         </S.ProductDescription>
