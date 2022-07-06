@@ -62,3 +62,4 @@ const Ceramica = () => {
 };
 
 export default Ceramica;
+
