@@ -5,6 +5,8 @@ const orderValidation = require('../domain/orders/validations');
 
 const express = require("express");
 const ProductsController = require('../domain/products/controllers/productsController');
+const ProductsValidation = require('../domain/products/validations');
+
 const routes = express.Router();
 const ClientsController = require("../domain/clients/controllers/clientsController");
 const clientsCreateValidator = require("../domain/clients/validations/clientsCreateValidator");
@@ -23,12 +25,12 @@ routes.put("/exhibitors/:idExhibitors", updateExhibitorsValidation, ExhibitorsCo
 routes.delete("/exhibitors/:idExhibitors/deletar", destroyExhibitorsValidation, ExhibitorsController.deleteExhibitor);
 
 routes.get("/products", ProductsController.list);
-routes.get("/products/:code_product", ProductsController.findOne);
-routes.get("/products/categories/:categoryName", ProductsController.findByCategory);
-routes.get("/products/search/:term", ProductsController.findByTerm);
-routes.post("/products/:idExhibitors", ProductsController.createProduct);
-routes.put("/products/:code_product", ProductsController.updateProduct);
-routes.delete("/products/:code_product/remove", ProductsController.deleteProduct);
+routes.get("/products/:code_product", ProductsValidation.findOne, ProductsController.findOne);
+routes.get("/products/categories/:categoryName", ProductsValidation.findByCategory, ProductsController.findByCategory);
+routes.get("/products/search/:term", ProductsValidation.findByTerm, ProductsController.findByTerm);
+routes.post("/products/:idExhibitors", ProductsValidation.createProduct, ProductsController.createProduct);
+routes.put("/products/:code_product", ProductsValidation.updateProduct, ProductsController.updateProduct);
+routes.delete("/products/:code_product/remove", ProductsValidation.deleteProduct, ProductsController.deleteProduct);
 
 routes.get("/clients", Auth, ClientsController.listAllClients);
 routes.get("/clients/:id_client", Auth, ClientsController.listClientPerId);
