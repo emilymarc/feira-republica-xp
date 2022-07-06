@@ -7,17 +7,17 @@ import iconExpositores from "../../assets/IconExpositores.svg";
 import iconExpositoresActive from "../../assets/IconExpositoresActive.svg";
 import * as S from "./styled";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
   const fullUrl = window.location.href;
   const compareUrl = `http://localhost:3000`;
-  const [cart, setCart] = useState({
-    isPaneOpen: false,
-  });
+  // const [cart, setCart] = useState({
+  //   isPaneOpen: false,
+  // });
 
-  const {items, totalAmount} = useSelector((state) => state.cart);
+  // const {totalItems} = useSelector((state) => state.cart);
   return (
     <>
     <S.Header>

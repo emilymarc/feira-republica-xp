@@ -102,7 +102,7 @@ export const ItemPrice = styled.span`
 export const ItemQuantityContainer = styled.div`
   border: 1px solid #404040;
   border-radius: 20px;
-  max-width: 50%;
+  width: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
