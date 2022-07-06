@@ -7,8 +7,8 @@ import iconExpositores from "../../assets/IconExpositores.svg";
 import iconExpositoresActive from "../../assets/IconExpositoresActive.svg";
 import * as S from "./styled";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { getTotal } from "../../redux/feature/cartSlice"
 
 const Header = () => {
   const fullUrl = window.location.href;
@@ -16,8 +16,10 @@ const Header = () => {
   // const [cart, setCart] = useState({
   //   isPaneOpen: false,
   // });
-
-  // const {totalItems} = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  dispatch(getTotal());
+  const { totalItems } = useSelector((state) => state.cart);
+  
   return (
     <>
     <S.Header>
@@ -36,6 +38,7 @@ const Header = () => {
             <S.Icon
               src={IconCart}
             ></S.Icon>
+            {totalItems > 0 ? <S.CartBadge><span style={{color: '#fff'}}>{totalItems}</span></S.CartBadge> : null}
           </S.IconLink>
           <S.IconLink to="/login">
             <S.Icon src={profile} />
