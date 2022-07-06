@@ -31,3 +31,19 @@ export const getExpositores = async () => {
     toast.warn(`Erro ao carregar os expositores: ${error.response.data}`)
   }
 }
+
+export const getExpositorById = async (id) => {
+  try {
+    return await baseUrl.get(`/exhibitors/${id}`)
+  } catch (error) {
+    toast.warn(`Erro ao carregar o expositor: ${error.response.data}`)
+  }
+}
+
+export const getExpositorProducts = async (id) => {
+  try {
+    return await baseUrl.get(`/exhibitors/${id}/products`)
+  } catch (error) {
+    toast.warn(`Erro ao carregar os produtos do expositor: ${error.response.data}`)
+  }
+}
