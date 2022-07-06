@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import IconReturn from "../../assets/IconReturn.svg";
@@ -11,8 +10,11 @@ import LeftArrow from "../../assets/arrow/LeftArrow.svg";
 import { baseUrl, getProductsById } from "../../services/api";
 import { toast } from "react-toastify"; 
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/feature/cartSlice";
 import * as S from "./styled";
 import style from "./style.css";
+
 
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
@@ -44,6 +46,11 @@ const SingleProduct = ({ slides }) => {
   }
   
   const [like, setLike] = useState(false);
+  
+  const dispatch = useDispatch();
+  const handleAddItem = (Item) => {
+    dispatch(addItem(Item));
+  }
 
   return (
     <S.Container>
@@ -54,6 +61,7 @@ const SingleProduct = ({ slides }) => {
       </S.ReturnContainer>
 
       <S.LeftContainer>
+
         {/* Carousel */}
         <section className="slider">
           {SliderData.map((slide, index) => {
@@ -106,8 +114,8 @@ const SingleProduct = ({ slides }) => {
         </S.PriceLikeContainer>
 
         <S.BtnContainer>
-          <S.BtnComprar>Comprar agora</S.BtnComprar>
-          <S.BtnCarrinho>Adicionar ao carrinho</S.BtnCarrinho>
+          <S.BtnComprar onClick={() => {handleAddItem(product); navigate('/carrinho')}}>Comprar agora</S.BtnComprar>
+          <S.BtnCarrinho onClick={() => handleAddItem(product)}>Adicionar ao carrinho</S.BtnCarrinho>
         </S.BtnContainer>
 
         <S.ProductDescription>
