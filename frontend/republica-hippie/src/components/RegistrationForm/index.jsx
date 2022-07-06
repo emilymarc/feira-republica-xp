@@ -94,7 +94,10 @@ const RegistrationForm = () => {
                     {formik.errors.confirmPassword && <span>{formik.errors.confirmPassword}</span>}
                 </S.FormColumn>
 
-                <S.FormButton type="submit">Cadastrar</S.FormButton>
+                <S.BtnContainer>
+                    <S.FormButton type="submit">Cadastrar</S.FormButton>
+                </S.BtnContainer>
+                
             </form>
         </S.Container>
     )
