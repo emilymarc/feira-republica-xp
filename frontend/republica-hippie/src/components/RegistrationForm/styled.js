@@ -5,17 +5,19 @@ export const Container = styled.main`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
 `
 export const TittleForm = styled.h1`
     color: #C57E5F;
     font-size: 60px;
+    margin: 60px auto;
 `
 
 export const FormColumn = styled.div`
     display: flex;
-    justify-content: space-between;
-    gap: 40px;
+    justify-content: center;
+    gap: 20px;
 `
 
 export const FloatContainer = styled.div`
@@ -25,7 +27,7 @@ export const FloatContainer = styled.div`
     margin-bottom: 8px;
     padding: 0 8px;
     position: relative;
-    width: 300px;
+    width: 100%;
 `
 
 export const InputTittle = styled.label`
@@ -63,5 +65,15 @@ export const FormButton = styled.button`
     padding: 10px 120px;
     margin-top: 20px;
     margin-bottom: 50px;
+    justify-self: end;
+    &:hover {
+        transition: .3s;
+        background-color: #C57E5F;
+    }
+    transition: .3s;
+`
+
+export const BtnContainer = styled.div`
     display: flex;
+    justify-content: flex-end;
 `

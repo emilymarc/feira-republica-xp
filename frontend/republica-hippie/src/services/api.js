@@ -21,3 +21,13 @@ export const getProductsById = async (id) => {
     toast.warn(`Erro ao carregar os produtos: ${error.response.data}`)
   }
 }
+
+//Expositores
+
+export const getExpositores = async () => {
+  try {
+    return await baseUrl.get(`/exhibitors`)
+  } catch (error) {
+    toast.warn(`Erro ao carregar os expositores: ${error.response.data}`)
+  }
+}
