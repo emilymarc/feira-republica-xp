@@ -5,11 +5,11 @@ import ProductListItem from "../../components/ProductListItem";
 import ProductListItemContainer from "../../components/ProductListItemContainer";
 import { toast } from "react-toastify";
 import * as S from "./styled";
-
+import ceramica_xicara_casinha from "../../assets/ceramica/ceramica_xicara_casinha.svg";
 const ExpositorComponent = () => {
   const { id } = useParams();
   const [expositor, setExpositor] = useState({});
-  const [expositorProducts, setExpositorProducts] = useState([]);
+  const [expositorProducts, setExpositorProducts] = useState({});
 
   useEffect(() => {
     const getExpositorId = async () => {
@@ -32,15 +32,17 @@ const ExpositorComponent = () => {
         console.log(error);
       }
     };
+    getExpositorProductsId();
   }, [setExpositorProducts]);
 
+  const expositorProductsObject = expositorProducts.products
   return (
     <>
       <S.Container>
-        <h1>{expositor.name}</h1>
+        <h1>{(`${expositor.name}`).toUpperCase()}</h1>
 
         <p>{expositor.profession}, 67 anos</p>
-        <p>Contato: (99) 99999-9999</p>
+        <p>Contato: {expositor.phone}</p>
 
         <cite>"{expositor.phrase}"</cite>
 
@@ -51,10 +53,10 @@ const ExpositorComponent = () => {
 
         <p>{expositor.description}</p>
 
-        <h3>PRODUTOS POPULARES DE MADALENA</h3>
+        <h3>{(`PRODUTOS POPULARES DE ${expositor.name}`).toUpperCase()}</h3>
         <ProductListItemContainer>
-        {expositorProducts.length > 0 ? 
-              (expositorProducts.map(product => {
+
+            {expositorProductsObject?.map(product => {
                 const path = `/product/${product.code_product}`;
                 return(
                   <ProductListItem
@@ -66,8 +68,7 @@ const ExpositorComponent = () => {
                     productImg={ceramica_xicara_casinha}
                   ></ProductListItem>
                 )
-              }))
-            : <p style={{color: 'gray', marginTop: '120px', marginBottom: '190px', textAlign: 'center'}}>Este expositor ainda não possui nenhum produto cadastrado</p>}
+              })}
         </ProductListItemContainer>
       </S.Container>
     </>
