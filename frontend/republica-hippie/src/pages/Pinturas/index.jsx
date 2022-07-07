@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 
 
 import pinturas_icon from "../../assets/pinturas/pinturas_icon.svg";
-import ceramica_xicara_casinha from "../../assets/ceramica/ceramica_xicara_casinha.svg";
 
 
 const Pinturas = () => {
@@ -50,7 +49,7 @@ const Pinturas = () => {
                     productId={product.id}
                     productTitle={product.name}
                     productValue={product.price.replace(".", ",")}
-                    productImg={ceramica_xicara_casinha}
+                    productImg='https://res.cloudinary.com/republica-hippie/image/upload/v1657134729/products/dal0mdiotc56cwecux5e.jpg'
                   ></ProductListItem>
                 )
               }))

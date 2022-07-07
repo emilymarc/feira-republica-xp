@@ -30,7 +30,7 @@ const ExpositoresList = () => {
           <S.TitleExpositores>{expositor.name}</S.TitleExpositores>
           <p>
             {expositor.profession}<br />
-            76 anos
+            67 anos
           </p>
           <p>
             Contato: {expositor.phone} <br />
