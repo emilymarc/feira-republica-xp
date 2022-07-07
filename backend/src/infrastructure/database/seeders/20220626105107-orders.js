@@ -9,6 +9,12 @@ for (let i = 0; i < 10; i++) {
   seed.push({
     id_client_order: faker.random.numeric(),
     progress: 1,
+    zip_cod: `${faker.random.numeric(5)}-${faker.random.numeric(3)}`,
+    st: `${faker.name.findName("Rua ")}`,
+    house_number: faker.random.numeric(2),
+    city: faker.name.findName(),
+    state: faker.name.findName(),
+    country: faker.name.findName(),
     price_gross: faker.random.numeric(2),
     discount: faker.random.numeric(1),
     shipping_total: faker.random.numeric(1),
