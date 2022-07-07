@@ -12,6 +12,7 @@ import Carrinho from '../pages/Carrinho';
 import Login from '../pages/Login';
 import Registration from '../pages/Registration'
 import Address from '../pages/Address';
+import RequireAuth from "./RequiredAuth";
 
 const AppRoutes = () => {
     return (

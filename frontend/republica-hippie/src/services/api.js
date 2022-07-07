@@ -53,6 +53,15 @@ export const createClient = async (name, email, password) => {
     const response = await baseUrl.post("/clients", { name, email, password })
     return response.data;
   } catch(error) {
-    toast.warn("Error:"+ error.response.data)
+    toast.warn("Error: "+ error.response.data)
+  }
+}
+
+export const loginClient = async (email, password) => {
+  try{
+    const response = await baseUrl.post("/login/clients", { email, password })
+    return response.data;
+  } catch(error) {
+    toast.warn("Error: "+ error.response.data)
   }
 }
