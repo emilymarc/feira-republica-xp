@@ -18,10 +18,10 @@ const ExpositoresList = () => {
     };
     loadExpositores();
   }, [setExpositores]);
-
+  
   return expositores.map((expositor) => {
     return (
-      <S.ExpositoresContainer>
+      <S.ExpositoresContainer key={expositor.id_exhibitors}>
         <S.ImgContainer>
           <S.ExpositorImg src={expositor.img} alt="Expositor" />
         </S.ImgContainer>
