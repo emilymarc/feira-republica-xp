@@ -36,8 +36,7 @@ export const FormContainer = styled.form`
     border-radius: 20px;
 `
 
-export const TittleForm = styled.h3`
-    font-family: 'Montserrat', sans-serif;
+export const TittleForm = styled.h2`
     border-radius: 20px;
     color: #D79E62;
     font-size: 24px;
