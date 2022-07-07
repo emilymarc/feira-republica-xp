@@ -6,11 +6,11 @@ import ProductListItemContainer from "../../components/ProductListItemContainer"
 import { toast } from "react-toastify";
 import * as S from "./styled";
 import ceramica_xicara_casinha from "../../assets/ceramica/ceramica_xicara_casinha.svg";
+
 const ExpositorComponent = () => {
   const { id } = useParams();
   const [expositor, setExpositor] = useState({});
   const [expositorProducts, setExpositorProducts] = useState({});
-
   useEffect(() => {
     const getExpositorId = async () => {
       try {
@@ -56,7 +56,7 @@ const ExpositorComponent = () => {
         <h3>{(`PRODUTOS POPULARES DE ${expositor.name}`).toUpperCase()}</h3>
         <ProductListItemContainer>
 
-            {expositorProductsObject?.map(product => {
+            {expositorProductsObject?.filter((item, idx) => idx < 3).map((product) => {
                 const path = `/product/${product.code_product}`;
                 return(
                   <ProductListItem
@@ -65,7 +65,7 @@ const ExpositorComponent = () => {
                     productId={product.id}
                     productTitle={product.name}
                     productValue={product.price.replace(".", ",")}
-                    productImg={ceramica_xicara_casinha}
+                    productImg={'http://res.cloudinary.com/republica-hippie/image/upload/v1656943893/products/xupatrcvfqn9evgglpff.jpg'}
                   ></ProductListItem>
                 )
               })}

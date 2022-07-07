@@ -52,7 +52,7 @@ const LoginForm = () => {
                 </S.FloatContainer>
                 {formik.errors.password && <span>{formik.errors.password}</span>}
                 <S.FormButton type="submit">Entrar</S.FormButton>
-                <S.LinkSingUp to="/singup">Cadastre-se</S.LinkSingUp>
+                <S.LinkSingUp to="/signup">Cadastre-se</S.LinkSingUp>
             </S.FormContainer>
 
         </S.Container>

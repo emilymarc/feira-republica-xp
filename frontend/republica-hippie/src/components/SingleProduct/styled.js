@@ -30,8 +30,8 @@ export const Return = styled.button`
 `
 
 export const Icon = styled.img`
-    height: 66px;
-    width: 66px;
+    height: 55px;
+    width: 55px;
     padding: 20px;
     background-color: #FEDC96;
     border-radius: 50%;
