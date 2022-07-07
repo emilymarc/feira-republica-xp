@@ -3,7 +3,8 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import DetailedBg from '../../components/DetailedBg';
 import CarrinhoComponent from '../../components/CarrinhoComponent';
-const Artesaos = () => {
+
+const Carrinho = () => {
   return ( 
     <>
         <Header></Header>
@@ -15,4 +16,4 @@ const Artesaos = () => {
   )
 }
 
-export default Artesaos;
+export default Carrinho;
