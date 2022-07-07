@@ -1,6 +1,6 @@
 const { Exhibitors } = require("../models");
 const bcrypt = require("bcryptjs");
-const { Products } = require("../../products/models");
+const { Products, ImagesProducts } = require("../../products/models");
 
 
 const ExhibitorsService = {
@@ -68,7 +68,16 @@ const ExhibitorsService = {
                     attributes: {
                         exclude: ['data_status']
                     },
+                    include: [
+                        {
+                            model: ImagesProducts,
+                            attributes: [
+                                "url_img",
+                            ],
+                        },        
+                    ]
                 },
+                
 
             ]
 

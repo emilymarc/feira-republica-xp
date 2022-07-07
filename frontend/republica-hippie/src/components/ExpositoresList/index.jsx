@@ -18,10 +18,10 @@ const ExpositoresList = () => {
     };
     loadExpositores();
   }, [setExpositores]);
-
+  
   return expositores.map((expositor) => {
     return (
-      <S.ExpositoresContainer>
+      <S.ExpositoresContainer key={expositor.id_exhibitors}>
         <S.ImgContainer>
           <S.ExpositorImg src={expositor.img} alt="Expositor" />
         </S.ImgContainer>
@@ -30,7 +30,7 @@ const ExpositoresList = () => {
           <S.TitleExpositores>{expositor.name}</S.TitleExpositores>
           <p>
             {expositor.profession}<br />
-            76 anos
+            67 anos
           </p>
           <p>
             Contato: {expositor.phone} <br />

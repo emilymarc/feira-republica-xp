@@ -23,7 +23,6 @@ export const getProductsById = async (id) => {
 }
 
 //Expositores
-
 export const getExpositores = async () => {
   try {
     return await baseUrl.get(`/exhibitors`)
@@ -45,5 +44,24 @@ export const getExpositorProducts = async (id) => {
     return await baseUrl.get(`/exhibitors/${id}/products`)
   } catch (error) {
     toast.warn(`Erro ao carregar os produtos do expositor: ${error.response.data}`)
+  }
+}
+
+//Clients
+export const createClient = async (name, email, password) => {
+  try {
+    const response = await baseUrl.post("/clients", { name, email, password })
+    return response.data;
+  } catch(error) {
+    toast.warn("Error: "+ error.response.data)
+  }
+}
+
+export const loginClient = async (email, password) => {
+  try{
+    const response = await baseUrl.post("/login/clients", { email, password })
+    return response.data;
+  } catch(error) {
+    toast.warn("Error: "+ error.response.data)
   }
 }

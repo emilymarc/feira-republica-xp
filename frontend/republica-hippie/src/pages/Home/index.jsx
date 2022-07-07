@@ -15,7 +15,7 @@ const Home = () => {
       <DetailedBg>
         <S.BgContainer>
           <S.GradientContainer>
-            <S.HomeTitle>A tradicional feira de São Paulo também está online!</S.HomeTitle>
+            <S.HomeTitle>A TRADICIONAL FEIRA DE SÃO PAULO TAMBÉM ESTÁ ONLINE!</S.HomeTitle>
           </S.GradientContainer>
         </S.BgContainer>
 
