@@ -38,26 +38,6 @@ const ClientsController = {
         }
     },
 
-    // async registerImageClaudinary(images, arrayUrl) {
-    //     images.forEach(async (item, index) => {
-    //         const urlImage = await cloudinary.uploads(item.path, 'products');
-
-    //         arrayUrl[index] = await urlImage
-            
-    //     })
-
-
-    //     const waitingInsertImages = () => new Promise((resolve, reject) => {
-    //         setTimeout(() => resolve(arrayUrl), 3000)
-    //     })
-
-    //     const newArrayUrls = await waitingInsertImages().then((res) => {
-
-    //         return res
-    //     })
-    //     return newArrayUrls
-    // },
-
     async listClientPerId(req, res) {
         try {
             const {
