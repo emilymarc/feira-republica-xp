@@ -65,7 +65,7 @@ const AddressComponent = () => {
           items_order
         );
         toast.success("Pedido realizado com sucesso!");
-        navigate("/");
+        navigate("/pagamento");
       } catch (error) {
         toast.error("Erro ao realizar pedido");
       }

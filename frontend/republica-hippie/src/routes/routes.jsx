@@ -12,6 +12,7 @@ import Carrinho from '../pages/Carrinho';
 import Login from '../pages/Login';
 import Registration from '../pages/Registration'
 import Address from '../pages/Address';
+import Pagamento from '../pages/Pagamento';
 import RequireAuth from "./RequiredAuth";
 
 const AppRoutes = () => {
@@ -30,6 +31,7 @@ const AppRoutes = () => {
                         <Route path='/login' element={<Login/>}/>
                         <Route path='/signup' element={<Registration/>}/>
                         <Route path='/endereco/:id' element={<RequireAuth><Address/></RequireAuth>}/> {/* :id do cliente */}
+                        <Route path="/pagamento" element={<Pagamento/>}/>
                     </Routes>
         </BrowserRouter>
     )
