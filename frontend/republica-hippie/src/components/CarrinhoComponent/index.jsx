@@ -12,6 +12,7 @@ const CarrinhoComponent = () => {
   const dispatch = useDispatch();
   dispatch(getTotal());
   const { Items, totalAmount, totalItems } = useSelector((state) => state.cart);
+  const { id_client } = useSelector((state) => state.user);
   
   const handleAddItem = (Item) => {
     dispatch(addItem(Item));
@@ -67,7 +68,7 @@ const CarrinhoComponent = () => {
             <S.SubtotalPrice>R$ {totalAmount},00</S.SubtotalPrice>
           </S.SubtotalTextContainer>
 
-          {totalItems > 0 ? <S.SubtotalBtn to="/endereco">Continuar</S.SubtotalBtn> : <span style={{height: '15px'}}/>}
+          {totalItems > 0 ? <S.SubtotalBtn to={`/endereco/${id_client}`}>Continuar</S.SubtotalBtn> : <span style={{height: '15px'}}/>}
         </S.SubtotalContainer>
 
       </S.CarrinhoContainer>
