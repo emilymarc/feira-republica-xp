@@ -30,8 +30,8 @@ const LoginForm = () => {
             const accessTokenObject = await loginClient(email, password);
             const accessToken = accessTokenObject.token
             const decoded = jwt_decode(accessToken);
-            localStorage.setItem('clientToken', accessToken);
-            localStorage.setItem('clientInfo', JSON.stringify(decoded));
+            // localStorage.setItem('clientToken', accessToken);
+            // localStorage.setItem('clientInfo', JSON.stringify(decoded));
             dispatch(signIn({id_client: decoded.id_client, name: decoded.name, email: decoded.email, isLogged: true, accessToken}));
             baseUrl.defaults.headers["Authorization"] = `Bearer ${accessToken}`
             navigate('/');
