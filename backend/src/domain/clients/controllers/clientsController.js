@@ -189,6 +189,9 @@ const ClientsController = {
             return res.status(500).json("Erro ao tentar deletar Cliente!");
         }
     },
+
+    
+
 }
 
 module.exports = ClientsController

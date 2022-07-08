@@ -20,7 +20,6 @@ const Auth = require('../middlewares/auth');
 routes.post("/login/clients", loginValidator, AuthController.login);
 
 // routes.get("/login/shops", products.create); //DELETADO
-routes.post("/login/clients", ClientsController.loginClient);
 
 routes.get("/exhibitors", ExhibitorsController.getAllExhibitors);
 routes.get("/exhibitors/:idExhibitors", getOneExhibitorsValidation, ExhibitorsController.getOneExhibitor);
