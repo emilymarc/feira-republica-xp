@@ -51,7 +51,7 @@ export const EditLink = styled(Link)`
 `
 
 export const LongOutButton = styled.button`
-        background-color: #D79E62;
+    background-color: #D79E62;
     border: none;
     border-radius: 20px;
     color: #FFFF;
