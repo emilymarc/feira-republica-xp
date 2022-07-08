@@ -104,4 +104,19 @@ export const IconLink = styled(Link)`
     height: 55px;
     width: 55px;
     border-radius: 50%;
+    text-decoration: none;
+`
+
+export const CartBadge = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 19px;
+    left: 30px;
+    background-color: #f17c7e;
+    padding: 3px;
+    height: 27px;
+    width: 27px;
+    border-radius: 50%;
 `

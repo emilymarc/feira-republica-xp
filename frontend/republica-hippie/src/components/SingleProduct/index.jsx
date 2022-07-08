@@ -15,7 +15,6 @@ import { addItem } from "../../redux/feature/cartSlice";
 import * as S from "./styled";
 import style from "./style.css";
 
-
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -29,8 +28,8 @@ const SingleProduct = ({ slides }) => {
       }
     }
     loadProduct();
+    
   }, [setProduct]);
-
 
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
@@ -114,7 +113,7 @@ const SingleProduct = ({ slides }) => {
         </S.PriceLikeContainer>
 
         <S.BtnContainer>
-          <S.BtnComprar>Comprar agora</S.BtnComprar>
+          <S.BtnComprar onClick={() => {handleAddItem(product); navigate('/carrinho')}}>Comprar agora</S.BtnComprar>
           <S.BtnCarrinho onClick={() => handleAddItem(product)}>Adicionar ao carrinho</S.BtnCarrinho>
         </S.BtnContainer>
 

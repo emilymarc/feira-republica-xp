@@ -10,7 +10,6 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 import colares_icon from "../../assets/colares/colares_icon.svg";
-import ceramica_xicara_casinha from "../../assets/ceramica/ceramica_xicara_casinha.svg";
 
 const Colares = () => {
   const [products, setProducts] = useState([]);
@@ -48,11 +47,11 @@ const Colares = () => {
                     productId={product.id}
                     productTitle={product.name}
                     productValue={product.price.replace(".", ",")}
-                    productImg={ceramica_xicara_casinha}
+                    productImg='https://res.cloudinary.com/republica-hippie/image/upload/v1657134729/products/dal0mdiotc56cwecux5e.jpg'
                   ></ProductListItem>
                 )
               }))
-            : <p style={{marginTop: '120px', marginBottom: '190px', textAlign: 'center'}}>Que pena. Não há nenhum produto aqui :/</p>}   
+            : <p style={{color: 'gray', marginTop: '120px', marginBottom: '190px', textAlign: 'center'}}>Que pena. Não há nenhum produto aqui :/</p>}   
           </ProductListItemContainer>
 
         </DetailedBg>

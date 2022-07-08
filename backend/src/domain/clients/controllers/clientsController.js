@@ -1,7 +1,10 @@
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const { Clients, Address } = require("../models/");
+const {
+    Clients,
+    Address
+} = require("../models/");
 
 
 const ClientsController = {
@@ -9,7 +12,12 @@ const ClientsController = {
     async createClient(req, res) {
         try {
 
-            const { name, email, password, img } = req.body;
+            const {
+                name,
+                email,
+                password,
+                img
+            } = req.body;
 
             const newPass = bcrypt.hashSync(password, 10);
 
@@ -30,14 +38,21 @@ const ClientsController = {
 
     async listClientPerId(req, res) {
         try {
-            const { id_client } = req.params;
+            const {
+                id_client
+            } = req.params;
 
             const clientPerId = await Clients.findOne({
                 where: {
-                    id_client
+                    id_client,
+                    data_status: 1
                 },
-                include: { model: Address },
-                attributes: { exclude: "password" }
+                include: {
+                    model: Address
+                },
+                attributes: {
+                    exclude: "password"
+                }
             });
 
 
@@ -58,8 +73,15 @@ const ClientsController = {
         try {
 
             const allClients = await Clients.findAll({
-                include: { model: Address },
-                attributes: { exclude: "password" }
+                where: {
+                    data_status: 1
+                },
+                include: {
+                    model: Address
+                },
+                attributes: {
+                    exclude: "password"
+                }
 
             });
 
@@ -79,7 +101,9 @@ const ClientsController = {
     async updateClient(req, res) {
 
         try {
-            const { id_client } = req.params;
+            const {
+                id_client
+            } = req.params;
             const clientToUpdate = await Clients.findOne({
                 where: {
                     id_client,
@@ -88,7 +112,9 @@ const ClientsController = {
             });
 
             if (clientToUpdate == null) {
-                return res.status(400).json({ message: "Cliente não encontrado" })
+                return res.status(400).json({
+                    message: "Cliente não encontrado"
+                })
             }
 
             const query = {};
@@ -111,8 +137,7 @@ const ClientsController = {
             }
 
             const updatedClient = await Clients.update(
-                query,
-                {
+                query, {
                     where: {
                         id_client,
                         data_status: 1
@@ -120,7 +145,10 @@ const ClientsController = {
                 }
             );
 
-            return res.status(200).json({ ...clientToUpdate, ...query });
+            return res.status(200).json({
+                ...clientToUpdate,
+                ...query
+            });
 
         } catch (error) {
             console.log(error);
@@ -130,7 +158,9 @@ const ClientsController = {
 
     async deleteClient(req, res) {
         try {
-            const { id_client } = req.params;
+            const {
+                id_client
+            } = req.params;
             const deleteClientPerId = await Clients.count({
                 where: {
                     id_client,
@@ -142,14 +172,13 @@ const ClientsController = {
                 return res.status(404).json("Cliente não encontrado!");
             }
 
-            await Clients.update(
-                { data_status: 0 },
-                {
-                    where: {
-                        id_client
-                    }
+            await Clients.update({
+                data_status: 0
+            }, {
+                where: {
+                    id_client
                 }
-            );
+            });
 
             return res.status(204).json(deleteClientPerId);
 
@@ -164,13 +193,18 @@ const ClientsController = {
     async loginClient(req, res) {
 
         try {
-            const { email, password } = req.body;
+            const {
+                email,
+                password
+            } = req.body;
             const login = await Clients.findOne({
                 where: {
                     email,
                     data_status: 1
                 },
-                include: { model: Address },
+                include: {
+                    model: Address
+                },
 
             })
 
@@ -183,11 +217,19 @@ const ClientsController = {
                 return res.status(401).json("Email ou Senha invalido, verique e tente novamente");
             }
 
-            const { id_client, name, address_clients } = login
+            const {
+                id_client,
+                name,
+                address_clients
+            } = login
 
 
             return res.json({
-                token: jwt.sign({ id_client, name, email, address_clients }, process.env.SECRET_KEY, {
+                token: jwt.sign({
+                    id_client,
+                    name,
+                    email,
+                }, process.env.SECRET_KEY, {
                     expiresIn: process.env.EXPIRES_SECRET_KEY
                 })
             });

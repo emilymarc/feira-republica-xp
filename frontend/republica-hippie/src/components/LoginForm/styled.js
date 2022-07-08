@@ -14,7 +14,7 @@ export const Container = styled.main`
 
 `
 
-export const Logo = styled.img`
+export const Logo = styled(Link)`
     display: flex;
     justify-content: flex-start;
     width: 220px;
@@ -32,12 +32,11 @@ export const FormContainer = styled.form`
     align-items: center;
     width: 518px;
     height: 610px;
-    margin: 20px 20px 30px 450px;
+    margin: 0 auto;
     border-radius: 20px;
 `
 
-export const TittleForm = styled.h3`
-    font-family: 'Montserrat', sans-serif;
+export const TittleForm = styled.h2`
     border-radius: 20px;
     color: #D79E62;
     font-size: 24px;

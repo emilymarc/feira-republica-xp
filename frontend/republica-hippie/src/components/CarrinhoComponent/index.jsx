@@ -4,7 +4,25 @@ import FilledElipse from '../../assets/progressbar/FilledEllipse.svg';
 import EmptyElipse from '../../assets/progressbar/EmptyEllipse.svg';
 import IconTrash from '../../assets/IconTrash.svg';
 import ceramica_img from '../../assets/ceramica/ceramica_xicara_casinha.svg';
+import store from '../../redux/store';
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem, decrementItem, removeItem, getTotal } from "../../redux/feature/cartSlice";
+
 const CarrinhoComponent = () => {
+  const dispatch = useDispatch();
+  dispatch(getTotal());
+  const { Items, totalAmount } = useSelector((state) => state.cart);
+  
+  const handleAddItem = (Item) => {
+    dispatch(addItem(Item));
+  }
+  const handleDecrementItem = (Item) => {
+    dispatch(decrementItem(Item));
+  }
+  const handleRemoveItem = (Item) => {
+    dispatch(removeItem(Item));
+  }
+
   return (
     <>
       <S.CarrinhoContainer>
@@ -23,31 +41,33 @@ const CarrinhoComponent = () => {
         </S.ProgressBarContainer>
 
         <S.CartItemsContainer>
-          <S.ItemContainer>
-            <S.IconTrash src={IconTrash} onClick={() => {}} alt="Excluir item"/>
-            <S.ItemImg src={ceramica_img} alt="Imagem do produto"/>
+          {Items.length > 0 ? (Items.map((item, index) => (
+            <S.ItemContainer key={item.code_product} style={index > 0 ? {marginTop: '35px'} : null}>
+            
+              <S.IconTrash src={IconTrash} onClick={() => {handleRemoveItem(item)}} alt="Excluir item"/>
+              <S.ItemImg src={item.image_products[0].url_img} alt="Imagem do produto"/>
 
-            <S.ItemInfoContainer>
-              <S.ItemTitle>Tigela pintura indiana</S.ItemTitle>
-              <S.ItemPrice>R$ 40,00</S.ItemPrice>
+              <S.ItemInfoContainer>
+                <S.ItemTitle>{item.name}</S.ItemTitle>
+                <S.ItemPrice>R$ {(item.price * item.quantity)},00</S.ItemPrice>
+                <S.ItemQuantityContainer>
+                  <S.ItemIncrementDecrement onClick={() => handleDecrementItem(item)}>-</S.ItemIncrementDecrement>
+                  <S.ItemQuantity>{item.quantity}</S.ItemQuantity>
+                  <S.ItemIncrementDecrement onClick={() => handleAddItem(item)}>+</S.ItemIncrementDecrement>
+                </S.ItemQuantityContainer>
+              </S.ItemInfoContainer>
 
-              <S.ItemQuantityContainer>
-                <S.ItemIncrementDecrement>-</S.ItemIncrementDecrement>
-                <S.ItemQuantity>1</S.ItemQuantity>
-                <S.ItemIncrementDecrement>+</S.ItemIncrementDecrement>
-              </S.ItemQuantityContainer>
-            </S.ItemInfoContainer>
-
-          </S.ItemContainer>
+            </S.ItemContainer>
+          ))) : <p style={{fontSize: '20px', color: 'gray', marginTop: '160px', marginBottom: '100px', textAlign: 'center'}}>Seu carrinho está vazio 😔</p> }
         </S.CartItemsContainer>
 
         <S.SubtotalContainer>
           <S.SubtotalTextContainer>
             <S.SubtotalText>Subtotal: </S.SubtotalText>
-            <S.SubtotalPrice>R$ 40,00</S.SubtotalPrice>
+            <S.SubtotalPrice>R$ {totalAmount},00</S.SubtotalPrice>
           </S.SubtotalTextContainer>
 
-          <S.SubtotalBtn>Continuar</S.SubtotalBtn>
+          <S.SubtotalBtn to="/endereco">Continuar</S.SubtotalBtn>
         </S.SubtotalContainer>
 
       </S.CarrinhoContainer>

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import {Link} from 'react-router-dom';
 
 export const CarrinhoContainer = styled.section`
   max-width: 1286px;
@@ -102,7 +103,7 @@ export const ItemPrice = styled.span`
 export const ItemQuantityContainer = styled.div`
   border: 1px solid #404040;
   border-radius: 20px;
-  max-width: 50%;
+  width: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -147,7 +148,7 @@ export const SubtotalPrice = styled.span`
 
 
 
-export const SubtotalBtn = styled.button`
+export const SubtotalBtn = styled(Link)`
   align-self: end;
   margin-top: 10px;
   background-color: #D79E62;
