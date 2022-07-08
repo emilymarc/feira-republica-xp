@@ -7,6 +7,11 @@ export const Footer = styled.footer`
     align-items: flex-start;
     background-color: #746A5C;
     color : #fff !important;
+    @media screen and (max-width: 990px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
 `
 
 export const Social = styled.div`
@@ -46,11 +51,13 @@ export const Icon = styled.a`
 
 export const Address = styled.div`
     color: #fff;
+    margin: 0 30px;
 `
 
 export const AddressTitle = styled.h4`
     color: #fff;
     font-weight: 600;
+    font-size: 20px;
 `
 
 export const Content = styled.p`
@@ -75,4 +82,5 @@ export const Contact = styled.div`
 export const ContactTitle = styled.h4`
     color: #fff;
     font-weight: 600;
+    font-size: 20px;;
 `

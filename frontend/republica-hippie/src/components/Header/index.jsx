@@ -24,9 +24,9 @@ const Header = () => {
     <>
     <S.Header>
       <S.LogoArea>
-        <Link to="/">
+        <S.LogoLink to="/">
           <img src={logo} alt="Republica Hippie" />
-        </Link>
+        </S.LogoLink>
 
         <S.SearchContainer>
           <S.Search type="search"></S.Search>
