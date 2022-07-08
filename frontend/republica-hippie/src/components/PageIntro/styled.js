@@ -6,6 +6,12 @@ export const IntroSection = styled.section`
   flex-direction: column;
   max-width: 1000px;
   margin-bottom: 70px;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
 `
 
 export const TitleContainer = styled.div`
@@ -14,6 +20,11 @@ export const TitleContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 35px;
+
+  @media screen and (max-width: 768px){
+    display: flex;
+    justify-content: center;
+  }
 `
 
 export const Title = styled.h1`
@@ -26,6 +37,11 @@ export const Title = styled.h1`
 
 export const TitleContent = styled.p`
   text-align: center;
+
+  @media screen and (max-width: 768px){
+    display: flex;
+    justify-content: center;
+  }
 `
 
 export const IntroIcon = styled.img`

@@ -14,6 +14,11 @@ export const Container = styled.section`
     max-width: 1400px;
     margin: 0 auto;
     padding-bottom: 60px;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 export const ReturnContainer = styled.div`
@@ -54,6 +59,11 @@ export const RightContainer = styled.div`
 
 export const ProductText = styled.p`
     margin-top: 45px;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+    }
 `
 
 export const ProductTitle = styled.h3`
