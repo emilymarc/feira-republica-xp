@@ -190,53 +190,7 @@ const ClientsController = {
         }
     },
 
-    async loginClient(req, res) {
-
-        try {
-            const {
-                email,
-                password
-            } = req.body;
-            const login = await Clients.findOne({
-                where: {
-                    email,
-                    data_status: 1
-                },
-                include: {
-                    model: Address
-                },
-
-            })
-
-
-            if (!login) {
-                return res.status(401).json("Email ou Senha invalido, verique e tente novamente");
-            }
-
-            if (!bcrypt.compareSync(password, login.password)) {
-                return res.status(401).json("Email ou Senha invalido, verique e tente novamente");
-            }
-
-            const {
-                id_client,
-                name,
-                address_clients
-            } = login
-
-
-            return res.json({
-                token: jwt.sign({
-                    id_client,
-                    name,
-                    email,
-                }, process.env.SECRET_KEY, {
-                    expiresIn: process.env.EXPIRES_SECRET_KEY
-                })
-            });
-        } catch (error) {
-            return res.status(500).json(error);
-        }
-    }
+    
 
 }
 
