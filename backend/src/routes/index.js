@@ -1,8 +1,8 @@
 
 const ClientsController = require('../domain/clients/controllers/clientsController');
 const orderController = require("../domain/orders/controllers/orders.controller");
-// const AuthController = require("../domain/auth/controllers/authController");
-// const loginValidator = require("../domain/auth/validations/loginValidator"); 
+const AuthController = require("../domain/auth/controllers/authController");
+const loginValidator = require("../domain/auth/validations/loginValidator"); 
 const ExhibitorsController = require('../domain/exhibitors/controllers/Exhibitors.controller');
 const { createExhibitorsValidation, getOneExhibitorsValidation, destroyExhibitorsValidation, updateExhibitorsValidation } = require('../domain/exhibitors/validations/exhibitors/');
 const orderValidation = require('../domain/orders/validations');
@@ -16,10 +16,7 @@ const clientsCreateValidator = require("../domain/clients/validations/clientsCre
 const clientsUpdateValidator = require("../domain/clients/validations/clientsUpdateValidator");
 const Auth = require('../middlewares/auth');
 
-
-// routes.post("/login/clients", loginValidator, AuthController.login);
-
-routes.post("/login/clients", ClientsController.loginClient);
+routes.post("/login/clients", loginValidator, AuthController.login);
 
 routes.get("/exhibitors", ExhibitorsController.getAllExhibitors);
 routes.get("/exhibitors/:idExhibitors", getOneExhibitorsValidation, ExhibitorsController.getOneExhibitor);
@@ -45,7 +42,7 @@ routes.delete("/clients/:id_client", Auth, ClientsController.deleteClient);
 routes.get("/orders", Auth, orderController.allOrders);
 routes.get("/orders/:idClient", Auth, orderValidation.clientOrders, orderController.clientOrders);
 routes.get("/orders/:idClient/:idOrder", Auth, orderValidation.detailOrder, orderController.detailOrder);
-routes.post("/orders/:idClient", Auth, orderController.createOrder);
+routes.post("/orders/:idClient", Auth, orderValidation.createOrder, orderController.createOrder);
 routes.patch("/orders/:idClient/:idOrder", Auth, orderValidation.updateOrder, orderController.updateOrder);
 routes.delete("/orders/:idClient/:idOrder", Auth, orderValidation.cancelOrder, orderController.cancelOrder);
 

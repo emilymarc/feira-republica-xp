@@ -23,13 +23,13 @@ const AppRoutes = () => {
                         <Route path="/colares" element={<Colares />}/>
                         <Route path="/pinturas" element={<Pinturas />}/>
                         <Route path="/expositores" element={<Expositores />}/>
-                        <Route path="/expositor/:id" element={<Expositor />}/>
-                        <Route path="/perfil" element={<Profile />}/>
-                        <Route path='/product/:id' element={<Product />} />
+                        <Route path="/expositor/:id" element={<Expositor />}/> {/* :id do expositor */}
+                        <Route path="/perfil" element={<RequireAuth><Profile /></RequireAuth>}/>
+                        <Route path='/product/:id' element={<Product />} /> {/* :id do produto */}
                         <Route path='/carrinho' element={<Carrinho />} />
                         <Route path='/login' element={<Login/>}/>
                         <Route path='/signup' element={<Registration/>}/>
-                        <Route path='/endereco' element={<Address/>}/>
+                        <Route path='/endereco/:id' element={<RequireAuth><Address/></RequireAuth>}/> {/* :id do cliente */}
                     </Routes>
         </BrowserRouter>
     )

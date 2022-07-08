@@ -28,15 +28,15 @@ const Orders = db.define(
       allowNull: false,
       type: DataTypes.STRING
     },
+    district: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
     city: {
       allowNull: false,
       type: DataTypes.STRING
     },
     state: {
-      allowNull: false,
-      type: DataTypes.STRING
-    },
-    country: {
       allowNull: false,
       type: DataTypes.STRING
     },

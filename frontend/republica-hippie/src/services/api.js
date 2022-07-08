@@ -65,3 +65,13 @@ export const loginClient = async (email, password) => {
     toast.warn("Error: "+ error.response.data)
   }
 }
+
+//Orders
+export const createOrder = async (client_id, zip_cod, st, house_number, city, state, district, items_order) => {
+  try{
+    const response = await baseUrl.post(`/orders/${client_id}`, { zip_cod, st, house_number, city, state, district, items_order })
+    return response.data;
+  } catch(error) {
+    toast.warn("Error: "+ error.response.data)
+  }
+}

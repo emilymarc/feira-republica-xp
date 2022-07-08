@@ -5,6 +5,8 @@ const {
     Clients,
     Address
 } = require("../models/");
+const cloudinary = require('../../../config/cloudinary');
+
 
 
 const ClientsController = {
@@ -111,6 +113,10 @@ const ClientsController = {
                 }
             });
 
+            const urlImage = await cloudinary.uploads(req.files[0].path, 'clients');
+
+            console.log(urlImage.imageUrl)
+
             if (clientToUpdate == null) {
                 return res.status(400).json({
                     message: "Cliente não encontrado"
@@ -132,11 +138,11 @@ const ClientsController = {
                 query.email = req.body.email;
             }
 
-            if (req.body.img != null) {
-                query.img = req.body.img;
+            if (urlImage != null) {
+                query.img = urlImage.imageUrl;
             }
 
-            const updatedClient = await Clients.update(
+            const modifyClient = await Clients.update(
                 query, {
                     where: {
                         id_client,
@@ -145,10 +151,21 @@ const ClientsController = {
                 }
             );
 
-            return res.status(200).json({
-                ...clientToUpdate,
-                ...query
-            });
+            if (modifyClient != 1) {
+                return
+            }
+
+            const updatedClient = await Clients.findOne({
+                attributes: {
+                    exclude: ['password', 'data_status']
+                },
+                where: {
+                    id_client,
+                    data_status: 1
+                }
+            })
+
+            return res.status(200).json(updatedClient);
 
         } catch (error) {
             console.log(error);
@@ -190,53 +207,7 @@ const ClientsController = {
         }
     },
 
-    async loginClient(req, res) {
 
-        try {
-            const {
-                email,
-                password
-            } = req.body;
-            const login = await Clients.findOne({
-                where: {
-                    email,
-                    data_status: 1
-                },
-                include: {
-                    model: Address
-                },
-
-            })
-
-
-            if (!login) {
-                return res.status(401).json("Email ou Senha invalido, verique e tente novamente");
-            }
-
-            if (!bcrypt.compareSync(password, login.password)) {
-                return res.status(401).json("Email ou Senha invalido, verique e tente novamente");
-            }
-
-            const {
-                id_client,
-                name,
-                address_clients
-            } = login
-
-
-            return res.json({
-                token: jwt.sign({
-                    id_client,
-                    name,
-                    email,
-                }, process.env.SECRET_KEY, {
-                    expiresIn: process.env.EXPIRES_SECRET_KEY
-                })
-            });
-        } catch (error) {
-            return res.status(500).json(error);
-        }
-    }
 
 }
 

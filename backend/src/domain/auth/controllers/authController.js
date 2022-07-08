@@ -28,7 +28,8 @@ const AuthController = {
                 id: clientsLogged.id_client, 
                 name: clientsLogged.name,
                 email: clientsLogged.email,
-                }, process.env.SECRET_KEY);
+                }, process.env.SECRET_KEY , {
+                    expiresIn: process.env.EXPIRES_SECRET_KEY});
 
             return res.json(token);
         }
