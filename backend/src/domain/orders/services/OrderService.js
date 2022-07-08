@@ -18,9 +18,9 @@ class OrderService {
             zip_cod,
             st,
             house_number,
+            district,
             city,
-            state,
-            country
+            state
         } = data;
 
         let responseOrder = {
@@ -54,9 +54,9 @@ class OrderService {
             zip_cod,
             st,
             house_number,
+            district,
             city,
             state,
-            country,
             data_status: 1,
         });
 
