@@ -19,9 +19,16 @@ export const TitleContainer = styled.div`
 export const Title = styled.h1`
   font-size: 70px;
   color: #C57E5F;
+  @media screen and (max-width: 480px) {
+    font-size: 50px;
+  }
 `
 
 export const TitleContent = styled.p`
   text-align: center;
 `
 
+export const IntroIcon = styled.img`
+  max-width: 60px;
+  max-height: 60px;
+`

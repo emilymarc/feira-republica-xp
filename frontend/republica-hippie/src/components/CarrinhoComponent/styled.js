@@ -161,6 +161,8 @@ export const SubtotalBtn = styled(Link)`
   &:hover{
     transition: .3s;
     background-color: #c58744;
+    color: #fff;
   }
   transition: .3s;
+  text-decoration: none;
 `
