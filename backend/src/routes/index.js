@@ -1,6 +1,10 @@
+//const ShopsController = require('../domain/shops/controllers/shops.controller');
+const ClientsController = require('../domain/clients/controllers/clientsController');
+const orderController = require("../domain/orders/controllers/orders.controller");
+const AuthController = require("../domain/auth/controllers/authController");
+const loginValidator = require("../domain/auth/validations/loginValidator"); 
 const ExhibitorsController = require('../domain/exhibitors/controllers/Exhibitors.controller');
 const { createExhibitorsValidation, getOneExhibitorsValidation, destroyExhibitorsValidation, updateExhibitorsValidation } = require('../domain/exhibitors/validations/exhibitors/');
-const orderController = require("../domain/orders/controllers/orders.controller");
 const orderValidation = require('../domain/orders/validations');
 
 const express = require("express");
@@ -8,11 +12,12 @@ const ProductsController = require('../domain/products/controllers/productsContr
 const ProductsValidation = require('../domain/products/validations');
 
 const routes = express.Router();
-const ClientsController = require("../domain/clients/controllers/clientsController");
 const clientsCreateValidator = require("../domain/clients/validations/clientsCreateValidator");
 const clientsUpdateValidator = require("../domain/clients/validations/clientsUpdateValidator");
 const Auth = require('../middlewares/auth');
 
+
+routes.post("/login/clients", loginValidator, AuthController.login);
 
 // routes.get("/login/shops", products.create); //DELETADO
 routes.post("/login/clients", ClientsController.loginClient);
