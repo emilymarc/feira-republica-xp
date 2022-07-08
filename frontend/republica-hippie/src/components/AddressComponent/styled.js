@@ -163,9 +163,11 @@ export const ButtonAddress = styled(Link)`
     margin-bottom: 50px;
     justify-self: end;
     text-decoration: none;
+    font-weight: 600;
     &:hover {
         transition: .3s;
         background-color: #C57E5F;
+        color: #fff;
     }
     transition: .3s;
 `
