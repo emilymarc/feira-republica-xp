@@ -1,55 +1,77 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./styled";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { createOrder } from "../../services/api";
+import { baseUrl, createOrder } from "../../services/api";
 import FilledElipse from "../../assets/progressbar/FilledEllipse.svg";
 import EmptyElipse from "../../assets/progressbar/EmptyEllipse.svg";
+import { toast } from "react-toastify";
 
-const validationSchema = Yup.object().shape({
+const validationSchema = Yup.object({
   zip_cod: Yup.string().required("Valor é requerido"),
   st: Yup.string().required("Valor é requerido"),
   house_number: Yup.string().required("Valor é requerido"),
+  district: Yup.string().required("Valor é requerido"),
   city: Yup.string().required("Valor é requerido"),
   state: Yup.string().required("Valor é requerido"),
-  country: Yup.string().required("Valor é requerido"),
-  items_order: Yup.array()
-    .of(
-      Yup.object().shape({
-        id_product: Yup.string().required("Valor é requerido"),
-        quantity: Yup.string().required("Valor é requerido"),
-        price_product: Yup.string().required("Valor é requerido"),
-      })
-    ).required("Valor é requerido"),
 });
 
 const AddressComponent = () => {
-  const [order, setOrder] = useState({})
+  const id_client = useSelector((state) => state.user.id_client);
+  const accessToken = useSelector((state) => state.user.accessToken);
+  const { Items } = useSelector((state) => state.cart);
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
+      client_id: id_client,
       zip_cod: "",
       st: "",
       house_number: "",
       city: "",
       state: "",
-      country: "",
-      items_order: [
-        {
-          id_product: "",
-          quantity: "",
-          price_product: "",
-        }
-      ],
+      district: "",
+      items_order: Items.map((item) => ({
+        id_product: item.code_product,
+        quantity: item.quantity,
+        price_product: item.price,
+      })),
     },
     validationSchema,
-    onSubmit: async values => {
-      const { zip_cod, st, house_number, city, state, country, items_order } = values
-      const response = await createOrder(zip_cod, st, house_number, city, state, country, items_order)
-    }
-  })
+    onSubmit: async (values) => {
+      try {
+        const {
+          client_id,
+          zip_cod,
+          st,
+          house_number,
+          city,
+          state,
+          district,
+          items_order,
+        } = values;
+        baseUrl.defaults.headers["Authorization"] = `Bearer ${accessToken}`;
+        await createOrder(
+          client_id,
+          zip_cod,
+          st,
+          house_number,
+          city,
+          state,
+          district,
+          items_order
+        );
+        toast.success("Pedido realizado com sucesso!");
+        navigate("/");
+      } catch (error) {
+        toast.error("Erro ao realizar pedido");
+      }
+    },
+  });
+
   return (
     <S.AddressContainer>
       <S.ProgressBarContainer>
@@ -67,20 +89,33 @@ const AddressComponent = () => {
       </S.ProgressBarContainer>
 
       <S.AddressItemsContainer>
-        <S.AddressForm>
-
+        <S.AddressForm onSubmit={formik.handleSubmit}>
           <S.AddressInput>
             <S.FloatContainer1 className="floatContainer1">
               <S.Input>
                 <S.InputTittle htmlFor="floatField1">CEP</S.InputTittle>
-                <S.FormInput type="text" className="floatContainer1" id="cep" />
+                <S.FormInput
+                  type="text"
+                  className="floatContainer1"
+                  id="zip_cod"
+                  value={formik.values.zip_cod}
+                  onChange={formik.handleChange}
+                />
               </S.Input>
             </S.FloatContainer1>
 
             <S.FloatContainer2 className="floatContainer2">
               <S.Input>
-                <S.InputTittle htmlFor="floatField2">Rua/Lagradouro</S.InputTittle>
-                <S.FormInput type="text" className="floatContainer2" id="rua" />
+                <S.InputTittle htmlFor="floatField2">
+                  Rua/Logradouro
+                </S.InputTittle>
+                <S.FormInput
+                  type="text"
+                  className="floatContainer2"
+                  id="st"
+                  value={formik.values.st}
+                  onChange={formik.handleChange}
+                />
               </S.Input>
             </S.FloatContainer2>
           </S.AddressInput>
@@ -92,7 +127,9 @@ const AddressComponent = () => {
                 <S.FormInput
                   type="text"
                   className="floatContainer3"
-                  id="number"
+                  id="house_number"
+                  value={formik.values.house_number}
+                  onChange={formik.handleChange}
                 />
               </S.Input>
             </S.FloatContainer1>
@@ -103,7 +140,9 @@ const AddressComponent = () => {
                 <S.FormInput
                   type="text"
                   className="floatContainer4"
-                  id="bairro"
+                  id="district"
+                  value={formik.values.district}
+                  onChange={formik.handleChange}
                 />
               </S.Input>
             </S.FloatContainer2>
@@ -116,7 +155,9 @@ const AddressComponent = () => {
                 <S.FormInput
                   type="text"
                   className="floatContainer5"
-                  id="cidade"
+                  id="city"
+                  value={formik.values.city}
+                  onChange={formik.handleChange}
                 />
               </S.Input>
             </S.FloatContainer3>
@@ -127,13 +168,15 @@ const AddressComponent = () => {
                 <S.FormInput
                   type="text"
                   className="floatContainer6"
-                  id="estado"
+                  id="state"
+                  value={formik.values.state}
+                  onChange={formik.handleChange}
                 />
               </S.Input>
             </S.FloatContainer4>
           </S.AddressInputLast>
-          
-          <S.ButtonAddress to="/">Continuar</S.ButtonAddress>
+
+          <S.ButtonAddress type="submit">Continuar</S.ButtonAddress>
         </S.AddressForm>
       </S.AddressItemsContainer>
     </S.AddressContainer>

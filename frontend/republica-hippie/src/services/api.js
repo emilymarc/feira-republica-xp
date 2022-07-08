@@ -67,9 +67,9 @@ export const loginClient = async (email, password) => {
 }
 
 //Orders
-export const createOrder = async (client_id, addressProducts) => {
+export const createOrder = async (client_id, zip_cod, st, house_number, city, state, district, items_order) => {
   try{
-    const response = await baseUrl.post(`/orders/${client_id}`, { client_id, addressProducts })
+    const response = await baseUrl.post(`/orders/${client_id}`, { zip_cod, st, house_number, city, state, district, items_order })
     return response.data;
   } catch(error) {
     toast.warn("Error: "+ error.response.data)
