@@ -133,7 +133,7 @@ export const Input = styled.div`
 `
 
 
-export const ButtonAddress = styled(Link)`
+export const ButtonAddress = styled.button`
     background-color: #D79E62;
     border: none;
     border-radius: 20px;

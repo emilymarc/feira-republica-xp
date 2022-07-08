@@ -74,12 +74,21 @@ const CarrinhoComponent = () => {
                       -
                     </S.ItemIncrementDecrement>
                     <S.ItemQuantity>{item.quantity}</S.ItemQuantity>
-                    <S.ItemIncrementDecrement
+                    {/* {item.stock_product >= 0 
+                    ? <S.ItemIncrementDecrement
                       onClick={() => handleAddItem(item)}
                     >
                       +
                     </S.ItemIncrementDecrement>
+                    : <S.ItemIncrementDecrement disabled={true}>+</S.ItemIncrementDecrement>} */}
+                    <S.ItemIncrementDecrement
+                      onClick={() => handleAddItem(item)}
+                      disabled={item.stock_product <= 0}
+                    >
+                      +
+                    </S.ItemIncrementDecrement>
                   </S.ItemQuantityContainer>
+                  <S.ItemStock>{`${item.stock_product} disponíveis`}</S.ItemStock>
                 </S.ItemInfoContainer>
               </S.ItemContainer>
             ))

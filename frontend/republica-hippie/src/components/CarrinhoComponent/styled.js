@@ -107,7 +107,7 @@ export const ItemQuantityContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 30px;
 `
 
 export const ItemIncrementDecrement = styled.button`
@@ -119,6 +119,11 @@ export const ItemIncrementDecrement = styled.button`
 
 export const ItemQuantity = styled.span`
 
+`
+
+export const ItemStock = styled.span`
+  margin-top: 5px;
+  color: gray;
 `
 
 export const SubtotalContainer = styled.div`
