@@ -1,8 +1,8 @@
 
 const ClientsController = require('../domain/clients/controllers/clientsController');
 const orderController = require("../domain/orders/controllers/orders.controller");
-// const AuthController = require("../domain/auth/controllers/authController");
-// const loginValidator = require("../domain/auth/validations/loginValidator"); 
+const AuthController = require("../domain/auth/controllers/authController");
+const loginValidator = require("../domain/auth/validations/loginValidator"); 
 const ExhibitorsController = require('../domain/exhibitors/controllers/Exhibitors.controller');
 const { createExhibitorsValidation, getOneExhibitorsValidation, destroyExhibitorsValidation, updateExhibitorsValidation } = require('../domain/exhibitors/validations/exhibitors/');
 const orderValidation = require('../domain/orders/validations');
