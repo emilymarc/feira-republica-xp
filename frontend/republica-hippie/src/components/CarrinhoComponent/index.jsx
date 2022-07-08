@@ -11,7 +11,7 @@ import { addItem, decrementItem, removeItem, getTotal } from "../../redux/featur
 const CarrinhoComponent = () => {
   const dispatch = useDispatch();
   dispatch(getTotal());
-  const { Items, totalAmount } = useSelector((state) => state.cart);
+  const { Items, totalAmount, totalItems } = useSelector((state) => state.cart);
   
   const handleAddItem = (Item) => {
     dispatch(addItem(Item));
@@ -67,7 +67,7 @@ const CarrinhoComponent = () => {
             <S.SubtotalPrice>R$ {totalAmount},00</S.SubtotalPrice>
           </S.SubtotalTextContainer>
 
-          <S.SubtotalBtn to="/endereco">Continuar</S.SubtotalBtn>
+          {totalItems > 0 ? <S.SubtotalBtn to="/endereco">Continuar</S.SubtotalBtn> : <span style={{height: '15px'}}/>}
         </S.SubtotalContainer>
 
       </S.CarrinhoContainer>

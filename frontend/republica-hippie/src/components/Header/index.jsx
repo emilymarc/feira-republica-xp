@@ -40,7 +40,7 @@ const Header = () => {
             ></S.Icon>
             {totalItems > 0 ? <S.CartBadge><span style={{color: '#fff'}}>{totalItems}</span></S.CartBadge> : null}
           </S.IconLink>
-          <S.IconLink to="/login">
+          <S.IconLink to="/perfil">
             <S.Icon src={profile} />
           </S.IconLink>
         </S.Menu>

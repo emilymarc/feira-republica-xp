@@ -65,3 +65,8 @@ export const loginClient = async (email, password) => {
     toast.warn("Error: "+ error.response.data)
   }
 }
+
+//Orders
+// export const createOrder = async (client_id, products, ) => {
+
+// }

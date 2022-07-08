@@ -51,8 +51,13 @@ export const AddressProgressText = styled.p`
   font-weight: 400;
 `
 
+export const AddressForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+`
+
 export const AddressItemsContainer = styled.div`
-    border-bottom: 2px solid #D79E62;
     margin-bottom: 25px;
 `
 
@@ -60,17 +65,51 @@ export const AddressInput = styled.div`
     display: flex;
     justify-content: center;
     gap: 20px;
-
 `
 
-export const FloatContainer = styled.div`
+export const AddressInputLast = styled(AddressInput)`
+    border-bottom: 2px solid #D79E62;
+    padding-bottom: 50px;
+`
+
+export const FloatContainer1 = styled.div`
     border: solid 1px #ccc;
     box-sizing: border-box;
     border-radius: 20px;
     margin-bottom: 8px;
     padding: 0 8px;
     position: relative;
-    width: 100%;
+    width: 40%;
+`
+
+export const FloatContainer2 = styled.div`
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    padding: 0 8px;
+    position: relative;
+    width: 60%;
+`
+
+export const FloatContainer3 = styled.div`
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    padding: 0 8px;
+    position: relative;
+    width: 55%;
+`
+
+export const FloatContainer4 = styled.div`
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    padding: 0 8px;
+    position: relative;
+    width: 45%;
 `
 
 export const InputTittle = styled.label`
@@ -89,68 +128,10 @@ export const FormInput = styled.input`
     width: 100%;
 `
 
-export const Input1 = styled.div`
-  width: 50px;
-
+export const Input = styled.div`
+  width: 100%;
 `
 
-export const Input2 = styled.div`
-   width: 100px;
-`
-
-export const Input3 = styled.div`
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: 0;
-    padding: 16px 0 10px;    
-    width: 180px;
-`
-
-export const Input4 = styled.div`
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: 0;
-    padding: 16px 0 10px;    
-    width: 180px;
-`
-
-export const Input5 = styled.div`
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: 0;
-    padding: 16px 0 10px;    
-    width: 180px;
-`
-
-export const Input6 = styled.div`
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: 0;
-    padding: 16px 0 10px;    
-    width: 180px;
-`
-
-export const Input7 = styled.div`
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: 0;
-    padding: 16px 0 10px;    
-    width: 180px;
-`
-
-export const Input8 = styled.div`
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: 0;
-    padding: 16px 0 10px;    
-    width: 180px;
-`
 
 export const ButtonAddress = styled(Link)`
     background-color: #D79E62;
@@ -170,4 +151,5 @@ export const ButtonAddress = styled(Link)`
         color: #fff;
     }
     transition: .3s;
+    align-self: end;
 `
