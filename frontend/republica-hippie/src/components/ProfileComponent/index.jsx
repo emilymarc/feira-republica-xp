@@ -1,28 +1,29 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import foto from '../../assets/Rectangle 144.svg';
+import * as S from './styled';
 
 const ProfileComponent = () => {
     
     return(
-        <div>
-            <h1>MEU PERFIL</h1>
-            <div>
-                <div>
-                    <span>Nome completo:</span>
-                    <span>Email:</span>
-                </div>
+        <S.Container>
+            <S.TitleProfile>MEU PERFIL</S.TitleProfile>
+            <S.InfoContainer>
+                <S.InfoProfile>
+                    <S.InfoItem>Nome completo:</S.InfoItem>
+                    <S.InfoItem>Email:</S.InfoItem>
+                </S.InfoProfile>
 
-                <div>
-                    <Link to="/editarperfil">Editar Perfil</Link>
-                    <button>Sair</button>
-                </div>
+                <S.InfoItem2>
+                    <S.EditLink to="/editarperfil">Editar Perfil</S.EditLink>
+                    <S.LongOutButton>Sair</S.LongOutButton>
+                </S.InfoItem2>
 
                 <div>
                     <img src={foto} alt="Foto Perfil"/>
                 </div>
-            </div>
-        </div>
+            </S.InfoContainer>
+        </S.Container>
     )
     
 }
