@@ -16,10 +16,7 @@ const clientsCreateValidator = require("../domain/clients/validations/clientsCre
 const clientsUpdateValidator = require("../domain/clients/validations/clientsUpdateValidator");
 const Auth = require('../middlewares/auth');
 
-
-// routes.post("/login/clients", loginValidator, AuthController.login);
-
-routes.post("/login/clients", ClientsController.loginClient);
+routes.post("/login/clients", loginValidator, AuthController.login);
 
 routes.get("/exhibitors", ExhibitorsController.getAllExhibitors);
 routes.get("/exhibitors/:idExhibitors", getOneExhibitorsValidation, ExhibitorsController.getOneExhibitor);
