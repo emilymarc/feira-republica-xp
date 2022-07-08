@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import * as S from "./styled";
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import { loginClient, baseUrl } from "../../services/api";
+import jwt_decode from 'jwt-decode';
 import logo from '../../assets/logofooter.png';
+
 
 const validationSchema = Yup.object({
     email: Yup.string().email("E-mail não válido").required("Valor é requerido"),
@@ -11,6 +15,7 @@ const validationSchema = Yup.object({
 });
 
 const LoginForm = () => {
+    const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -18,7 +23,16 @@ const LoginForm = () => {
         },
         validationSchema,
         onSubmit: async values => {
-            await loginUser(values)
+            const { email, password } = values;
+            const accessTokenObject = await loginClient(email, password);
+            const accessToken = accessTokenObject.token;
+            console.log(accessToken);
+            const decoded = jwt_decode(accessToken);
+            localStorage.setItem('clientToken', accessToken);
+            localStorage.setItem('clientInfo', JSON.stringify(decoded));
+            localStorage.setItem('isLogged', true);
+            baseUrl.defaults.headers["Authorization"] = `Bearer ${accessToken}`
+            navigate('/');
             alert("Seja bem-vindo!")
         }
     })
@@ -33,7 +47,7 @@ const LoginForm = () => {
             <S.FormContainer onSubmit={formik.handleSubmit}>
                 <S.TittleForm>LOGIN</S.TittleForm>
                 <S.FloatContainer className="floatContainer1">
-                    <S.InputTittle for="floatField1">Email</S.InputTittle>
+                    <S.InputTittle htmlFor="floatField1">Email</S.InputTittle>
                     <S.FormInput 
                     type="email" 
                     className="floatContainer1"
@@ -43,7 +57,7 @@ const LoginForm = () => {
                 </S.FloatContainer>
                 {formik.errors.email && <span>{formik.errors.email}</span>}
                 <S.FloatContainer className="floatContainer2">
-                    <S.InputTittle for="floatField2">Senha</S.InputTittle>
+                    <S.InputTittle htmlFor="floatField2">Senha</S.InputTittle>
                     <S.FormInput 
                     type="password" className="floatContainer2"
                     id="password"
@@ -52,7 +66,7 @@ const LoginForm = () => {
                 </S.FloatContainer>
                 {formik.errors.password && <span>{formik.errors.password}</span>}
                 <S.FormButton type="submit">Entrar</S.FormButton>
-                <S.LinkSingUp to="/singup">Cadastre-se</S.LinkSingUp>
+                <S.LinkSingUp to="/signup">Cadastre-se</S.LinkSingUp>
             </S.FormContainer>
 
         </S.Container>

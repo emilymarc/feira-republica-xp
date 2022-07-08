@@ -67,7 +67,7 @@ const CarrinhoComponent = () => {
             <S.SubtotalPrice>R$ {totalAmount},00</S.SubtotalPrice>
           </S.SubtotalTextContainer>
 
-          <S.SubtotalBtn>Continuar</S.SubtotalBtn>
+          <S.SubtotalBtn to="/endereco">Continuar</S.SubtotalBtn>
         </S.SubtotalContainer>
 
       </S.CarrinhoContainer>

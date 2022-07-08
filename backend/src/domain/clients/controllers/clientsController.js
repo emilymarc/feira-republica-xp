@@ -229,7 +229,6 @@ const ClientsController = {
                     id_client,
                     name,
                     email,
-                    address_clients
                 }, process.env.SECRET_KEY, {
                     expiresIn: process.env.EXPIRES_SECRET_KEY
                 })

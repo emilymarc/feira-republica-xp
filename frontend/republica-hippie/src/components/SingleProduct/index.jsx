@@ -15,7 +15,6 @@ import { addItem } from "../../redux/feature/cartSlice";
 import * as S from "./styled";
 import style from "./style.css";
 
-
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -32,7 +31,6 @@ const SingleProduct = ({ slides }) => {
     
   }, [setProduct]);
 
-  console.log(`Product ${product}`);
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
   const length = slides.length;
