@@ -5,6 +5,8 @@ const {
     Clients,
     Address
 } = require("../models/");
+const cloudinary = require('../../../config/cloudinary');
+
 
 
 const ClientsController = {
@@ -35,6 +37,26 @@ const ClientsController = {
             res.status(400).json("Erro ao criar Cliente");
         }
     },
+
+    // async registerImageClaudinary(images, arrayUrl) {
+    //     images.forEach(async (item, index) => {
+    //         const urlImage = await cloudinary.uploads(item.path, 'products');
+
+    //         arrayUrl[index] = await urlImage
+            
+    //     })
+
+
+    //     const waitingInsertImages = () => new Promise((resolve, reject) => {
+    //         setTimeout(() => resolve(arrayUrl), 3000)
+    //     })
+
+    //     const newArrayUrls = await waitingInsertImages().then((res) => {
+
+    //         return res
+    //     })
+    //     return newArrayUrls
+    // },
 
     async listClientPerId(req, res) {
         try {
@@ -111,6 +133,10 @@ const ClientsController = {
                 }
             });
 
+            const urlImage = await cloudinary.uploads(req.files[0].path, 'clients');
+
+            console.log(urlImage.imageUrl)
+
             if (clientToUpdate == null) {
                 return res.status(400).json({
                     message: "Cliente não encontrado"
@@ -132,11 +158,11 @@ const ClientsController = {
                 query.email = req.body.email;
             }
 
-            if (req.body.img != null) {
-                query.img = req.body.img;
+            if (urlImage != null) {
+                query.img = urlImage.imageUrl;
             }
 
-            const updatedClient = await Clients.update(
+            const modifyClient = await Clients.update(
                 query, {
                     where: {
                         id_client,
@@ -145,10 +171,21 @@ const ClientsController = {
                 }
             );
 
-            return res.status(200).json({
-                ...clientToUpdate,
-                ...query
-            });
+            if (modifyClient != 1) {
+                return
+            }
+
+            const updatedClient = await Clients.findOne({
+                attributes: {
+                    exclude: ['password', 'data_status']
+                },
+                where: {
+                    id_client,
+                    data_status: 1
+                }
+            })
+
+            return res.status(200).json(updatedClient);
 
         } catch (error) {
             console.log(error);
@@ -190,7 +227,7 @@ const ClientsController = {
         }
     },
 
-    
+
 
 }
 
