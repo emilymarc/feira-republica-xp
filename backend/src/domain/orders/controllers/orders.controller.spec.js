@@ -8,7 +8,7 @@ const {
 const orderController = require("./orders.controller");
 const clientToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF9jbGllbnQiOjExLCJuYW1lIjoiVG9uaW8gTHVtYSIsImVtYWlsIjoiVG9uaW8uTHVtYUBnbWFpbC5jb20iLCJhZGRyZXNzX2NsaWVudHMiOltdLCJpYXQiOjE2NTcxOTk2NjUsImV4cCI6MzYwMDE2NTcxOTYwNjV9.-SimWUD8LuJo5h3xo3ZH4IZpWYxf350tqxDoI5bEqjU";
 const clientID = 2;
-const idOrderOfClient = 18
+const idOrderOfClient = 14
 
 describe('No controller, ao executar a função', () => {
 
@@ -53,8 +53,6 @@ describe('No controller, ao executar a função', () => {
             expect(response.body.id_client_order).toBe(clientID)
             expect(response.body.data_status).toBe(1)
             expect(response.body.item_orders).not.toBeNull()
-
-
 
         })
     })
