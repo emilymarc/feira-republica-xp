@@ -6,9 +6,9 @@ const PageIntro = (props) => {
     <>
       <S.IntroSection>
         <S.TitleContainer>
-          <img src={props.titleIcon} alt='Icon cerâmica' />
+          <S.IntroIcon src={props.titleIcon} alt='Icon' />
           <S.Title>{props.title}</S.Title>
-          <img src={props.titleIcon} alt='Icon cerâmica' />
+          <S.IntroIcon src={props.titleIcon} alt='Icon' />
         </S.TitleContainer>
           
         <S.TitleContent>{props.introContent}</S.TitleContent>

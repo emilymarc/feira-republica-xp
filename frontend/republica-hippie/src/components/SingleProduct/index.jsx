@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import IconReturn from "../../assets/IconReturn.svg";
@@ -11,12 +10,16 @@ import LeftArrow from "../../assets/arrow/LeftArrow.svg";
 import { baseUrl, getProductsById } from "../../services/api";
 import { toast } from "react-toastify"; 
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/feature/cartSlice";
 import * as S from "./styled";
 import style from "./style.css";
+import ImgArray from '../ImgArray'
 
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+
   useEffect(() => {
     const loadProduct = async () => {
       try {
@@ -29,10 +32,11 @@ const SingleProduct = ({ slides }) => {
     loadProduct();
   }, [setProduct]);
 
+  console.log(product)
 
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
-  const length = slides.length;
+  const length = product.image_products?.length;
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
@@ -44,6 +48,11 @@ const SingleProduct = ({ slides }) => {
   }
   
   const [like, setLike] = useState(false);
+  
+  const dispatch = useDispatch();
+  const handleAddItem = (Item) => {
+    dispatch(addItem(Item));
+  }
 
   return (
     <S.Container>
@@ -54,9 +63,10 @@ const SingleProduct = ({ slides }) => {
       </S.ReturnContainer>
 
       <S.LeftContainer>
+
         {/* Carousel */}
         <section className="slider">
-          {SliderData.map((slide, index) => {
+          {product.image_products?.map((slide, index) => {
             return (
               <div
                 className={`${
@@ -65,7 +75,7 @@ const SingleProduct = ({ slides }) => {
                 key={index}
               >
                 {index === current && (
-                  <img src={slide.image} alt="travel image" className="image" />
+                  <img src={slide.url_img} alt="travel image" className="image" />
                 )}
               </div>
             );
@@ -106,8 +116,8 @@ const SingleProduct = ({ slides }) => {
         </S.PriceLikeContainer>
 
         <S.BtnContainer>
-          <S.BtnComprar>Comprar agora</S.BtnComprar>
-          <S.BtnCarrinho>Adicionar ao carrinho</S.BtnCarrinho>
+          <S.BtnComprar onClick={() => {handleAddItem(product); navigate('/carrinho')}}>Comprar agora</S.BtnComprar>
+          <S.BtnCarrinho onClick={() => handleAddItem(product)}>Adicionar ao carrinho</S.BtnCarrinho>
         </S.BtnContainer>
 
         <S.ProductDescription>
@@ -128,6 +138,7 @@ const SingleProduct = ({ slides }) => {
           </S.DescriptionButton>
         </S.ProductDescription>
       </S.RightContainer>
+
     </S.Container>
   );
 };
