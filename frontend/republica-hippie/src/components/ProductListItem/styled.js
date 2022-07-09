@@ -13,6 +13,7 @@ export const Container = styled(Link)`
     transition: .3s;
     background-color: #e0d0bf;
   }
+
 `
 
 export const ProductImage = styled.img`
