@@ -4,6 +4,9 @@ export const PagContainer = styled.section`
   max-width: 1286px;
   margin: 0 auto;
   padding-top: 1px;
+  @media screen and (max-width: 1300px){
+    padding: 0 10px
+  }
 `
 
 export const ProgressBarContainer = styled.div`
@@ -23,6 +26,12 @@ export const PagProgress1 = styled.img`
   left: 1.9%; bottom: 0; 
   top: 10%;
   margin: -25px;
+  @media screen and (max-width: 970px){
+    left: 2.6%;
+  }
+  @media screen and (max-width: 670px){
+    left: 2.8%;
+  }
 `
 
 export const PagProgress2 = styled.img`
@@ -37,6 +46,9 @@ export const PagProgress3 = styled.img`
   left: 100%; bottom: 0; 
   top: 10%;
   margin: -25px;
+  @media screen and (max-width: 1300px){
+    left: 99.3%
+  }
 `
 
 export const PagProgressTextContainer = styled.div`
@@ -69,12 +81,22 @@ export const InfoItemContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @media screen and (max-width: 430px){
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+  }
 `
 
 export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @media screen and (max-width: 430px){
+      flex-direction: row;
+      align-items: center;
+      gap: 100px;
+  }
 `
 
 export const Info = styled.p`
