@@ -30,9 +30,10 @@ export const InputContainer = styled.div`
 `
 
 export const InputEdit = styled.input`
+    outline: none;
     border-radius: 10px;
     display: flex;
-    padding: 5px 40px;
+    padding: 8px 40px 8px 4px;
     border: solid 1px #ccc;
 `
 

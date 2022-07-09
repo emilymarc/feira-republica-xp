@@ -15,6 +15,7 @@ import Address from '../pages/Address';
 import Pagamento from '../pages/Pagamento';
 import Edit from '../pages/EditProfile';
 import RequireAuth from "./RequiredAuth";
+import Search from '../pages/Search';
 
 const AppRoutes = () => {
     return (
@@ -34,6 +35,7 @@ const AppRoutes = () => {
                         <Route path='/endereco/:id' element={<RequireAuth><Address/></RequireAuth>}/> {/* :id do cliente */}
                         <Route path='/checkout/:idClient/:idOrder' element={<RequireAuth><Pagamento/></RequireAuth>}/> {/* :id do cliente */}
                         <Route path='/editarperfil' element={<Edit/>}/>
+                        <Route path='/search/:term' element={<Search/>}/>
                     </Routes>
         </BrowserRouter>
     )

@@ -32,7 +32,7 @@ export const LogoLink = styled(Link)`
     }
 `
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
     display: flex;
     border: 1px solid #5AB9F0;
     border-radius: 20px;
@@ -157,4 +157,8 @@ export const ContainerExpositores = styled.div`
     }
 `
 
-
+export const SearchButton = styled.button`
+    background: none;
+    border: none;
+    outline: none;
+`
