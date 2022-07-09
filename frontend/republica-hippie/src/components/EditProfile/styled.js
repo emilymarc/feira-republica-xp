@@ -27,6 +27,13 @@ export const InputContainer = styled.div`
     justify-content: space-between;
     gap: 300px;
     margin-bottom: 20px;
+    @media screen and (max-width: 1080px){
+        gap: 100px;
+    }
+    @media screen and (max-width: 580px){
+        flex-direction: column;
+        gap: 30px;
+    }
 `
 
 export const InputEdit = styled.input`
@@ -54,6 +61,12 @@ export const LabelFile = styled.label`
     text-align: center;
     display: block;
     cursor: pointer;
+    @media screen and (max-width: 1080px){
+        margin: 0 auto;
+    }
+    @media screen and (max-width: 580px){
+        margin-top: 20px;
+    }
 `
 
 export const InputFile = styled.input`
@@ -77,4 +90,11 @@ export const ButtonEdit = styled.button`
         background-color: #C57E5F;
     }
     transition: .3s;
+    @media screen and (max-width: 1080px){
+        padding: 10px 0;
+        margin: 25px auto;
+    }
+    @media screen and (max-width: 580px){
+       width: 90%;
+    }
 `
