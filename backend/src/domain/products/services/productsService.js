@@ -231,51 +231,68 @@ const ProductsService = {
     },
 
     async registerImagesClaudinary(images, arrayUrl) {
-        images.forEach(async (item, index) => {
-            const urlImage = await cloudinary.uploads(item.path, 'products');
+        try {
+            if (!images) {
+                return
+            }
 
-            arrayUrl[index] = await urlImage
-            
-        })
+            images.forEach(async (item, index) => {
+                const urlImage = await cloudinary.uploads(item.path, 'products');
+
+                arrayUrl[index] = await urlImage
+
+            })
 
 
-        const waitingInsertImages = () => new Promise((resolve, reject) => {
-            setTimeout(() => resolve(arrayUrl), 3000)
-        })
+            const waitingInsertImages = () => new Promise((resolve, reject) => {
+                setTimeout(() => resolve(arrayUrl), 3000)
+            })
 
-        const newArrayUrls = await waitingInsertImages().then((res) => {
+            const newArrayUrls = await waitingInsertImages().then((res) => {
 
-            return res
-        })
-        return newArrayUrls
+                return res
+            })
+            return newArrayUrls
+
+        } catch (error) {
+            return
+        }
+
     },
 
     async registerCategoryAndImgs(images, product) {
-        images.forEach(async (item, index) => {
-            const newImage = await ImagesProducts.create({
-                id_product_img: product.code_product,
-                url_img: item.imageUrl,
+        try {
+            if (images) {
+                images.forEach(async (item, index) => {
+                    const newImage = await ImagesProducts.create({
+                        id_product_img: product.code_product,
+                        url_img: item.imageUrl,
+                        data_status: 1
+                    });
+
+                    product.imgs[index] = await newImage.dataValues
+                })
+            }
+
+            product.category = await Categories.create({
+                id_product_category: product.code_product,
+                name: product.category,
                 data_status: 1
             });
 
-            product.imgs[index] = await newImage.dataValues
-        })
+            const waitingInsertItems = () => new Promise((resolve, reject) => {
+                setTimeout(() => resolve(product), 1500)
+            })
 
-        product.category = await Categories.create({
-            id_product_category: product.code_product,
-            name: product.category,
-            data_status: 1
-        });
+            const newResponseProduct = await waitingInsertItems().then((res) => {
 
-        const waitingInsertItems = () => new Promise((resolve, reject) => {
-            setTimeout(() => resolve(product), 1500)
-        })
+                return res
+            })
+            return newResponseProduct
 
-        const newResponseProduct = await waitingInsertItems().then((res) => {
-
-            return res
-        })
-        return newResponseProduct
+        } catch (error) {
+            return
+        }
     },
 
     async alterProduct(data, params) {
@@ -302,7 +319,7 @@ const ProductsService = {
                 data_status: 1
             },
         });
-        
+
         const alteredProduct = this.findOne(params)
 
         return alteredProduct
