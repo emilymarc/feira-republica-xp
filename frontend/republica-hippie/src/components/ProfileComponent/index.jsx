@@ -22,16 +22,17 @@ const ProfileComponent = () => {
                 <S.InfoProfile>
                     <S.InfoItem>Nome completo:</S.InfoItem>
                     <S.InfoItem>Email:</S.InfoItem>
+                    <S.EditLink to="/editarperfil">Editar Perfil</S.EditLink>
                 </S.InfoProfile>
 
                 <S.InfoItem2>
-                    <S.EditLink to="/editarperfil">Editar Perfil</S.EditLink>
-                    <S.LongOutButton onClick={handleSignOut}>Sair</S.LongOutButton>
+                    <S.LongOutButton onClick={handleSignOut}>Sair</S.LongOutButton>      
                 </S.InfoItem2>
 
-                <div>
-                    <img src={foto} alt="Foto Perfil"/>
-                </div>
+                <S.FotoContainer>
+                    <S.Foto src={foto} alt="Foto Perfil"/>
+                </S.FotoContainer>
+
             </S.InfoContainer>
         </S.Container>
     )
