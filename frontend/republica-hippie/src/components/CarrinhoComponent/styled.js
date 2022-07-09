@@ -5,6 +5,9 @@ export const CarrinhoContainer = styled.section`
   max-width: 1286px;
   margin: 0 auto;
   padding-top: 1px;
+  @media screen and (max-width: 1300px){
+    padding: 0 10px
+  }
 `
 
 export const ProgressBarContainer = styled.div`
@@ -24,6 +27,12 @@ export const CartProgress1 = styled.img`
   left: 1.9%; bottom: 0; 
   top: 10%;
   margin: -25px;
+  @media screen and (max-width: 970px){
+    left: 2.6%;
+  }
+  @media screen and (max-width: 670px){
+    left: 2.8%;
+  }
 `
 
 export const CartProgress2 = styled.img`
@@ -35,9 +44,12 @@ export const CartProgress2 = styled.img`
 
 export const CartProgress3 = styled.img`
   position: absolute;
-  left: 100%; bottom: 0; 
+  left: 99.4%; bottom: 0; 
   top: 10%;
   margin: -25px;
+  @media screen and (max-width: 1300px){
+    left: 99.3%
+  }
 `
 
 export const CartProgressTextContainer = styled.div`
@@ -63,6 +75,12 @@ export const ItemContainer = styled.div`
   align-items: start;
   gap: 30px;
   max-height: 133.33px;
+  margin-bottom: 60px;
+  @media screen and (max-width: 490px){
+    max-height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 export const IconTrash = styled.img`
@@ -78,16 +96,25 @@ export const IconTrash = styled.img`
       background-color: #F8CE78;
       transition: .3s;
   }
+  @media screen and (max-width: 490px){
+    margin-left: -65px;
+  }
 `
 
 export const ItemImg = styled.img`
   max-width: 200px;
+  @media screen and (max-width: 490px){
+    margin-left: -20px;
+  }
 `
 
 export const ItemInfoContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  @media screen and (max-width: 490px){
+    width: 200px
+  }
 `
 
 export const ItemTitle = styled.h4`
@@ -138,6 +165,9 @@ export const SubtotalTextContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   gap: 10vw;
+  @media screen and (max-width: 660px){
+    justify-content: center;
+  }
 `
 
 export const SubtotalText = styled.h4`
@@ -170,4 +200,9 @@ export const SubtotalBtn = styled(Link)`
   }
   transition: .3s;
   text-decoration: none;
+  @media screen and (max-width: 660px){
+    align-self: center;
+    margin-top: 35px;
+  }
+
 `
