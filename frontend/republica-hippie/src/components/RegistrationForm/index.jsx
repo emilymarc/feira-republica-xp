@@ -39,7 +39,7 @@ const RegistrationForm = () => {
         <S.Container>
             <S.TittleForm>CADASTRO</S.TittleForm>
 
-            <form onSubmit={formik.handleSubmit}>
+            <S.FormContainer onSubmit={formik.handleSubmit}>
                 <S.FloatContainer className="floatContainer1">
                     <S.InputTittle htmlFor="floatField1 ">Nome Completo</S.InputTittle>
                     <S.InputName 
@@ -94,57 +94,8 @@ const RegistrationForm = () => {
                     <S.FormButton type="submit">Cadastrar</S.FormButton>
                 </S.BtnContainer>
                 
-            </form>
+            </S.FormContainer>
         </S.Container>
-
-        // <>
-        //     <S.Container>
-        //         <span className='mb-3'>CADASTRO</span>
-        //         <Form onSubmit={formik.handleSubmit}>
-        //             <Form.Group className="mb-3">
-        //                 <input
-        //                     id="name"
-        //                     type="text"
-        //                     placeholder="nome"
-        //                     value={formik.values.name}
-        //                     onChange={formik.handleChange}>
-        //                 </input>
-        //                 {formik.errors.name && <span>{formik.errors.name}</span>}
-        //             </Form.Group>
-        //             <Form.Group className="mb-3">
-        //                 <input
-        //                     id="email"
-        //                     type="email"
-        //                     placeholder="email"
-        //                     value={formik.values.email}
-        //                     onChange={formik.handleChange}>
-        //                 </input>
-        //                 {formik.errors.email && <span>{formik.errors.email}</span>}
-        //             </Form.Group>
-        //             <Form.Group className="mb-3">
-        //                 <input
-        //                     id="password"
-        //                     type="password"
-        //                     placeholder="senha"
-        //                     value={formik.values.password}
-        //                     onChange={formik.handleChange}
-        //                     >
-        //                 </input>
-        //                 {formik.errors.password && <span>{formik.errors.password}</span>}
-        //             </Form.Group>
-        //             <Form.Group className="mb-3">
-        //                 <input
-        //                     id="confirmPassword"
-        //                     type="password"
-        //                     placeholder="confirmar senha">
-        //                 </input>
-        //             </Form.Group>
-        //             <Button type="submit">
-        //                 entrar
-        //             </Button>
-        //         </Form>
-        //     </S.Container>
-        // </>
     )
 }
 

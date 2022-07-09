@@ -7,11 +7,8 @@ export const Container = styled.main`
     background-image: url(${img});   
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-
 `
 
 export const Logo = styled(Link)`
@@ -19,7 +16,10 @@ export const Logo = styled(Link)`
     justify-content: flex-start;
     width: 220px;
     height: 100px;
-    margin: 50px 0px 0px 50px;
+    margin: 50px 0px 50px 20px;
+    @media screen and (max-width: 1080px){
+        margin: 60px auto;
+    }
 `
 
 export const FormContainer = styled.form`
@@ -34,6 +34,10 @@ export const FormContainer = styled.form`
     height: 610px;
     margin: 0 auto;
     border-radius: 20px;
+    @media screen and (max-width: 580px){     
+        width: 320px;
+        height: 500px;
+    }
 `
 
 export const TittleForm = styled.h2`
