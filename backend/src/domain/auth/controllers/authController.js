@@ -31,7 +31,7 @@ const AuthController = {
                 }, process.env.SECRET_KEY , {
                     expiresIn: process.env.EXPIRES_SECRET_KEY});
 
-            return res.json(token);
+            return res.status(201).json(token);
         }
         catch(error){
             console.error(error);
