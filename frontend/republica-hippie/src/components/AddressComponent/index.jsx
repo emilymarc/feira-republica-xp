@@ -54,7 +54,7 @@ const AddressComponent = () => {
           items_order,
         } = values;
         baseUrl.defaults.headers["Authorization"] = `Bearer ${accessToken}`;
-        await createOrder(
+        const res = await createOrder(
           client_id,
           zip_cod,
           st,
@@ -65,7 +65,7 @@ const AddressComponent = () => {
           items_order
         );
         toast.success("Pedido realizado com sucesso!");
-        navigate("/pagamento");
+        navigate(`/checkout/${id_client}/${res.order}`);
       } catch (error) {
         toast.error("Erro ao realizar pedido");
       }
