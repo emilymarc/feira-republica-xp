@@ -70,7 +70,7 @@ const ExpositorComponent = () => {
                     productId={product.id}
                     productTitle={product.name}
                     productValue={product.price.replace(".", ",")}
-                    productImg={'http://res.cloudinary.com/republica-hippie/image/upload/v1656943893/products/xupatrcvfqn9evgglpff.jpg'}
+                    productImg={!product.image_products[0].url_img ? null : product.image_products[0].url_img}
                   ></ProductListItem>
                 )
               })}
