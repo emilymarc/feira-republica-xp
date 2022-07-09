@@ -37,9 +37,8 @@
   
   O Projeto foi desenvolvido com as seguintes tecnologias:
   
-  * JavaScript *CSS *React *Styled Components *Redux *Node JS *Sequelize
+  * JavaScript * CSS * React * Styled Components * Redux * Node JS * Sequelize
 
-  
   O time de Front-ends utilizou JavaScript, CSS, React, Styled Components e Redux. A linguagem de marcação de texto escolhida foi HTML. 
   
   O time de Back-ends utilizou JavaScript, o framework Node JS, o ORM Sequelize. 
@@ -56,7 +55,7 @@
   
   O Deploy doi efetuado por meio do aplicativo Heroku, neste [link]()
   
-  
+
 ### 4 - Como utilizar  :surfer: 
 
   A documentação da API pode ser conferida neste [link](https://documenter.getpostman.com/view/8182997/UzJPMafP)
