@@ -117,6 +117,7 @@ export const InfoText = styled.p`
     font-size: 18px;
     margin-top: 100px;
     border-bottom: 2px solid #D79E62;
+    padding-bottom: 30px;
 `
 
 export const ButtonContainer = styled.div`
