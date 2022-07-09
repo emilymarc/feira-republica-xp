@@ -1,7 +1,7 @@
 const supertest = require("supertest");
 const { app } = require("../../..");
 const ExhibitorsController = require("./Exhibitors.controller");
-const idExhibitorsValid = 7
+const idExhibitorsValid = 3
 const createEmail = `testExhibitors${idExhibitorsValid}@gmail${idExhibitorsValid*22}.com`
 const updateEmail = `testExhibitors${idExhibitorsValid}@gmail${idExhibitorsValid*33}.com`
 
