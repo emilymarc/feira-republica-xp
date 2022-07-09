@@ -1,30 +1,90 @@
-import React from 'react'
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react'
 import * as S from './styled'
 import foto from '../../assets/Rectangle 144.svg';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Dropzone from '../Dropzone';
+import { baseUrl } from '../../services/api';
+import { useSelector } from 'react-redux';
+import { useParams, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const EditProfile= () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const accessToken = useSelector((state) => state.user.accessToken);
+  const [selectedFile, setSelectedFile] = useState();
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+
+    setFormData({ ...formData, [name]: value });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const { name, email, password } = formData;
+
+    const data = new FormData();
+
+    data.append('name', name);
+    data.append('email', email);
+    data.append('password', password);
+
+    if (selectedFile) {
+      data.append('img', selectedFile);
+    }
+
+    baseUrl.defaults.headers["Authorization"] = `Bearer ${accessToken}`;
+    try{
+      await baseUrl.patch(`/clients/${id}`, data);
+      toast.success('Perfil atualizado com sucesso!');
+      navigate(`/perfil/${id}`);
+    } catch(error) {
+      toast.error(`Algo deu errado ao tentar atualizar. Verifique as informações e tente novamente`);
+    }
+  
+  }
+
   return (
     <S.EditContainer>
-      <S.TitleEdit>MEU PERFIL</S.TitleEdit> 
-      
-      <S.FormEdit>
+
+      <S.FormEdit onSubmit={handleSubmit}>
         <S.InputContainer>
           <S.FormLabel>Nome Completo</S.FormLabel>
           <S.InputEdit
-          type="text"/>
+          type="text"
+          name="name"
+          id="name"
+          onChange={handleInputChange}
+          />
+          
         </S.InputContainer>
 
         <S.InputContainer>
           <S.FormLabel>Email</S.FormLabel>
           <S.InputEdit
-          type="email"/>
+          type="email"
+          name="email"
+          id="email"
+          onChange={handleInputChange}
+          />
         </S.InputContainer>
 
         <S.InputContainer>
           <S.FormLabel>Senha</S.FormLabel>
           <S.InputEdit
-          type="password"/>
+          type="password"
+          name="password"
+          id="password"
+          onChange={handleInputChange}
+          />
         </S.InputContainer>
 
         <S.InputContainer>
@@ -33,13 +93,10 @@ const EditProfile= () => {
           type="password"/>
         </S.InputContainer>
 
-        <S.LabelFile for="inputTag">Enviar Foto</S.LabelFile>
-        <S.InputFile id='inputTag'
-          type="file" accept="image/png, image/jpg, image/jpeg"/>
-
+        <Dropzone onFileUploaded={setSelectedFile}/>
         <S.ButtonEdit type="submit">Confirmar</S.ButtonEdit>
-
       </S.FormEdit>
+
     </S.EditContainer>
   )
 }
