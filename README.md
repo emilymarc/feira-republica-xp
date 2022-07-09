@@ -2,7 +2,7 @@
 
 ## Projeto de Conclusão do Curso Gama Experience Turma 41 - XP41
 
-**1 - Objetivo do Trabalho:**  :bulb:
+### 1 - Objetivo do Trabalho  :bulb:
 
    Na primeira reunião do trabalho os integrantes do grupo decidiram pelo projeto Feira da República. 
    
@@ -19,7 +19,7 @@
    O cliente, por sua vez, se cadastra na plataforma e, logado, pode comprar produtos.
    
    
-**2 - Organização e metodologia:**
+### 2 - Organização e metodologia :office:
   
   O projeto foi elaborado utilizando a metodologia ágil kanban. Para tanto, além do respeito aos cerimoniais exigidos pelo método e ensinados durante o curso, a squad optou pelo uso do aplicativo Trello como ferramenta de registro e organização visual. 
   
@@ -33,9 +33,14 @@
 
  [Trello](url aqui)
 
-**3 - O código:**
+### 3 - O código :computer:
   
-  O time de Front-ends utilizou HTML, JavaScript, CSS, React e Styled Components e Redux.
+  O Projeto foi desenvolvido com as seguintes tecnologias:
+  
+  *JavaScript *CSS *React *Styled Components *Redux *Node JS *Sequelize
+
+  
+  O time de Front-ends utilizou JavaScript, CSS, React, Styled Components e Redux. A Linguagem de marcação de texto escolhida foi HTML. 
   
   O time de Back-ends utilizou JavaScript, o framework Node JS, o ORM Sequelize. 
   
@@ -52,23 +57,24 @@
   O Deploy doi efetuado por meio do aplicativo Heroku, neste [link]()
   
   
-**4 - Como utilizar:**
+### 4 - Como utilizar: :surfer: 
 
   A documentação da API pode ser conferida neste [link](https://documenter.getpostman.com/view/8182997/UzJPMafP)
   
   Segue vídeo explicando o uso da nossa [API]()
   
   Para **clonar o projeto** :
-  $ git clone https://github.com/emilymarc/feira-republica-xp.git 
+  
+  ```$ git clone https://github.com/emilymarc/feira-republica-xp.git```
   
   Para **iniciar o backend** :
-  $ npm install -g
+  ```$ npm install -g```
   
   Para **iniciar o frontend** :
-  $ npm start
+  ```$ npm start```
   
 
-**5 - Integrantes da equipe:**
+### 5 - Integrantes da equipe: :crown:
    
    O projeto foi desenvolvido pelos: 
     front-ends:
