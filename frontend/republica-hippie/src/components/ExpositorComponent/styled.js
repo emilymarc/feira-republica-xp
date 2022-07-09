@@ -22,6 +22,12 @@ export const ExpositorCite = styled.cite`
 
 export const ExpositorImg = styled.img`
   margin: 45px auto;
+  width: 350px;
+  height: 350px;
+  @media screen and (max-width: 450px) {
+    width: 300px;
+    height: 300px;
+  }
 `
 
 export const ExpositorDescription = styled.p`

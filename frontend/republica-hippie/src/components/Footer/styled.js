@@ -66,6 +66,9 @@ export const Content = styled.p`
     font-size: 18px;
     line-height: 21px;
     font-weight: 500;
+    @media screen and (max-width: 380px) {
+        font-size: 16px;
+    }
 `
 
 export const ContactSocialIcons = styled.div`
@@ -73,6 +76,9 @@ export const ContactSocialIcons = styled.div`
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
+    @media screen and (max-width: 380px) {
+        padding-left: 25px;
+    }
 `
 
 export const Contact = styled.div`
@@ -83,4 +89,7 @@ export const ContactTitle = styled.h4`
     color: #fff;
     font-weight: 600;
     font-size: 20px;;
+    @media screen and (max-width: 380px) {
+        padding-left: 25px;
+    }
 `

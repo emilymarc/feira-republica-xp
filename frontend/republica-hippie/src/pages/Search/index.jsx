@@ -27,7 +27,7 @@ const Search = () => {
     <>
         <Header></Header>
           <DetailedBg>
-            <h3 style={{textAlign: 'center', paddingTop: '40px'}}>Resultados da pesquisa:</h3>
+            <h3 style={{textAlign: 'center', paddingTop: '40px', marginBottom: '40px'}}>Resultados da pesquisa:</h3>
             <ProductListItemContainer>
             {products.length > 0 ? 
               (products.map(product => {
