@@ -14,10 +14,12 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/feature/cartSlice";
 import * as S from "./styled";
 import style from "./style.css";
+import ImgArray from '../ImgArray'
 
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+
   useEffect(() => {
     const loadProduct = async () => {
       try {
@@ -28,12 +30,13 @@ const SingleProduct = ({ slides }) => {
       }
     }
     loadProduct();
-    
   }, [setProduct]);
+
+  console.log(product)
 
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
-  const length = slides.length;
+  const length = product.image_products?.length;
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
@@ -63,7 +66,7 @@ const SingleProduct = ({ slides }) => {
 
         {/* Carousel */}
         <section className="slider">
-          {SliderData.map((slide, index) => {
+          {product.image_products?.map((slide, index) => {
             return (
               <div
                 className={`${
@@ -72,7 +75,7 @@ const SingleProduct = ({ slides }) => {
                 key={index}
               >
                 {index === current && (
-                  <img src={slide.image} alt="travel image" className="image" />
+                  <img src={slide.url_img} alt="travel image" className="image" />
                 )}
               </div>
             );
@@ -135,6 +138,7 @@ const SingleProduct = ({ slides }) => {
           </S.DescriptionButton>
         </S.ProductDescription>
       </S.RightContainer>
+
     </S.Container>
   );
 };
