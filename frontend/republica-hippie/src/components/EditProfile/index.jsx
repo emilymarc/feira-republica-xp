@@ -33,10 +33,15 @@ const EditProfile= () => {
 
     const data = new FormData();
 
-    data.append('name', name);
-    data.append('email', email);
-    data.append('password', password);
-
+    if(name) {
+      data.append('name', name);
+    }
+    if(email) {
+      data.append('email', email);
+    }
+    if(password) {
+      data.append('password', password);
+    }
     if (selectedFile) {
       data.append('img', selectedFile);
     }
