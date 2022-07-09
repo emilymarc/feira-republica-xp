@@ -66,6 +66,14 @@ export const loginClient = async (email, password) => {
   }
 }
 
+export const getClientById = async (id) => {
+  try {
+    return await baseUrl.get(`/clients/${id}`)
+  } catch(error) {
+    toast.warn("Error: "+ error.response.data)
+  }
+}
+
 //Orders
 export const createOrder = async (client_id, zip_cod, st, house_number, city, state, district, items_order) => {
   try{

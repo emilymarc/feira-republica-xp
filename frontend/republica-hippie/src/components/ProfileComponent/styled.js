@@ -5,6 +5,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 18vh;
 `
 
 export const TitleProfile = styled.h1`
@@ -31,13 +34,12 @@ export const InfoItem = styled.p`
     line-height: 10px;
     font-weight: 500;
     font-size: 20px;
+    margin-bottom: 30px;
 `
 
 export const InfoItem2 = styled.div`
     display: flex;
-    justify-content: flex-end;
-
-
+    justify-content: start;
 `
 
 export const EditLink = styled(Link)`
@@ -52,7 +54,8 @@ export const EditLink = styled(Link)`
     }
 `
 
-export const LongOutButton = styled.button`
+export const LogOutButton = styled.button`
+    margin-top: 25px;
     background-color: #D79E62;
     border: none;
     border-radius: 20px;
@@ -69,12 +72,13 @@ export const LongOutButton = styled.button`
 
 export const FotoContainer = styled.div`
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;  
+    align-items: start;
+    justify-content: start;  
+    background-color: gray;
+    border-radius: 50%;
+    padding: 25px;
 `
 
 export const Foto = styled.img`
    width: 150px;
-    height: 150px;
-    border-radius: 20%;
 `
