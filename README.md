@@ -68,9 +68,11 @@
   ```$ git clone https://github.com/emilymarc/feira-republica-xp.git```
   
   Para **iniciar o backend** :
+  
   ```$ npm install -g```
   
   Para **iniciar o frontend** :
+  
   ```$ npm start```
   
 
