@@ -22,11 +22,20 @@ export const InfoContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 510px){
+        flex-direction: column;
+        gap: 30px;
+    }
 `
 
 export const InfoProfile = styled.div`
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 510px){
+        order: 2;
+        width: 100%;
+        align-items: center;
+    }
 `
 
 export const InfoItem = styled.p`
@@ -68,6 +77,9 @@ export const LogOutButton = styled.button`
         background-color: #C57E5F;
     }
     transition: .3s;
+    @media screen and (max-width: 510px){
+        margin: 25px auto;
+}
 `
 
 export const FotoContainer = styled.div`

@@ -13,6 +13,11 @@ export const TittleForm = styled.h1`
     font-size: 60px;
     margin: 60px auto;
 `
+export const FormContainer = styled.form`
+    @media screen and (max-width: 990px){
+        padding: 0 15px;
+    }
+`
 
 export const FormColumn = styled.div`
     display: flex;
@@ -71,9 +76,18 @@ export const FormButton = styled.button`
         background-color: #C57E5F;
     }
     transition: .3s;
+    @media screen and (max-width: 380px){
+        width: 100%;
+        justify-self: center;
+        padding: 10px 0;
+    }
+
 `
 
 export const BtnContainer = styled.div`
     display: flex;
     justify-content: flex-end;
+    @media screen and (max-width: 730px){
+        justify-content: center;
+    }
 `
