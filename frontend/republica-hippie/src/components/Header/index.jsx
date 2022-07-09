@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getTotal } from "../../redux/feature/cartSlice"
 
 const Header = () => {
+  const idClient = useSelector((state) => state.user.id_client);
   const fullUrl = window.location.href;
   const compareUrl = `http://localhost:3000`;
   // const [cart, setCart] = useState({
@@ -40,7 +41,7 @@ const Header = () => {
             ></S.Icon>
             {totalItems > 0 ? <S.CartBadge><span style={{color: '#fff'}}>{totalItems}</span></S.CartBadge> : null}
           </S.IconLink>
-          <S.IconLink to="/perfil">
+          <S.IconLink to={`/perfil/${idClient}`}>
             <S.Icon src={profile} />
           </S.IconLink>
         </S.Menu>

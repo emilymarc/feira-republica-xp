@@ -26,7 +26,7 @@ const AppRoutes = () => {
                         <Route path='/pinturas' element={<Pinturas />}/>
                         <Route path='/expositores' element={<Expositores />}/>
                         <Route path='/expositor/:id' element={<Expositor />}/> {/* :id do expositor */}
-                        <Route path='/perfil' element={<RequireAuth><Profile /></RequireAuth>}/>
+                        <Route path='/perfil/:id' element={<RequireAuth><Profile /></RequireAuth>}/>
                         <Route path='/product/:id' element={<Product />} /> {/* :id do produto */}
                         <Route path='/carrinho' element={<Carrinho />} />
                         <Route path='/login' element={<Login/>}/>
