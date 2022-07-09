@@ -83,17 +83,20 @@
 
 ### 5 - Integrantes da equipe  :crown:
    
-   O projeto foi desenvolvido pelos: 
-    front-ends:
-                  [Manuela Silva](https://github.com/netuninho)
-                  [Victor Hugo de Souza Feracin](https://github.com/victorFeracin)
-                  [Israel Silva](https://github.com/israel53)
+  O projeto foi desenvolvido por 
+    
+  Front-ends: 
+  * [Manuela Silva](https://github.com/netuninho)
+  * [Victor Hugo de Souza Feracin](https://github.com/victorFeracin)
+  * [Israel Silva](https://github.com/israel53)
+
+
     Back-ends: 
-                  [Emily Marcolino](https://github.com/emilymarc)
-                  [Caroline Silva Lima - Karu](https://github.com/karumundo)
-                  [Geovane Silva](https://github.com/Projetosgeovane)
-                  [Gefferson Oliveira](https://github.com/GeFFz)
-                  [Welton Rodrigues](https://github.com/WeltonDev)
+  * [Emily Marcolino](https://github.com/emilymarc)
+  * [Caroline Silva Lima - Karu](https://github.com/karumundo)
+  * [Geovane Silva](https://github.com/Projetosgeovane)
+  * [Gefferson Oliveira](https://github.com/GeFFz)
+  * [Welton Rodrigues](https://github.com/WeltonDev)
                  
                   
 :purple_heart: Projeto realizado no decorrer de três semanas de empenho do grupo 7 - Desafio Chefão  :alien: 
