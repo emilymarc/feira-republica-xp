@@ -48,7 +48,6 @@ const ExpositorComponent = () => {
 
         <S.ExpositorImg
           src={expositor.img}
-          style={{ width: "350px", height: "350px" }}
         ></S.ExpositorImg>
 
         <S.ExpositorDescription>{expositor.description}</S.ExpositorDescription>
