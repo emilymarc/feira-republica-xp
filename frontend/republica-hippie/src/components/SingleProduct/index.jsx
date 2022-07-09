@@ -14,10 +14,12 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/feature/cartSlice";
 import * as S from "./styled";
 import style from "./style.css";
+import ImgArray from '../ImgArray'
 
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+
   useEffect(() => {
     const loadProduct = async () => {
       try {
@@ -28,7 +30,6 @@ const SingleProduct = ({ slides }) => {
       }
     }
     loadProduct();
-    
   }, [setProduct]);
 
   const [current, setCurrent] = useState(0);
@@ -135,6 +136,7 @@ const SingleProduct = ({ slides }) => {
           </S.DescriptionButton>
         </S.ProductDescription>
       </S.RightContainer>
+
     </S.Container>
   );
 };

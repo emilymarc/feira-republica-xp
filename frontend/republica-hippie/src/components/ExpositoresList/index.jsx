@@ -3,6 +3,7 @@ import * as S from "./styled";
 import foto from "../../assets/Rectangle 130.svg";
 import { baseUrl, getExpositores } from "../../services/api";
 import { toast } from "react-toastify";
+import moment from "moment";
 
 const ExpositoresList = () => {
   const [expositores, setExpositores] = useState([]);
@@ -20,6 +21,9 @@ const ExpositoresList = () => {
   }, [setExpositores]);
   
   return expositores.map((expositor) => {
+    let currentDate = new Date(expositor.birth_date);
+    let formattedDate = moment(currentDate).format('YYYYMMDD');
+    let expositorAge = moment(formattedDate, 'YYYYMMDD').fromNow().split(' ')[0];
     return (
       <S.ExpositoresContainer key={expositor.id_exhibitors}>
         <S.ImgContainer>
@@ -30,7 +34,7 @@ const ExpositoresList = () => {
           <S.TitleExpositores>{expositor.name}</S.TitleExpositores>
           <p>
             {expositor.profession}<br />
-            67 anos
+            {expositorAge} anos
           </p>
           <p>
             Contato: {expositor.phone} <br />
