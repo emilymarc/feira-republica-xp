@@ -113,9 +113,20 @@ const ClientsController = {
                 }
             });
 
-            const urlImage = await cloudinary.uploads(req.files[0].path, 'clients');
+            async function uploadImageClient(files) {
+                try {
+                    if(!files){
+                        return
+                    }
+                    const newUrlImage = await cloudinary.uploads(files[0].path, 'clients');
+                    return newUrlImage;
+                    
+                } catch (error) {
+                    return
+                }
+            }
 
-            console.log(urlImage.imageUrl)
+            const urlImage = await uploadImageClient(req.files)
 
             if (clientToUpdate == null) {
                 return res.status(400).json({
