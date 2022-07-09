@@ -16,6 +16,7 @@ const DB_CONFIG = {
 let db = {};
 
 try {
+  console.log(DB_NAME, DB_USER, DB_PASS, DB_CONFIG)
   db = new Sequelize(DB_NAME, DB_USER, DB_PASS, DB_CONFIG);
 
   
