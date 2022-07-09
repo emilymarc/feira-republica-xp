@@ -9,10 +9,10 @@ for (let i = 0; i < 10; i++) {
   seed.push({
     id_order_item_order: faker.random.numeric(),
     id_product_item_order: faker.random.numeric(),
-    quantity: faker.random.numeric(),
-    price_unity: faker.random.numeric(),
+    quantity: 1,
+    price_unity: 99.99,
     shipping: 0,
-    price_total: faker.random.numeric(2),
+    price_total: 99.99,
     createdAt: new Date(),
     updatedAt: new Date(),
     data_status: 1

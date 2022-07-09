@@ -4,7 +4,7 @@
   "description": "XP41 - Chefão - Grupo 7",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"
   },
@@ -27,8 +27,13 @@
     "sequelize": "^6.15.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
     "@faker-js/faker": "^7.2.0",
+    "babel-jest": "^28.1.2",
+    "jest": "^28.1.2",
     "nodemon": "^2.0.18",
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "supertest": "^6.2.4"
   }
 }

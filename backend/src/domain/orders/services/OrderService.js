@@ -1,6 +1,10 @@
 const {
     Orders,
-    ItemOrder
+    ItemOrder,
+    Products,
+    ImagesProducts,
+    Exhibitors,
+    Categories,
 } = require("../models");
 const {
     Clients,
@@ -14,6 +18,14 @@ class OrderService {
         const {
             idClient
         } = params;
+        const {
+            zip_cod,
+            st,
+            house_number,
+            district,
+            city,
+            state
+        } = data;
 
         let responseOrder = {
             order: 0,
@@ -36,13 +48,19 @@ class OrderService {
             },
         });
 
-        if(hasClient != 1){
+        if (hasClient != 1) {
             return
         }
 
         const registeredOrder = await Orders.create({
             id_client_order: idClient,
             progress: 1,
+            zip_cod,
+            st,
+            house_number,
+            district,
+            city,
+            state,
             data_status: 1,
         });
 
@@ -56,7 +74,7 @@ class OrderService {
         responseOrder.updatedAt = registeredOrder.dataValues.updatedAt;
         responseOrder.createdAt = registeredOrder.dataValues.createdAt;
 
-        const newResponseOrder = await this.registerItemsOrder(data, responseOrder)
+        const newResponseOrder = await this.registerItemsOrder(data.items_order, responseOrder)
 
         return newResponseOrder;
     }
@@ -83,8 +101,8 @@ class OrderService {
             setTimeout(() => resolve(order), 2000)
         })
 
-        const newOrder = await waitingInsertItems().then((res) => {
-            Orders.update({
+        const newOrder = await waitingInsertItems().then(async (res) => {
+            await Orders.update({
                 ...res,
             }, {
                 where: {
@@ -92,7 +110,18 @@ class OrderService {
                     data_status: 1
                 },
             });
-            return res
+
+            const updatedOrder = await Orders.findOne({
+                include: {
+                    model: ItemOrder,
+                },
+                where: {
+                    order: res.order,
+                    data_status: 1
+                },
+            });
+
+            return updatedOrder
         })
         return newOrder
     }
@@ -121,7 +150,7 @@ class OrderService {
             },
         });
 
-        if(hasClient != 1){
+        if (hasClient != 1) {
             return
         }
 
@@ -156,13 +185,31 @@ class OrderService {
             },
         });
 
-        if(hasClient != 1 || hasOrder != 1){
+        if (hasClient != 1 || hasOrder != 1) {
             return
         }
 
         const OrdersClient = await Orders.findOne({
             include: [{
-                model: ItemOrder
+                model: ItemOrder,
+                include: [{
+                    model: Products,
+                    include: [{
+                        model: Categories,
+                        attributes: ["name"],
+                    },
+                    {
+                        model: Exhibitors,
+                        attributes: ["name", "profession", "phrase", "description", "birth_date", "phone", "email"],
+                    },
+                    {
+                        model: ImagesProducts,
+                        attributes: [
+                            "url_img",
+                        ],
+                    },
+                ],
+                }, ],
             }, ],
             where: {
                 order: idOrder,
@@ -197,7 +244,7 @@ class OrderService {
             },
         });
 
-        if(hasClient != 1 || hasOrder != 1){
+        if (hasClient != 1 || hasOrder != 1) {
             return
         }
 
@@ -248,7 +295,7 @@ class OrderService {
             },
         });
 
-        if(hasClient != 1 || hasOrder != 1){
+        if (hasClient != 1 || hasOrder != 1) {
             return
         }
 

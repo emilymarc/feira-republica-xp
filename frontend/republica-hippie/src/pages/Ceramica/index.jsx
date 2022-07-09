@@ -10,7 +10,6 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 import ceramica_icon from "../../assets/ceramica/ceramica_icon.svg";
-import ceramica_xicara_casinha from "../../assets/ceramica/ceramica_xicara_casinha.svg";
 
 const Ceramica = () => {
   const [products, setProducts] = useState([]);
@@ -48,11 +47,11 @@ const Ceramica = () => {
                     productId={product.id}
                     productTitle={product.name}
                     productValue={product.price.replace(".", ",")}
-                    productImg={ceramica_xicara_casinha}
+                    productImg={!product.image_products[0].url_img ? null : product.image_products[0].url_img}
                   ></ProductListItem>
                 )
               }))
-            : <p style={{marginTop: '120px', marginBottom: '190px', textAlign: 'center'}}>Não há nenhum produto aqui :/</p>}   
+            : <p style={{color: 'gray', marginTop: '120px', marginBottom: '190px', textAlign: 'center'}}>Que pena. Não há nenhum produto aqui :/</p>}   
           </ProductListItemContainer>
 
         </DetailedBg>
@@ -62,3 +61,4 @@ const Ceramica = () => {
 };
 
 export default Ceramica;
+
