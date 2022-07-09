@@ -1,6 +1,6 @@
 # *Projeto Feira da República*
 
-<p align="center">
+<p>
   <img src="frontend/republica-hippie/src/assets/logo.png" alt="Logo República Hippie">
 </p>
 
