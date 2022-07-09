@@ -52,7 +52,8 @@ export const PagProgressText = styled.p`
 
 export const InfoPag = styled.div`
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
 `
 
 export const InfoTitle = styled.h3`
@@ -61,6 +62,23 @@ export const InfoTitle = styled.h3`
     font-weight: 500;
     line-height: 25.08px;
     margin-bottom: 50px;
+    width: 100%;
+`
+
+export const InfoItemContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`
+
+export const InfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`
+
+export const Info = styled.p`
+  text-align: left;
 `
 
 export const InfoItem = styled.p`
@@ -74,7 +92,7 @@ export const InfoText = styled.p`
     color: #404040;
     line-height: 25.08px;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 100px;
     border-bottom: 2px solid #D79E62;
 `
@@ -95,6 +113,7 @@ export const ButtonPag = styled.button`
     margin-bottom: 50px;
     text-decoration: none;
     font-weight: 600;
+    cursor: pointer;
     &:hover {
         transition: .3s;
         background-color: #C57E5F;
