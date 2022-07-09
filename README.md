@@ -2,9 +2,9 @@
 
 ## Projeto de Conclusão do Curso Gama Experience Turma 41 - XP41
 
-**1 - Objetivo do Trabalho:**
+**1 - Objetivo do Trabalho:**  :bulb:
 
-   Na primeira reunião do trabalho os integrantes do grupo decidiram pelo projeto Feira da Repúclica. 
+   Na primeira reunião do trabalho os integrantes do grupo decidiram pelo projeto Feira da República. 
    
    A praça da República é um cartão postal da cidade de São Paulo - SP, Brasil, e no centro da praça se encontra uma feira de artesanados conhecida popularmente como Feira de república. 
    
@@ -35,7 +35,7 @@
 
 **3 - O código:**
   
-  O time de Front-ends utilizou HTML, JavaScript, CSS, React e styled components e Redux.
+  O time de Front-ends utilizou HTML, JavaScript, CSS, React e Styled Components e Redux.
   
   O time de Back-ends utilizou JavaScript, o framework Node JS, o ORM Sequelize. 
   
@@ -83,4 +83,4 @@
                   [Welton Rodrigues](https://github.com/WeltonDev)
                  
                   
-Projeto realizado no decorrer de três semanas de empenho do grupo 7 - Desafio Chefão  
+:purple_heart: Projeto realizado no decorrer de três semanas de empenho do grupo 7 - Desafio Chefão  :alien: 
