@@ -19,7 +19,7 @@ const ExpositorComponent = () => {
         const response = await getExpositorById(id);
         setExpositor(response.data);
       } catch (error) {
-        console.log(error);
+        toast.warn(error);
       }
     };
     getExpositorId();
@@ -31,7 +31,7 @@ const ExpositorComponent = () => {
         const response = await getExpositorProducts(id);
         setExpositorProducts(response.data);
       } catch (error) {
-        console.log(error);
+        toast.warn(error);
       }
     };
     getExpositorProductsId();
