@@ -37,7 +37,13 @@
   
   O Projeto foi desenvolvido com as seguintes tecnologias:
   
-  * JavaScript * CSS * React * Styled Components * Redux * Node JS * Sequelize
+  * JavaScript 
+  * CSS 
+  * React 
+  * Styled Components 
+  * Redux 
+  * Node JS 
+  * Sequelize
 
   O time de Front-ends utilizou JavaScript, CSS, React, Styled Components e Redux. A linguagem de marcação de texto escolhida foi HTML. 
   
