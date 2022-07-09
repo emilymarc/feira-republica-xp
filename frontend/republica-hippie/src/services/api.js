@@ -22,6 +22,14 @@ export const getProductsById = async (id) => {
   }
 }
 
+export const searchByTerm = async (term) => {
+  try {
+    return await baseUrl.get(`/products/search/${term}`)
+  } catch (error) {
+    toast.warn(`Erro ao carregar os produtos: ${error.response.data}`)
+  }
+}
+
 //Expositores
 export const getExpositores = async () => {
   try {
