@@ -14,7 +14,6 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/feature/cartSlice";
 import * as S from "./styled";
 import style from "./style.css";
-import ImgArray from '../ImgArray'
 
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
@@ -31,8 +30,6 @@ const SingleProduct = ({ slides }) => {
     }
     loadProduct();
   }, [setProduct]);
-
-  console.log(product)
 
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
