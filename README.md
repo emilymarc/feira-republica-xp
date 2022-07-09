@@ -1,5 +1,7 @@
 # *Projeto Feira da República*
 
+![](frontend/republica-hippie/src/assets/logo.png)
+
 ## Projeto de Conclusão do Curso Gama Experience Turma 41 - XP41
 
 ### 1 - Objetivo do Trabalho  :bulb:
