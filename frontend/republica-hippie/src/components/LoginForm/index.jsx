@@ -6,8 +6,10 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { loginClient, baseUrl } from "../../services/api";
 import jwt_decode from 'jwt-decode';
+import { useDispatch } from "react-redux";
 import logo from '../../assets/logofooter.png';
-
+import { toast } from "react-toastify";
+import { signIn } from "../../redux/feature/userSlice";
 
 const validationSchema = Yup.object({
     email: Yup.string().email("E-mail não válido").required("Valor é requerido"),
@@ -15,6 +17,7 @@ const validationSchema = Yup.object({
 });
 
 const LoginForm = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
@@ -26,14 +29,13 @@ const LoginForm = () => {
             const { email, password } = values;
             const accessTokenObject = await loginClient(email, password);
             const accessToken = accessTokenObject.token;
-            console.log(accessToken);
             const decoded = jwt_decode(accessToken);
-            localStorage.setItem('clientToken', accessToken);
-            localStorage.setItem('clientInfo', JSON.stringify(decoded));
-            localStorage.setItem('isLogged', true);
+            // localStorage.setItem('clientToken', accessToken);
+            // localStorage.setItem('clientInfo', JSON.stringify(decoded));
+            dispatch(signIn({id_client: decoded.id_client, name: decoded.name, email: decoded.email, isLogged: true, accessToken}));
             baseUrl.defaults.headers["Authorization"] = `Bearer ${accessToken}`
             navigate('/');
-            alert("Seja bem-vindo!")
+            toast("Seja bem-vindo!")
         }
     })
 
