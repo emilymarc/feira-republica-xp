@@ -13,13 +13,20 @@ export const Container = styled(Link)`
     transition: .3s;
     background-color: #e0d0bf;
   }
-
+  @media screen and (max-width: 575px) {
+    max-width: 320px;
+    max-height: 320px;
+  }
 `
 
 export const ProductImage = styled.img`
   max-width: 450px;
   max-height: 300px;
   margin-bottom: 17px;
+  @media screen and (max-width: 575px) {
+    max-width: 305px;
+    max-height: 203px;
+  }
 `
 
 export const ProductTitle = styled.h3`
