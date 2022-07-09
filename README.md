@@ -4,15 +4,15 @@
 
 ### 1 - Objetivo do Trabalho  :bulb:
 
-   Na primeira reunião do trabalho os integrantes do grupo decidiram pelo projeto Feira da República. 
+   Na primeira reunião do trabalho, os integrantes do grupo decidiram pelo projeto Feira da República. 
    
-   A praça da República é um cartão postal da cidade de São Paulo - SP, Brasil, e no centro da praça se encontra uma feira de artesanados conhecida popularmente como Feira de república. 
+   A praça da República é um cartão postal da cidade de São Paulo - SP, Brasil, e no centro da praça se encontra uma feira de artesanatos conhecida como Feira de República. 
    
-   Apesar da popularidade da feira e da existência de uma associação de artesãos que nela expõe seus produtos, não existe uma plataforma de e-commerce destinada à venda online dos artesanatos ali comercializados. 
+   Apesar da popularidade da feira e da existência de uma associação dos artesãos que nela expõe seus produtos, não existe uma plataforma de e-commerce destinada à venda on-line dos artesanatos ali comercializados. 
    
-   Assim, com o intuito de possibilitar vendas online, o cliente (Associação de Artesãos) solicitou a criação de um e-commerce no qual sejam expostos os produtos vendidos na feira e indicados os respectivos artesãos/expositores. 
+   Assim, com o intuito de possibilitar vendas on-line, o cliente (Associação de Artesãos) solicitou a criação de um e-commerce no qual sejam expostos os produtos vendidos na feira e indicados os respectivos artesãos/expositores. 
    
-   Uma vez que a maioria dos expositores não possui muita habilitade com uso de aplicativos, a Associação de Artesãos entendeu desnecessário, a princípio, o cadastramento dos artesãos/expositores como usuários do sistema, deixando somente a Associação como administradora. 
+   Uma vez que a maioria dos expositores não possui muita habilidade com uso de aplicativos, a Associação de Artesãos entendeu desnecessário, a princípio, o cadastramento dos artesãos/expositores como usuários do sistema, deixando somente a Associação como administradora da plataforma. 
    
    Na ideia de negócio projetada pela nossa cliente (Associação de Artesãos), ela cadastra de forma centralizada os produtos e organiza as entregas. 
    
@@ -40,7 +40,7 @@
   *JavaScript *CSS *React *Styled Components *Redux *Node JS *Sequelize
 
   
-  O time de Front-ends utilizou JavaScript, CSS, React, Styled Components e Redux. A Linguagem de marcação de texto escolhida foi HTML. 
+  O time de Front-ends utilizou JavaScript, CSS, React, Styled Components e Redux. A linguagem de marcação de texto escolhida foi HTML. 
   
   O time de Back-ends utilizou JavaScript, o framework Node JS, o ORM Sequelize. 
   
@@ -50,7 +50,7 @@
   
   Os testes foram efetuados com Jest. 
  
-  Foram criados diferentes ambientes para desenvilvimento, teste e produção. 
+  Foram criados diferentes ambientes para desenvolvimento, teste e produção. 
   
   Todo o código foi baseado na arquitetura Model-view-controller (MVC) e modelagem Domain Driven Design (DDD). 
   
