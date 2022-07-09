@@ -19,7 +19,7 @@
    O cliente, por sua vez, se cadastra na plataforma e, logado, pode comprar produtos.
    
    
-### 2 - Organização e metodologia :office:
+### 2 - Organização e metodologia  :office:
   
   O projeto foi elaborado utilizando a metodologia ágil kanban. Para tanto, além do respeito aos cerimoniais exigidos pelo método e ensinados durante o curso, a squad optou pelo uso do aplicativo Trello como ferramenta de registro e organização visual. 
   
@@ -33,7 +33,7 @@
 
  [Trello](url aqui)
 
-### 3 - O código :computer:
+### 3 - O código  :computer:
   
   O Projeto foi desenvolvido com as seguintes tecnologias:
   
@@ -57,7 +57,7 @@
   O Deploy doi efetuado por meio do aplicativo Heroku, neste [link]()
   
   
-### 4 - Como utilizar: :surfer: 
+### 4 - Como utilizar  :surfer: 
 
   A documentação da API pode ser conferida neste [link](https://documenter.getpostman.com/view/8182997/UzJPMafP)
   
@@ -76,7 +76,7 @@
   ```$ npm start```
   
 
-### 5 - Integrantes da equipe: :crown:
+### 5 - Integrantes da equipe  :crown:
    
    O projeto foi desenvolvido pelos: 
     front-ends:
