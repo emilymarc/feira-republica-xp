@@ -1,17 +1,36 @@
-const supertest = require("supertest");
-//const  = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const {
-    app
-} = require("../../../");
+import Clients from "../../clients/models/clients";
+import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
+
 const AuthController = require("./authController");
-const mockToken = {}
-mockToken.login = jest.fn()
-mockToken.login.mockReturnValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJpZCI6MTEsIm5hbWUiOiJDQW1pIEx1bWEiLCJlbWFpbCI6IkNhbWkuTHVtYUBnbWFpbC5jb20iLCJpYXQiOjE2NTcyMzAwNzV9T7gdRyy4vAgU7wWbFDsCt3lcT3jZIM2gvvPaO6jGJxM")
+
+const res = {
+    status: () => ({json: (val) => JSON.stringify(val)})
+};
+
+const req = {
+    body: {
+        password: 'ljkadslkajsd',
+        email: 'teste@email.com'
+    }
+} 
 
 
-//mockCurrency.getQuotacaoDolar = jest.fn()
-//mockCurrency.getQuotacaoDolar.mockReturnValue(3)
+jest.mock("../../clients/models/clients");
+Clients.findOne = async (_) => {
+    return Promise.resolve({
+        password: req.body.password,
+        id_client: '1',
+        name: req.body.email,
+        email: req.body.email
+    })
+};
+
+
+jest.mock("bcryptjs");
+bcryptjs.compareSync = (pwd1, pwd2) => {
+    return pwd1 === pwd2
+}   
 
 describe('Inside the Controller folder, when executing', () => {
 
@@ -21,27 +40,14 @@ describe('Inside the Controller folder, when executing', () => {
             expect(typeof AuthController.login).toBe('function')
         });
 
-    
-        test('Test login Authorized User id', async () => {
-            const response = await supertest(app)
-                .post(`/login/clients`)
-                .send(               
-                    [
-                        {
-                            "id": "11", 
-                            "name": "CAmi Luma",
-                            "email": "Cami.Luma@gmail.com"
-                        }
-                    ]  
-                )
-                .expect(201, mockToken);
+        test('must return a valid jwt token', async ()=> {
+            const token = await AuthController.login(req, res);
+            
+            expect(typeof token).toBe('string')
+
+            const decodeToken = jwt.verify(JSON.parse(token), process.env.SECRET_KEY)
+            expect(decodeToken.email).toBe(req.body.email)
+
         })
     })
-})
-
-//-Testar login de idUsuário autorizado 
-//– Testar a negação de autorização ao tentar fazer login de um
-//idUsuário cadastrado utilizando quatro tentativas com
-//diferentes senhas incorretas 
-//– Testar a negação de autorização ao tentar fazer login usando
-//quatro tentativas com diferentes idUsuário não cadastrados
+});
