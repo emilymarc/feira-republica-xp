@@ -87,10 +87,10 @@ export const FotoContainer = styled.div`
     align-items: start;
     justify-content: start;  
     background-color: gray;
-    border-radius: 50%;
-    padding: 25px;
+    border-radius: 20%;
 `
 
 export const Foto = styled.img`
-   width: 150px;
+   max-width: 300px;
+   border-radius: 20px;
 `
