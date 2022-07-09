@@ -5,6 +5,9 @@ export const AddressContainer = styled.section`
   max-width: 1286px;
   margin: 0 auto;
   padding-top: 1px;
+  @media screen and (max-width: 1300px){
+    padding: 0 10px
+  }
 `
 
 export const ProgressBarContainer = styled.div`
@@ -24,6 +27,12 @@ export const AddressProgress1 = styled.img`
   left: 1.9%; bottom: 0; 
   top: 10%;
   margin: -25px;
+  @media screen and (max-width: 970px){
+    left: 2.6%;
+  }
+  @media screen and (max-width: 670px){
+    left: 2.8%;
+  }
 `
 
 export const AddressProgress2 = styled.img`
@@ -38,6 +47,9 @@ export const AddressProgress3 = styled.img`
   left: 100%; bottom: 0; 
   top: 10%;
   margin: -25px;
+  @media screen and (max-width: 1300px){
+    left: 99.3%
+  }
 `
 
 export const AddressProgressTextContainer = styled.div`
@@ -65,6 +77,10 @@ export const AddressInput = styled.div`
     display: flex;
     justify-content: center;
     gap: 20px;
+    @media screen and (max-width: 680px){
+      display: flex;
+    flex-direction: column;
+  }
 `
 
 export const AddressInputLast = styled(AddressInput)`
@@ -80,6 +96,9 @@ export const FloatContainer1 = styled.div`
     padding: 0 8px;
     position: relative;
     width: 40%;
+    @media screen and (max-width: 680px){
+    width: 100%;
+  }
 `
 
 export const FloatContainer2 = styled.div`
@@ -90,6 +109,9 @@ export const FloatContainer2 = styled.div`
     padding: 0 8px;
     position: relative;
     width: 60%;
+    @media screen and (max-width: 680px){
+    width: 100%;
+  }
 `
 
 export const FloatContainer3 = styled.div`
@@ -100,6 +122,9 @@ export const FloatContainer3 = styled.div`
     padding: 0 8px;
     position: relative;
     width: 55%;
+    @media screen and (max-width: 680px){
+    width: 100%;
+  }
 `
 
 export const FloatContainer4 = styled.div`
@@ -110,6 +135,9 @@ export const FloatContainer4 = styled.div`
     padding: 0 8px;
     position: relative;
     width: 45%;
+    @media screen and (max-width: 680px){
+    width: 100%;
+  }
 `
 
 export const InputTittle = styled.label`
@@ -152,4 +180,7 @@ export const ButtonAddress = styled.button`
     }
     transition: .3s;
     align-self: end;
+    @media screen and (max-width: 680px){
+      margin: 20px auto 50px auto;
+  }
 `
