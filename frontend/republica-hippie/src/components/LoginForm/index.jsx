@@ -34,7 +34,7 @@ const LoginForm = () => {
             dispatch(signIn({id_client: decoded.id, name: decoded.name, email: decoded.email, isLogged: true, accessToken}));
             baseUrl.defaults.headers["Authorization"] = `Bearer ${accessToken}`
             navigate('/');
-            toast("Seja bem-vindo!")
+            toast("Seja bem-vindo(a)!")
         }
     })
 
@@ -47,25 +47,51 @@ const LoginForm = () => {
 
             <S.FormContainer onSubmit={formik.handleSubmit}>
                 <S.TittleForm>LOGIN</S.TittleForm>
-                <S.FloatContainer className="floatContainer1">
-                    <S.InputTittle htmlFor="floatField1">Email</S.InputTittle>
-                    <S.FormInput 
-                    type="email" 
-                    className="floatContainer1"
-                    id="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}/>
-                </S.FloatContainer>
-                {formik.errors.email && <span>{formik.errors.email}</span>}
-                <S.FloatContainer className="floatContainer2">
-                    <S.InputTittle htmlFor="floatField2">Senha</S.InputTittle>
-                    <S.FormInput 
-                    type="password" className="floatContainer2"
-                    id="password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}/>
-                </S.FloatContainer>
-                {formik.errors.password && <span>{formik.errors.password}</span>}
+
+                {
+                    formik.errors.email
+                    ? <S.FloatContainer className="floatContainer1" style={{ border: "1px solid red" }}>
+                        <S.InputTittle htmlFor="floatField1">Email</S.InputTittle>
+                        <S.FormInput 
+                        type="email" 
+                        className="floatContainer1"
+                        placeholder="Insira um email válido"
+                        id="email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}/>
+                    </S.FloatContainer>
+                    : <S.FloatContainer className="floatContainer1">
+                        <S.InputTittle htmlFor="floatField1">Email</S.InputTittle>
+                        <S.FormInput 
+                        type="email" 
+                        className="floatContainer1"
+                        id="email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}/>
+                    </S.FloatContainer>
+                }
+
+                {
+                    formik.errors.password
+                    ? <S.FloatContainer className="floatContainer2" style={{ border: "1px solid red" }}>
+                        <S.InputTittle htmlFor="floatField2">Senha</S.InputTittle>
+                        <S.FormInput 
+                        type="password"
+                        className="floatContainer2"
+                        placeholder="Senha obrigatória"
+                        id="password"
+                        value={formik.values.password}
+                        onChange={formik.handleChange}/>
+                    </S.FloatContainer>
+                    : <S.FloatContainer className="floatContainer2">
+                        <S.InputTittle htmlFor="floatField2">Senha</S.InputTittle>
+                        <S.FormInput 
+                        type="password" className="floatContainer2"
+                        id="password"
+                        value={formik.values.password}
+                        onChange={formik.handleChange}/>
+                    </S.FloatContainer>
+                }
                 <S.FormButton type="submit">Entrar</S.FormButton>
                 <S.LinkSingUp to="/signup">Cadastre-se</S.LinkSingUp>
             </S.FormContainer>

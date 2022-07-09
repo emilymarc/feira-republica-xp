@@ -162,3 +162,4 @@ export const SearchButton = styled.button`
     border: none;
     outline: none;
 `
+
