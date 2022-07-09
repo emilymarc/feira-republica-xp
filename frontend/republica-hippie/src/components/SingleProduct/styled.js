@@ -14,6 +14,13 @@ export const Container = styled.section`
     max-width: 1400px;
     margin: 0 auto;
     padding-bottom: 60px;
+    @media screen and (max-width: 1440px) {
+        padding: 0 15px 60px 15px
+    }
+    @media screen and (max-width: 910px) {
+        flex-direction: column;
+        max-width: 100%;
+    }
 `
 
 export const ReturnContainer = styled.div`
@@ -46,20 +53,38 @@ export const Icon = styled.img`
 export const LeftContainer = styled.div`
     max-width: 40%;
     margin-right: 10%;
+    @media screen and (max-width: 910px) {
+        max-width: 100%;
+        margin-right: 0;
+        margin: 0 auto 30px auto;
+        text-align: center;
+    }
 `
 
 export const RightContainer = styled.div`
     max-width: 40%;
+    @media screen and (max-width: 910px) {
+        max-width: 100%;
+        margin: 0 auto
+    }
 `
 
 export const ProductText = styled.p`
     margin-top: 45px;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+    }
 `
 
 export const ProductTitle = styled.h3`
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 15px;
+    @media screen and (max-width: 450px) {
+        font-size: 26px;
+    }
 `
 
 export const ProductExpositor = styled.span`
@@ -77,11 +102,23 @@ export const PriceLikeContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 6rem;
+    @media screen and (max-width: 910px) {
+        gap: 12rem;
+    }
+    @media screen and (max-width: 460px) {
+        gap: 6rem;
+    }
+    @media screen and (max-width: 360px) {
+        gap: 3rem;
+    }
 `
 
 export const Price = styled.span`
     font-size: 48px;
     font-weight: 600;
+    @media screen and (max-width: 450px) {
+        font-size: 32px;
+    }
 `
 
 export const IconLike = styled.img`

@@ -42,7 +42,7 @@ routes.delete("/clients/:id_client", Auth, ClientsController.deleteClient);
 routes.get("/orders", Auth, orderController.allOrders);
 routes.get("/orders/:idClient", Auth, orderValidation.clientOrders, orderController.clientOrders);
 routes.get("/orders/:idClient/:idOrder", Auth, orderValidation.detailOrder, orderController.detailOrder);
-routes.post("/orders/:idClient", Auth, orderController.createOrder);
+routes.post("/orders/:idClient", Auth, orderValidation.createOrder, orderController.createOrder);
 routes.patch("/orders/:idClient/:idOrder", Auth, orderValidation.updateOrder, orderController.updateOrder);
 routes.delete("/orders/:idClient/:idOrder", Auth, orderValidation.cancelOrder, orderController.cancelOrder);
 

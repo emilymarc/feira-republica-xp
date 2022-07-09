@@ -8,7 +8,7 @@ const {
 const orderController = require("./orders.controller");
 const clientToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF9jbGllbnQiOjExLCJuYW1lIjoiVG9uaW8gTHVtYSIsImVtYWlsIjoiVG9uaW8uTHVtYUBnbWFpbC5jb20iLCJhZGRyZXNzX2NsaWVudHMiOltdLCJpYXQiOjE2NTcxOTk2NjUsImV4cCI6MzYwMDE2NTcxOTYwNjV9.-SimWUD8LuJo5h3xo3ZH4IZpWYxf350tqxDoI5bEqjU";
 const clientID = 2;
-const idOrderOfClient = 18
+const idOrderOfClient = 13;
 
 describe('No controller, ao executar a função', () => {
 
@@ -25,23 +25,24 @@ describe('No controller, ao executar a função', () => {
                     "zip_cod": "59042-590",
                     "st": "Rua  Considine nº 197",
                     "house_number": "70",
+                    "district": "Mr. Kristi Feeney",
                     "city": "Dr. Levi Rippin",
                     "state": "Mrs. Bob Price",
-                    "country": "Mr. Kristi Feeney",
-                    "items_order": [{
-                            "id_product": "2",
+                    "items_order": [
+                        {
+                            "id_product": "21",
                             "quantity": "3",
-                            "price_product": "19.59"
+                            "price_product": "99.99"
                         },
                         {
-                            "id_product": "3",
+                            "id_product": "22",
                             "quantity": "1",
-                            "price_product": "39.59"
+                            "price_product": "99.99"
                         },
                         {
-                            "id_product": "4",
+                            "id_product": "23",
                             "quantity": "2",
-                            "price_product": "29.59"
+                            "price_product": "99.99"
                         }
                     ]
                 })
@@ -53,8 +54,6 @@ describe('No controller, ao executar a função', () => {
             expect(response.body.id_client_order).toBe(clientID)
             expect(response.body.data_status).toBe(1)
             expect(response.body.item_orders).not.toBeNull()
-
-
 
         })
     })
