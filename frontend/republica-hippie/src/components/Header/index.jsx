@@ -26,11 +26,12 @@ const Header = ({ setProducts }) => {
     initialValues: {
       search: "",
     },
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       const { search } = values;
       const response = await searchByTerm(search);
-      setProducts(response.data);
       navigate(`/search/${search}`);
+      setProducts(response.data);
+      
   }
   })
   

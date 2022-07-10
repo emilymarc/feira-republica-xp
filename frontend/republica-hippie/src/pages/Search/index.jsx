@@ -9,7 +9,7 @@ import { searchByTerm } from '../../services/api';
 import { toast } from 'react-toastify';
 const Search = () => {
   const { term } = useParams();
-  const [products, setProducts] = React.useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect (() => {
     const loadProducts = async () => {
