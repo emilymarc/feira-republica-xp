@@ -62,7 +62,7 @@ const EditProfile= () => {
 
       <S.FormEdit onSubmit={handleSubmit}>
         <S.InputContainer>
-          <S.FormLabel>Nome Completo</S.FormLabel>
+          <S.FormLabel>Nome Completo:</S.FormLabel>
           <S.InputEdit
           type="text"
           name="name"
@@ -73,7 +73,7 @@ const EditProfile= () => {
         </S.InputContainer>
 
         <S.InputContainer>
-          <S.FormLabel>Email</S.FormLabel>
+          <S.FormLabel>Email:</S.FormLabel>
           <S.InputEdit
           type="email"
           name="email"
@@ -83,7 +83,7 @@ const EditProfile= () => {
         </S.InputContainer>
 
         <S.InputContainer>
-          <S.FormLabel>Senha</S.FormLabel>
+          <S.FormLabel>Senha:</S.FormLabel>
           <S.InputEdit
           type="password"
           name="password"
@@ -93,12 +93,13 @@ const EditProfile= () => {
         </S.InputContainer>
 
         <S.InputContainer>
-          <S.FormLabel>Confirmar Senha</S.FormLabel>
+          <S.FormLabel>Confirmar Senha:</S.FormLabel>
           <S.InputEdit 
           type="password"/>
         </S.InputContainer>
 
         <Dropzone onFileUploaded={setSelectedFile}/>
+        <small style={{textAlign: 'center', marginBottom: '20px'}}>* De preferência, insira uma imagem em modo paisagem</small>
         <S.ButtonEdit type="submit">Confirmar</S.ButtonEdit>
       </S.FormEdit>
 

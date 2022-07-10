@@ -47,8 +47,11 @@ const CarrinhoComponent = () => {
 
         <S.CartItemsContainer>
           {Items.length > 0 ? (
-            Items.map((item, index) => (
-              <S.ItemContainer
+            Items.map((item, index) => {
+              let total = item.price * item.quantity;
+              let total_format = total.toFixed(2);
+              return (
+                <S.ItemContainer
                 key={item.code_product}
                 style={index > 0 ? { marginTop: "35px" } : null}
               >
@@ -66,7 +69,7 @@ const CarrinhoComponent = () => {
 
                 <S.ItemInfoContainer>
                   <S.ItemTitle>{item.name}</S.ItemTitle>
-                  <S.ItemPrice>R$ {item.price * item.quantity},00</S.ItemPrice>
+                  <S.ItemPrice>R$ {(total_format).replace(".", ",")}</S.ItemPrice>
                   <S.ItemQuantityContainer>
                     <S.ItemIncrementDecrement
                       onClick={() => handleDecrementItem(item)}
@@ -74,13 +77,6 @@ const CarrinhoComponent = () => {
                       -
                     </S.ItemIncrementDecrement>
                     <S.ItemQuantity>{item.quantity}</S.ItemQuantity>
-                    {/* {item.stock_product >= 0 
-                    ? <S.ItemIncrementDecrement
-                      onClick={() => handleAddItem(item)}
-                    >
-                      +
-                    </S.ItemIncrementDecrement>
-                    : <S.ItemIncrementDecrement disabled={true}>+</S.ItemIncrementDecrement>} */}
                     <S.ItemIncrementDecrement
                       onClick={() => handleAddItem(item)}
                       disabled={item.stock_product <= 0}
@@ -91,7 +87,9 @@ const CarrinhoComponent = () => {
                   <S.ItemStock>{`${item.stock_product} disponíveis`}</S.ItemStock>
                 </S.ItemInfoContainer>
               </S.ItemContainer>
-            ))
+              )
+              
+              })
           ) : (
             <p
               style={{
@@ -110,7 +108,7 @@ const CarrinhoComponent = () => {
         <S.SubtotalContainer>
           <S.SubtotalTextContainer>
             <S.SubtotalText>Subtotal: </S.SubtotalText>
-            <S.SubtotalPrice>R$ {totalAmount},00</S.SubtotalPrice>
+            <S.SubtotalPrice>R$ {(totalAmount).toFixed(2).replace(".", ",")}</S.SubtotalPrice>
           </S.SubtotalTextContainer>
 
           {totalItems > 0 

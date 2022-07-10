@@ -35,7 +35,7 @@ const PagamentoComponent = () => {
     }
   })
 
-  let AutoMessage =  '*🙌 Novo Pedido de República Hippie*\n\nDetalhes do pedido:\n\n*-Cliente:* '+formattedName+' ('+name.email+')\n\n*-Endereço:* '+order.st+', '+order.house_number+' - CEP '+order.zip_cod+' - '+order.district+' - '+order.city+' - '+order.state+'\n\n*-Itens:*\n'+itemsArray?.map(item => item.quantity+'x '+item.name+' - R$ '+item.price).join('\n')+'\n\n*-Total:* R$ '+order.price_order_total+'\n\n\n*A República Hippie agradece pela sua preferência 😍*';
+  let AutoMessage =  '*🙌 Novo Pedido de República Hippie*\n\nDetalhes do pedido:\n\n*-Cliente:* '+formattedName+' ('+name.email+')\n\n*-Endereço:* '+order.st+', '+order.house_number+' - CEP '+order.zip_cod+' - '+order.district+' - '+order.city+' - '+order.state+'\n\n*-Itens:*\n'+itemsArray?.map(item => item.quantity+'x '+item.name+' - R$ '+(item.price * item.quantity).toFixed(2)).join('\n')+'\n\n*-Total:* R$ '+order.price_order_total+'\n\n\n*A República Hippie agradece pela sua preferência 😍*';
 
   function sendMessage(){
     let celular = "2198198-5790";
