@@ -76,9 +76,9 @@
   Segue vídeo explicando o uso do nosso website:
   
   
-<a href="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091
-" target="_blank"><img src="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091" 
-alt="Texto ALT da imagem aqui" width="240" height="180" border="10" /></a>
+<video src="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091" controls>
+  <p>Your browser doesn't support HTML5 video. Here is a <a href="[rabbit320.webm](https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091)">link to the video</a> instead.</p>
+</video>
   
   Para **clonar o projeto** :
   
