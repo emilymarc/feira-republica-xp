@@ -73,13 +73,11 @@
 
   A documentação da API pode ser conferida neste [link](https://documenter.getpostman.com/view/8182997/UzJPMafP)
   
-  Segue vídeo explicando o uso do nosso website:
-  
-  
-<video src="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091" controls>
-  <p>Your browser doesn't support HTML5 video. Here is a <a href="[rabbit320.webm](https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091)">link to the video</a> instead.</p>
-</video>
-  
+  Segue prévia da aplicação:
+ 
+ 
+  Para acessar a página da web fruto deste projeto, [clique aqui](https://feira-republica.netlify.app/)
+
   Para **clonar o projeto** :
   
   ```$ git clone https://github.com/emilymarc/feira-republica-xp.git```
