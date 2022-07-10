@@ -25,9 +25,9 @@ const Search = () => {
 
   return ( 
     <>
-        <Header></Header>
+        <Header setProducts={setProducts}></Header>
           <DetailedBg>
-            <h3 style={{textAlign: 'center', paddingTop: '40px', marginBottom: '40px'}}>Resultados da pesquisa:</h3>
+            <h3 style={{textAlign: 'center', paddingTop: '40px', marginBottom: '40px'}}>{products.length} resultado(s) para a pesquisa: "{term}"</h3>
             <ProductListItemContainer>
             {products.length > 0 ? 
               (products.map(product => {
