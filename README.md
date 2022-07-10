@@ -66,7 +66,7 @@
   
   Todo o código foi baseado na arquitetura Model-View-Controller (MVC) e modelagem Domain Driven Design (DDD). 
   
-  O Deploy doi efetuado por meio do aplicativo Heroku, neste [link]()
+  O [Deploy](https://feira-republica.herokuapp.com/) back-end foi efetuado por meio do aplicativo Heroku.
   
 
 ### 4 - Como utilizar  :surfer: 
