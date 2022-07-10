@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./styled";
-import foto from "../../assets/Rectangle 130.svg";
 import { baseUrl, getExpositores } from "../../services/api";
 import { toast } from "react-toastify";
 import moment from "moment";

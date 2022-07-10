@@ -26,7 +26,6 @@ const ProfileComponent = () => {
         loadClient();
     }, [setClient]);
 
-    console.log(client);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const handleSignOut = () => {
@@ -39,9 +38,9 @@ const ProfileComponent = () => {
             <S.TitleProfile>MEU PERFIL</S.TitleProfile>
             <S.InfoContainer>
                 <S.InfoProfile>
-                    <S.InfoItem>Nome completo: {client.name}</S.InfoItem>
-                    <S.InfoItem>Email: {client.email}</S.InfoItem>
-                    <S.EditLink to="/editarperfil">Editar Perfil</S.EditLink>
+                    <S.InfoItem>Nome completo: <span style={{fontSize: '18px', fontWeight:'300'}}>{client.name}</span></S.InfoItem>
+                    <S.InfoItem>Email: <span style={{fontSize: '18px', fontWeight:'300'}}>{client.email}</span></S.InfoItem>
+                    <S.EditLink to={`/editarperfil/${id}`}>Editar Perfil</S.EditLink>
                 </S.InfoProfile>
 
                 <S.FotoContainer>

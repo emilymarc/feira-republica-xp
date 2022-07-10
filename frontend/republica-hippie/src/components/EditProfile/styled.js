@@ -5,6 +5,10 @@ export const EditContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 40px 0;
+    @media screen and (max-width: 450px){
+        padding: 40px 15px
+    }
 `
 
 export const TitleEdit = styled.h1`
@@ -80,11 +84,9 @@ export const ButtonEdit = styled.button`
     color: #FFFF;
     font-size: 20px;
     padding: 10px 120px;
-    margin-top: 20px;
-    margin-bottom: 50px;
     justify-self: end;
     width: 50%;
-    margin-left: 200px;
+    margin: 20px auto 50px auto;
     &:hover {
         transition: .3s;
         background-color: #C57E5F;

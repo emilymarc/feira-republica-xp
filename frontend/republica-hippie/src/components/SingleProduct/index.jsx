@@ -14,7 +14,6 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/feature/cartSlice";
 import * as S from "./styled";
 import style from "./style.css";
-import ImgArray from '../ImgArray'
 
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
@@ -31,8 +30,6 @@ const SingleProduct = ({ slides }) => {
     }
     loadProduct();
   }, [setProduct]);
-
-  console.log(product)
 
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
@@ -75,7 +72,7 @@ const SingleProduct = ({ slides }) => {
                 key={index}
               >
                 {index === current && (
-                  <img src={slide.url_img} alt="travel image" className="image" />
+                  <img src={slide.url_img} alt="travel image" className="image" style={{borderRadius: '20px'}} />
                 )}
               </div>
             );
@@ -97,7 +94,7 @@ const SingleProduct = ({ slides }) => {
         <S.ProductTitle>{product.name}</S.ProductTitle>
         <S.ProductExpositor>
           Expositor:
-          <S.LinkExpositor to="/"> {product.exhibitor?.name}</S.LinkExpositor>{/*MUDAR O LINK AO CRIAR PÁGINA DE EXPOSITOR*/}
+          <S.LinkExpositor to={`/expositor/${product.id_exhibitors_product}`}> {product.exhibitor?.name}</S.LinkExpositor>{/*MUDAR O LINK AO CRIAR PÁGINA DE EXPOSITOR*/}
         </S.ProductExpositor>
 
         <S.PriceLikeContainer>

@@ -91,25 +91,47 @@ const AddressComponent = () => {
       <S.AddressItemsContainer>
         <S.AddressForm onSubmit={formik.handleSubmit}>
           <S.AddressInput>
-            <S.FloatContainer1 className="floatContainer1">
-              <S.Input>
-                <S.InputTittle htmlFor="floatField1">CEP</S.InputTittle>
-                <S.FormInput
-                  type="text"
-                  className="floatContainer1"
-                  id="zip_cod"
-                  value={formik.values.zip_cod}
-                  onChange={formik.handleChange}
-                />
-              </S.Input>
-            </S.FloatContainer1>
+            {formik.errors.zip_cod ? (
+              <S.FloatContainer1
+                className="floatContainer1"
+                style={{ border: "1px solid red" }}
+              >
+                <S.Input>
+                  <S.InputTittle htmlFor="floatField1">CEP</S.InputTittle>
+                  <S.FormInput
+                    placeholder="Valor obrigatório"
+                    type="text"
+                    className="floatContainer1"
+                    id="zip_cod"
+                    value={formik.values.zip_cod}
+                    onChange={formik.handleChange}
+                  />
+                </S.Input>
+              </S.FloatContainer1>
+            ) : (
+              <S.FloatContainer1 className="floatContainer1">
+                <S.Input>
+                  <S.InputTittle htmlFor="floatField1">CEP</S.InputTittle>
+                  <S.FormInput
+                    placeholder="00000-000"
+                    type="text"
+                    className="floatContainer1"
+                    id="zip_cod"
+                    value={formik.values.zip_cod}
+                    onChange={formik.handleChange}
+                  />
+                </S.Input>
+              </S.FloatContainer1>
+            )}
 
-            <S.FloatContainer2 className="floatContainer2">
+            { formik.errors.st ?
+              <S.FloatContainer2 className="floatContainer2" style={{ border: "1px solid red" }}>
               <S.Input>
                 <S.InputTittle htmlFor="floatField2">
                   Rua/Logradouro
                 </S.InputTittle>
                 <S.FormInput
+                  placeholder="Valor obrigatório"
                   type="text"
                   className="floatContainer2"
                   id="st"
@@ -118,13 +140,32 @@ const AddressComponent = () => {
                 />
               </S.Input>
             </S.FloatContainer2>
+            :
+            <S.FloatContainer2 className="floatContainer2">
+              <S.Input>
+                <S.InputTittle htmlFor="floatField2">
+                  Rua/Logradouro
+                </S.InputTittle>
+                <S.FormInput
+                  placeholder="Rua Dom Pedro II"
+                  type="text"
+                  className="floatContainer2"
+                  id="st"
+                  value={formik.values.st}
+                  onChange={formik.handleChange}
+                />
+              </S.Input>
+            </S.FloatContainer2>
+            }
           </S.AddressInput>
 
           <S.AddressInput>
-            <S.FloatContainer1 className="floatContainer3">
+            { formik.errors.house_number ?
+            <S.FloatContainer1 className="floatContainer3" style={{ border: "1px solid red" }}>
               <S.Input>
                 <S.InputTittle htmlFor="floatField3">Número</S.InputTittle>
                 <S.FormInput
+                  placeholder="Valor obrigatório"
                   type="text"
                   className="floatContainer3"
                   id="house_number"
@@ -133,11 +174,28 @@ const AddressComponent = () => {
                 />
               </S.Input>
             </S.FloatContainer1>
+            :
+            <S.FloatContainer1 className="floatContainer3">
+              <S.Input>
+                <S.InputTittle htmlFor="floatField3">Número</S.InputTittle>
+                <S.FormInput
+                  placeholder="00"
+                  type="text"
+                  className="floatContainer3"
+                  id="house_number"
+                  value={formik.values.house_number}
+                  onChange={formik.handleChange}
+                />
+              </S.Input>
+            </S.FloatContainer1>
+            }
 
-            <S.FloatContainer2 className="floatContainer4">
+            { formik.errors.district ?
+            <S.FloatContainer2 className="floatContainer4" style={{ border: "1px solid red" }}>
               <S.Input>
                 <S.InputTittle htmlFor="floatField4">Bairro</S.InputTittle>
                 <S.FormInput
+                  placeholder="Valor obrigatório"
                   type="text"
                   className="floatContainer4"
                   id="district"
@@ -146,13 +204,30 @@ const AddressComponent = () => {
                 />
               </S.Input>
             </S.FloatContainer2>
+            :
+            <S.FloatContainer2 className="floatContainer4">
+              <S.Input>
+                <S.InputTittle htmlFor="floatField4">Bairro</S.InputTittle>
+                <S.FormInput
+                  placeholder="Jardim São josé"
+                  type="text"
+                  className="floatContainer4"
+                  id="district"
+                  value={formik.values.district}
+                  onChange={formik.handleChange}
+                />
+              </S.Input>
+            </S.FloatContainer2>
+            }
           </S.AddressInput>
 
           <S.AddressInputLast>
-            <S.FloatContainer3 className="floatContainer5">
+            { formik.errors.city ?
+            <S.FloatContainer3 className="floatContainer5" style={{ border: "1px solid red" }}>
               <S.Input>
                 <S.InputTittle htmlFor="floatField5">Cidade</S.InputTittle>
                 <S.FormInput
+                  placeholder="Valor obrigatório"
                   type="text"
                   className="floatContainer5"
                   id="city"
@@ -161,11 +236,28 @@ const AddressComponent = () => {
                 />
               </S.Input>
             </S.FloatContainer3>
+            :
+            <S.FloatContainer3 className="floatContainer5">
+              <S.Input>
+                <S.InputTittle htmlFor="floatField5">Cidade</S.InputTittle>
+                <S.FormInput
+                  placeholder="São Paulo"
+                  type="text"
+                  className="floatContainer5"
+                  id="city"
+                  value={formik.values.city}
+                  onChange={formik.handleChange}
+                />
+              </S.Input>
+            </S.FloatContainer3>
+            }
 
-            <S.FloatContainer4 className="floatContainer6">
+            { formik.errors.state ?
+            <S.FloatContainer4 className="floatContainer6" style={{ border: "1px solid red" }}>
               <S.Input>
                 <S.InputTittle htmlFor="floatField6">Estado</S.InputTittle>
                 <S.FormInput
+                  placeholder="Valor obrigatório"
                   type="text"
                   className="floatContainer6"
                   id="state"
@@ -174,6 +266,21 @@ const AddressComponent = () => {
                 />
               </S.Input>
             </S.FloatContainer4>
+            :
+            <S.FloatContainer4 className="floatContainer6">
+              <S.Input>
+                <S.InputTittle htmlFor="floatField6">Estado</S.InputTittle>
+                <S.FormInput
+                  placeholder="São Paulo"
+                  type="text"
+                  className="floatContainer6"
+                  id="state"
+                  value={formik.values.state}
+                  onChange={formik.handleChange}
+                />
+              </S.Input>
+            </S.FloatContainer4>
+            }
           </S.AddressInputLast>
 
           <S.ButtonAddress type="submit">Continuar</S.ButtonAddress>

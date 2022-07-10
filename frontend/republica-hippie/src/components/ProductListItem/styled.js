@@ -23,6 +23,7 @@ export const ProductImage = styled.img`
   max-width: 450px;
   max-height: 300px;
   margin-bottom: 17px;
+  border-radius: 20px;
   @media screen and (max-width: 575px) {
     max-width: 305px;
     max-height: 203px;

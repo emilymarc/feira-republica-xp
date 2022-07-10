@@ -5,6 +5,7 @@ import IconCart from "../../assets/shopping-cart.svg";
 import profile from "../../assets/profile.svg";
 import iconExpositores from "../../assets/IconExpositores.svg";
 import iconExpositoresActive from "../../assets/IconExpositoresActive.svg";
+import { searchByTerm } from '../../services/api';
 import * as S from "./styled";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,15 +13,12 @@ import { getTotal } from "../../redux/feature/cartSlice"
 import { useFormik } from 'formik';
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ setProducts }) => {
   const navigate = useNavigate();
   const idClient = useSelector((state) => state.user.id_client);
   const isLogged = useSelector((state) => state.user.isLogged);
   const fullUrl = window.location.href;
   const compareUrl = `http://localhost:3000`;
-  // const [cart, setCart] = useState({
-  //   isPaneOpen: false,
-  // });
   const dispatch = useDispatch();
   dispatch(getTotal());
   const { totalItems } = useSelector((state) => state.cart);
@@ -28,13 +26,12 @@ const Header = () => {
     initialValues: {
       search: "",
     },
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       const { search } = values;
-      if(navigate(window.location.pathname == `/search/${search}`)) {
-        window.forceUpdate();
-      } else {
-        navigate(`/search/${search}`);
-      }
+      const response = await searchByTerm(search);
+      navigate(`/search/${search}`);
+      setProducts(response.data);
+      
   }
   })
   

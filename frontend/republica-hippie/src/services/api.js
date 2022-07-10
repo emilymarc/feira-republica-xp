@@ -70,7 +70,7 @@ export const loginClient = async (email, password) => {
     const response = await baseUrl.post("/login/clients", { email, password })
     return response.data;
   } catch(error) {
-    toast.warn("Error: "+ error.response.data)
+    toast.warn("Erro: email ou senha inválidos")
   }
 }
 
