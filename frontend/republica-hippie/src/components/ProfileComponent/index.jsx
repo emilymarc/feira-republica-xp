@@ -44,7 +44,7 @@ const ProfileComponent = () => {
                 </S.InfoProfile>
 
                 <S.FotoContainer>
-                    {client.img ? <S.Foto src={foto} alt="Foto Perfil"/> : <S.Foto src={foto} alt="Foto Perfil"/>}
+                    {client.img ? <S.Foto src={client.img} alt="Foto Perfil"/> : <S.Foto src={foto} alt="Foto Perfil"/>}
                 </S.FotoContainer>
             </S.InfoContainer>
             <S.InfoItem2>
