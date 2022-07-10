@@ -1,6 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react'
 import * as S from './styled'
-import foto from '../../assets/Rectangle 144.svg';
 import { Link } from 'react-router-dom';
 import Dropzone from '../Dropzone';
 import { baseUrl } from '../../services/api';

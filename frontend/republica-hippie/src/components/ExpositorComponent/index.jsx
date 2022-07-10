@@ -5,7 +5,6 @@ import ProductListItem from "../../components/ProductListItem";
 import ProductListItemContainer from "../../components/ProductListItemContainer";
 import { toast } from "react-toastify";
 import * as S from "./styled";
-import ceramica_xicara_casinha from "../../assets/ceramica/ceramica_xicara_casinha.svg";
 import moment from "moment";
 
 

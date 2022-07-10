@@ -3,7 +3,6 @@ import * as S from "./styled";
 import FilledElipse from "../../assets/progressbar/FilledEllipse.svg";
 import EmptyElipse from "../../assets/progressbar/EmptyEllipse.svg";
 import IconTrash from "../../assets/IconTrash.svg";
-import ceramica_img from "../../assets/ceramica/ceramica_xicara_casinha.svg";
 import store from "../../redux/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
