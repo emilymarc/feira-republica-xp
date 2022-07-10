@@ -70,7 +70,7 @@ export const AddressForm = styled.form`
 `
 
 export const AddressItemsContainer = styled.div`
-    margin-bottom: 25px;
+    
 `
 
 export const AddressInput = styled.div`

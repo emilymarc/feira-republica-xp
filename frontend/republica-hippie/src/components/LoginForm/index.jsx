@@ -63,6 +63,7 @@ const LoginForm = () => {
                     : <S.FloatContainer className="floatContainer1">
                         <S.InputTittle htmlFor="floatField1">Email</S.InputTittle>
                         <S.FormInput 
+                        placeholder="email@email.com"
                         type="email" 
                         className="floatContainer1"
                         id="email"
@@ -87,6 +88,7 @@ const LoginForm = () => {
                         <S.InputTittle htmlFor="floatField2">Senha</S.InputTittle>
                         <S.FormInput 
                         type="password" className="floatContainer2"
+                        placeholder="**********"
                         id="password"
                         value={formik.values.password}
                         onChange={formik.handleChange}/>

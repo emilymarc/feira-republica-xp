@@ -6,17 +6,18 @@ import * as S from "./styled";
 import home_photo1 from "../../assets/home/home_photo1.png";
 import home_photo2 from "../../assets/home/home_photo2.png";
 import home_photo3 from "../../assets/home/home_photo3.png";
-import sobre_photo from "../../assets/home/sobre_photo.png";
+import sobre_photo from "../../assets/home/sobre_photo.jpg";
 import IconLikeBlank from "../../assets/IconLikeBlank.svg";
 import pinturas_icon from "../../assets/pinturas/pinturas_icon.svg";
 import expositores from "../../assets/expositores.svg";
+import bgUrl from "../../assets/home/BgHome.svg";
 
 const Home = () => {
   return (
     <>
       <Header></Header>
       <DetailedBg>
-        <S.BgContainer>
+        <S.BgContainer style={{background: `url(${bgUrl}) no-repeat center`}}>
           <S.GradientContainer>
             <S.HomeTitle>A TRADICIONAL FEIRA DE SÃO PAULO TAMBÉM ESTÁ ONLINE!</S.HomeTitle>
           </S.GradientContainer>

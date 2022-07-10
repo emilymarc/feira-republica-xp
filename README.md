@@ -1,5 +1,9 @@
 # *Projeto Feira da República*
 
+<p>
+  <img src="frontend/republica-hippie/src/assets/logo.png" alt="Logo República Hippie">
+</p>
+
 ## Projeto de Conclusão do Curso Gama Experience Turma 41 - XP41
 
 ### 1 - Objetivo do Trabalho  :bulb:
@@ -41,9 +45,12 @@
   * CSS 
   * React 
   * Styled Components 
+  * Yup
+  * Formik
   * Redux 
   * Node JS 
   * Sequelize
+  * Jest
 
   O time de Front-ends utilizou JavaScript, CSS, React, Styled Components e Redux. A linguagem de marcação de texto escolhida foi HTML. 
   
@@ -57,7 +64,7 @@
  
   Foram criados diferentes ambientes para desenvolvimento, teste e produção. 
   
-  Todo o código foi baseado na arquitetura Model-view-controller (MVC) e modelagem Domain Driven Design (DDD). 
+  Todo o código foi baseado na arquitetura Model-View-Controller (MVC) e modelagem Domain Driven Design (DDD). 
   
   O Deploy doi efetuado por meio do aplicativo Heroku, neste [link]()
   
@@ -66,7 +73,12 @@
 
   A documentação da API pode ser conferida neste [link](https://documenter.getpostman.com/view/8182997/UzJPMafP)
   
-  Segue vídeo explicando o uso da nossa [API]()
+  Segue vídeo explicando o uso do nosso website:
+  
+  
+<a href="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091
+" target="_blank"><img src="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091" 
+alt="Texto ALT da imagem aqui" width="240" height="180" border="10" /></a>
   
   Para **clonar o projeto** :
   

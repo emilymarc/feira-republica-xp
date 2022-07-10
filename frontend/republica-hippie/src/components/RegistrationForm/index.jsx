@@ -62,6 +62,7 @@ const RegistrationForm = () => {
           <S.FloatContainer className="floatContainer1">
             <S.InputTittle htmlFor="floatField1 ">Nome Completo</S.InputTittle>
             <S.InputName
+              placeholder="Pedro Luis da Silva"
               type="text"
               className="floatField1"
               data-placeholder="Placeholder 1"
@@ -93,6 +94,7 @@ const RegistrationForm = () => {
             <S.FloatContainer className="floatContainer2">
               <S.InputTittle htmlFor="floatField2 ">E-mail</S.InputTittle>
               <S.FormInput
+                placeholder="pedroluis@email.com"
                 type="email"
                 className="floatField2"
                 data-placeholder="Placeholder 2"
@@ -125,6 +127,7 @@ const RegistrationForm = () => {
             <S.FloatContainer className="floatContainer4">
               <S.InputTittle htmlFor="floatField4 ">Senha</S.InputTittle>
               <S.FormInput
+                placeholder="**********"
                 type="password"
                 className="floatField4"
                 data-placeholder="Placeholder 4"
@@ -159,6 +162,7 @@ const RegistrationForm = () => {
                 Repetir Senha
               </S.InputTittle>
               <S.FormInput
+                placeholder="**********"
                 type="password"
                 className="floatField5"
                 data-placeholder="Placeholder 5"

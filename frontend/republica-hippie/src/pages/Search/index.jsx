@@ -9,7 +9,7 @@ import { searchByTerm } from '../../services/api';
 import { toast } from 'react-toastify';
 const Search = () => {
   const { term } = useParams();
-  const [products, setProducts] = React.useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect (() => {
     const loadProducts = async () => {
@@ -25,9 +25,9 @@ const Search = () => {
 
   return ( 
     <>
-        <Header></Header>
+        <Header setProducts={setProducts}></Header>
           <DetailedBg>
-            <h3 style={{textAlign: 'center', paddingTop: '40px', marginBottom: '40px'}}>Resultados da pesquisa:</h3>
+            <h3 style={{textAlign: 'center', paddingTop: '40px', marginBottom: '40px'}}>{products.length} resultado(s) para a pesquisa: "{term}"</h3>
             <ProductListItemContainer>
             {products.length > 0 ? 
               (products.map(product => {
@@ -39,7 +39,7 @@ const Search = () => {
                     productId={product.id}
                     productTitle={product.name}
                     productValue={product.price.replace(".", ",")}
-                    productImg='https://res.cloudinary.com/republica-hippie/image/upload/v1657134729/products/dal0mdiotc56cwecux5e.jpg'
+                    productImg={!product.image_products[0].url_img ? null : product.image_products[0].url_img}
                   ></ProductListItem>
                 )
               }))
