@@ -38,13 +38,13 @@ const ProfileComponent = () => {
             <S.TitleProfile>MEU PERFIL</S.TitleProfile>
             <S.InfoContainer>
                 <S.InfoProfile>
-                    <S.InfoItem>Nome completo: {client.name}</S.InfoItem>
-                    <S.InfoItem>Email: {client.email}</S.InfoItem>
+                    <S.InfoItem>Nome completo: <span style={{fontSize: '18px', fontWeight:'300'}}>{client.name}</span></S.InfoItem>
+                    <S.InfoItem>Email: <span style={{fontSize: '18px', fontWeight:'300'}}>{client.email}</span></S.InfoItem>
                     <S.EditLink to={`/editarperfil/${id}`}>Editar Perfil</S.EditLink>
                 </S.InfoProfile>
 
                 <S.FotoContainer>
-                    {client.img ? <S.Foto src={client.img} alt="Foto Perfil"/> : <S.Foto src={foto} alt="Foto Perfil"/>}
+                    {client.img ? <S.Foto src={foto} alt="Foto Perfil"/> : <S.Foto src={foto} alt="Foto Perfil"/>}
                 </S.FotoContainer>
             </S.InfoContainer>
             <S.InfoItem2>
