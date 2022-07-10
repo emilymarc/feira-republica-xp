@@ -30,11 +30,7 @@ const Header = () => {
     },
     onSubmit: async values => {
       const { search } = values;
-      if(navigate(window.location.pathname == `/search/${search}`)) {
-        window.forceUpdate();
-      } else {
-        navigate(`/search/${search}`);
-      }
+      navigate(`/search/${search}`);
   }
   })
   
