@@ -73,7 +73,12 @@
 
   A documentação da API pode ser conferida neste [link](https://documenter.getpostman.com/view/8182997/UzJPMafP)
   
-  Segue vídeo explicando o uso da nossa [API]()
+  Segue vídeo explicando o uso do nosso website:
+  
+  
+<a href="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091
+" target="_blank"><img src="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091" 
+alt="Texto ALT da imagem aqui" width="240" height="180" border="10" /></a>
   
   Para **clonar o projeto** :
   
