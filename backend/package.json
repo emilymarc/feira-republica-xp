@@ -6,7 +6,11 @@
   "scripts": {
     "test": "jest",
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "prod": "nodemon src/server.js",
+    "postinstall": "if [ $CLIENT_ENV ]; then npm run postinstall-client; elif [ $SERVER_ENV ]; then npm run postinstall-server; else echo no environment detected, please set CLIENT_ENV or SERVER_ENV; fi",
+       "postinstall-client": "cd feira-republica/frontend && npm install && npm run build",
+       "postinstall-server": "cd feira-republica/backend && npm install"
   },
   "keywords": [],
   "author": "",
