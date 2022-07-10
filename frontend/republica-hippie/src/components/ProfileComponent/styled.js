@@ -84,13 +84,16 @@ export const LogOutButton = styled.button`
 
 export const FotoContainer = styled.div`
     display: flex;
-    align-items: start;
-    justify-content: start;  
-    background-color: gray;
-    border-radius: 20%;
+    align-items: center;
+    justify-content: center;  
+    border-radius: 13%;
+    padding: 8px;
+    border: 3px dotted #C57E5F;
+    background-color: #FEDC96;
 `
 
 export const Foto = styled.img`
-   max-width: 300px;
-   border-radius: 20px;
+   width: 200px;
+   max-height: 250px;
+   border-radius: 13%;
 `

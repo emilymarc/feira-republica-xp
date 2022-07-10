@@ -94,7 +94,7 @@ const SingleProduct = ({ slides }) => {
         <S.ProductTitle>{product.name}</S.ProductTitle>
         <S.ProductExpositor>
           Expositor:
-          <S.LinkExpositor to="/"> {product.exhibitor?.name}</S.LinkExpositor>{/*MUDAR O LINK AO CRIAR PÁGINA DE EXPOSITOR*/}
+          <S.LinkExpositor to={`/expositor/${product.id_exhibitors_product}`}> {product.exhibitor?.name}</S.LinkExpositor>{/*MUDAR O LINK AO CRIAR PÁGINA DE EXPOSITOR*/}
         </S.ProductExpositor>
 
         <S.PriceLikeContainer>

@@ -24,6 +24,7 @@ export const ExpositorImg = styled.img`
   margin: 45px auto;
   width: 350px;
   height: 350px;
+  border-radius: 10%;
   @media screen and (max-width: 450px) {
     width: 300px;
     height: 300px;

@@ -33,9 +33,9 @@ const Dropzone = ({ onFileUploaded }) => {
      selectedFileUrl
      ? <img src={selectedFileUrl} alt="Point thumbnail" />
      : (
-        <p>
+        <p style={{textAlign: 'center'}}>
         <FiUpload />
-        Arraste o arquivo para cá
+        Arraste ou clique aqui para carregar uma nova foto
         </p>
      )
    }
