@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import img from '../../assets/background.png'
+import img from '../../assets/background.jpg'
 
 
 export const Container = styled.main`
