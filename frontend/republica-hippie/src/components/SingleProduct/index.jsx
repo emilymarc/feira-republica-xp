@@ -72,7 +72,7 @@ const SingleProduct = ({ slides }) => {
                 key={index}
               >
                 {index === current && (
-                  <img src={slide.url_img} alt="travel image" className="image" />
+                  <img src={slide.url_img} alt="travel image" className="image" style={{borderRadius: '20px'}} />
                 )}
               </div>
             );
