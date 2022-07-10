@@ -56,6 +56,7 @@ export const FloatContainer = styled.div`
     padding: 0 8px;
     position: relative;
     width: 300px;
+    margin-bottom: 30px;
 `
 
 export const InputTittle = styled.label`
