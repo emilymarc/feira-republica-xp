@@ -38,7 +38,7 @@
   
   Nas reuniões foram criados cards com descrição das tarefas a serem desenvolvidas, indicação da squad responsável, dos membros encarregados da tarefa indicada no card e data de entrega.  
 
- [Trello](https://trello.com/b/JJeQFoZq/kanban-geral-grupo-7)
+ [Trello](https://trello.com/b/9W8Uz2is/xpha41-grupo-7-feira-republica)
  
   <br>
 
