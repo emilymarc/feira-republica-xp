@@ -75,27 +75,55 @@
   
   Segue prévia da aplicação:
   
-  <div align="center">
-<img src="" alt="preview"/>
+  <div>
+<img src="https://github.com/emilymarc/feira-republica-xp/blob/main/Republica%20Hippie.gif" alt="preview"/>
 </div>
 
 
  
   Para acessar a página da web fruto deste projeto, [clique aqui](https://feira-republica.netlify.app/)
 
+
   Para **clonar o projeto** :
   
   ```$ git clone https://github.com/emilymarc/feira-republica-xp.git```
   
-  Para **iniciar o backend** :
+  Para **INICIAR O BACK-END**, acessar a pasta backend, abrir o terminal e executar:
   
-  ```$ npm install -g```
+  ```$ npm install```
   
-  Para **iniciar o frontend** :
+  Após, criar a pasta ```.env``` conforme exemplo constante no arquivo ```.env-example```
+
+  
+  Ainda na pasta backend, para **iniciar o sequelize-cli** digitar na linha de comando do terminal:
+  
+  ```npx sequelize-cli init```
+
+  A execução do projeto também depende da **criação de um banco de dados** e para isso se faz necessário, na linha de comando do terminal:
+  
+  ```npx sequelize-cli db:create```
+  
+  Também é possível criar o banco de dados diretamente no MySql por meio do comando: ```CREATE database```
+ 
+  
+  Na sequência, iniciar as migrations por meio do seguinte comando: 
+  
+  ```npx sequelize-cli db:migrate```
+  
+  Por fim, para ativar o seed e assim popular o banco de dados, execute o comando abaixo :
+  
+  ```npx sequelize-cli db:seed:all```
+  
+  
+  
+  Para **INICIAR O FRONT-END** , após abrir a pasta frontend, executar na linha de comando:
   
   ```$ npm start```
   
 
+  Agora já sabe como navegar por essa maravilha  :ship: 
+  
+  
 ### 5 - Integrantes da equipe  :crown:
    
   O projeto foi desenvolvido por 
