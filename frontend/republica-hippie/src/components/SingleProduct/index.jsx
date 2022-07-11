@@ -18,6 +18,7 @@ import style from "./style.css";
 const SingleProduct = ({ slides }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+
   useEffect(() => {
     const loadProduct = async () => {
       try {
@@ -28,12 +29,11 @@ const SingleProduct = ({ slides }) => {
       }
     }
     loadProduct();
-    
   }, [setProduct]);
 
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
-  const length = slides.length;
+  const length = product.image_products?.length;
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
@@ -63,7 +63,7 @@ const SingleProduct = ({ slides }) => {
 
         {/* Carousel */}
         <section className="slider">
-          {SliderData.map((slide, index) => {
+          {product.image_products?.map((slide, index) => {
             return (
               <div
                 className={`${
@@ -72,7 +72,7 @@ const SingleProduct = ({ slides }) => {
                 key={index}
               >
                 {index === current && (
-                  <img src={slide.image} alt="travel image" className="image" />
+                  <img src={slide.url_img} alt="travel image" className="image" style={{borderRadius: '20px'}} />
                 )}
               </div>
             );
@@ -94,7 +94,7 @@ const SingleProduct = ({ slides }) => {
         <S.ProductTitle>{product.name}</S.ProductTitle>
         <S.ProductExpositor>
           Expositor:
-          <S.LinkExpositor to="/"> {product.exhibitor?.name}</S.LinkExpositor>{/*MUDAR O LINK AO CRIAR PÁGINA DE EXPOSITOR*/}
+          <S.LinkExpositor to={`/expositor/${product.id_exhibitors_product}`}> {product.exhibitor?.name}</S.LinkExpositor>{/*MUDAR O LINK AO CRIAR PÁGINA DE EXPOSITOR*/}
         </S.ProductExpositor>
 
         <S.PriceLikeContainer>
@@ -135,6 +135,7 @@ const SingleProduct = ({ slides }) => {
           </S.DescriptionButton>
         </S.ProductDescription>
       </S.RightContainer>
+
     </S.Container>
   );
 };

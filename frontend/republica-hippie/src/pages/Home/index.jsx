@@ -6,14 +6,18 @@ import * as S from "./styled";
 import home_photo1 from "../../assets/home/home_photo1.png";
 import home_photo2 from "../../assets/home/home_photo2.png";
 import home_photo3 from "../../assets/home/home_photo3.png";
-import sobre_photo from "../../assets/home/sobre_photo.png";
+import sobre_photo from "../../assets/home/sobre_photo.jpg";
+import IconLikeBlank from "../../assets/IconLikeBlank.svg";
+import pinturas_icon from "../../assets/pinturas/pinturas_icon.svg";
+import expositores from "../../assets/expositores.svg";
+import bgUrl from "../../assets/home/BgHome.svg";
 
 const Home = () => {
   return (
     <>
       <Header></Header>
       <DetailedBg>
-        <S.BgContainer>
+        <S.BgContainer style={{background: `url(${bgUrl}) no-repeat center`}}>
           <S.GradientContainer>
             <S.HomeTitle>A TRADICIONAL FEIRA DE SÃO PAULO TAMBÉM ESTÁ ONLINE!</S.HomeTitle>
           </S.GradientContainer>
@@ -22,16 +26,19 @@ const Home = () => {
         <S.PresentationContainer>
           <S.PresentationItem>
             <S.HomePhoto src={home_photo1} alt="Feito com amor"></S.HomePhoto>
+            <S.MobilePhoto src={IconLikeBlank} alt="Feito com amor"></S.MobilePhoto>
             <S.SubTitle>FEITO COM AMOR</S.SubTitle>
             <S.PresentationText>Os criadores realizam suas explêndidas criações com muito amor, sempre atentos aos detalhes de suas peças, usando técnicas tradicionais para a criação!</S.PresentationText>
           </S.PresentationItem>
           <S.PresentationItem>
             <S.HomePhoto src={home_photo2} alt="Diversas técnicas"></S.HomePhoto>
+            <S.MobilePhoto src={pinturas_icon} alt="Feito com amor"></S.MobilePhoto>
             <S.SubTitle>DIVERSAS TÉCNICAS</S.SubTitle>
             <S.PresentationText>Diferentes técnicas de criação estão aqui, seja modelagem, trançado, crochê... Você vai encontrar varias técnicas e até uma breve história de como foram produzidas!</S.PresentationText>
           </S.PresentationItem>
           <S.PresentationItem>
             <S.HomePhoto src={home_photo3} alt="Venha nos visitar"></S.HomePhoto>
+            <S.MobilePhoto src={expositores} alt="Feito com amor"></S.MobilePhoto>
             <S.SubTitle>VENHA NOS VISITAR!</S.SubTitle>
             <S.PresentationText>Na loja online você encontra bastante coisas, mas venha também nos conhecer pessoalmete aos finais de semana! É um local cheio de energia e comida, e mais coisas ainda para ver! </S.PresentationText>
           </S.PresentationItem>

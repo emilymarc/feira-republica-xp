@@ -47,7 +47,7 @@ const Ceramica = () => {
                     productId={product.id}
                     productTitle={product.name}
                     productValue={product.price.replace(".", ",")}
-                    productImg='https://res.cloudinary.com/republica-hippie/image/upload/v1657134729/products/dal0mdiotc56cwecux5e.jpg'
+                    productImg={!product.image_products[0].url_img ? null : product.image_products[0].url_img}
                   ></ProductListItem>
                 )
               }))

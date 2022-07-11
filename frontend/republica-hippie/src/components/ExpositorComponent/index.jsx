@@ -5,7 +5,8 @@ import ProductListItem from "../../components/ProductListItem";
 import ProductListItemContainer from "../../components/ProductListItemContainer";
 import { toast } from "react-toastify";
 import * as S from "./styled";
-import ceramica_xicara_casinha from "../../assets/ceramica/ceramica_xicara_casinha.svg";
+import moment from "moment";
+
 
 const ExpositorComponent = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const ExpositorComponent = () => {
         const response = await getExpositorById(id);
         setExpositor(response.data);
       } catch (error) {
-        console.log(error);
+        toast.warn(error);
       }
     };
     getExpositorId();
@@ -29,11 +30,15 @@ const ExpositorComponent = () => {
         const response = await getExpositorProducts(id);
         setExpositorProducts(response.data);
       } catch (error) {
-        console.log(error);
+        toast.warn(error);
       }
     };
     getExpositorProductsId();
   }, [setExpositorProducts]);
+
+  let currentDate = new Date(expositor.birth_date);
+  let formattedDate = moment(currentDate).format('YYYYMMDD');
+  let expositorAge = moment(formattedDate, 'YYYYMMDD').fromNow().split(' ')[0];
 
   const expositorProductsObject = expositorProducts.products
   return (
@@ -41,7 +46,7 @@ const ExpositorComponent = () => {
       <S.Container>
         <S.ExpositorTitle>{(`${expositor.name}`).toUpperCase()}</S.ExpositorTitle>
 
-        <p>{expositor.profession}, 67 anos</p>
+        <p>{expositor.profession}, {expositorAge} anos</p>
         <p>Contato: {expositor.phone}</p>
 
         <S.ExpositorCite>"{expositor.phrase}"</S.ExpositorCite>
@@ -64,7 +69,7 @@ const ExpositorComponent = () => {
                     productId={product.id}
                     productTitle={product.name}
                     productValue={product.price.replace(".", ",")}
-                    productImg={'http://res.cloudinary.com/republica-hippie/image/upload/v1656943893/products/xupatrcvfqn9evgglpff.jpg'}
+                    productImg={!product.image_products[0].url_img ? null : product.image_products[0].url_img}
                   ></ProductListItem>
                 )
               })}

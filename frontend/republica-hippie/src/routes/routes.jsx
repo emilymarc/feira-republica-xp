@@ -34,7 +34,7 @@ const AppRoutes = () => {
                         <Route path='/signup' element={<Registration/>}/>
                         <Route path='/endereco/:id' element={<RequireAuth><Address/></RequireAuth>}/> {/* :id do cliente */}
                         <Route path='/checkout/:idClient/:idOrder' element={<RequireAuth><Pagamento/></RequireAuth>}/> {/* :id do cliente */}
-                        <Route path='/editarperfil' element={<Edit/>}/>
+                        <Route path='/editarperfil/:id' element={<Edit/>}/>
                         <Route path='/search/:term' element={<Search/>}/>
                     </Routes>
         </BrowserRouter>

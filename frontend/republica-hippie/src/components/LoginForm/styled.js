@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import img from '../../assets/background.png'
+import img from '../../assets/background.jpg'
 
 
 export const Container = styled.main`
     background-image: url(${img});   
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 `
@@ -55,6 +56,7 @@ export const FloatContainer = styled.div`
     padding: 0 8px;
     position: relative;
     width: 300px;
+    margin-bottom: 30px;
 `
 
 export const InputTittle = styled.label`
