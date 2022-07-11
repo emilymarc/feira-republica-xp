@@ -35,7 +35,7 @@
   
   Nas reuniões foram criados cards com descrição das tarefas a serem desenvolvidas, indicação da squad responsável, dos membros encarregados da tarefa indicada no card e data de entrega.  
 
- [Trello](url aqui)
+ [Trello](https://trello.com/b/JJeQFoZq/kanban-geral-grupo-7)
 
 ### 3 - O código  :computer:
   
@@ -66,20 +66,23 @@
   
   Todo o código foi baseado na arquitetura Model-View-Controller (MVC) e modelagem Domain Driven Design (DDD). 
   
-  O Deploy doi efetuado por meio do aplicativo Heroku, neste [link]()
+  O [Deploy](https://feira-republica.herokuapp.com/) back-end foi efetuado por meio do aplicativo Heroku.
   
 
 ### 4 - Como utilizar  :surfer: 
 
   A documentação da API pode ser conferida neste [link](https://documenter.getpostman.com/view/8182997/UzJPMafP)
   
-  Segue vídeo explicando o uso do nosso website:
+  Segue prévia da aplicação:
   
-  
-<a href="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091
-" target="_blank"><img src="https://www.awesomescreenshot.com/video/9893094?key=6772504979b42195db56d152fd5c2091" 
-alt="Texto ALT da imagem aqui" width="240" height="180" border="10" /></a>
-  
+  <div align="center">
+<img src="" alt="preview"/>
+</div>
+
+
+ 
+  Para acessar a página da web fruto deste projeto, [clique aqui](https://feira-republica.netlify.app/)
+
   Para **clonar o projeto** :
   
   ```$ git clone https://github.com/emilymarc/feira-republica-xp.git```
