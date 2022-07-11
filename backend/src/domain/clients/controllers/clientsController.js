@@ -5,6 +5,8 @@ const {
     Clients,
     Address
 } = require("../models/");
+const cloudinary = require('../../../config/cloudinary');
+
 
 
 const ClientsController = {
@@ -111,6 +113,21 @@ const ClientsController = {
                 }
             });
 
+            async function uploadImageClient(files) {
+                try {
+                    if(!files){
+                        return
+                    }
+                    const newUrlImage = await cloudinary.uploads(files[0].path, 'clients');
+                    return newUrlImage;
+                    
+                } catch (error) {
+                    return
+                }
+            }
+
+            const urlImage = await uploadImageClient(req.files)
+
             if (clientToUpdate == null) {
                 return res.status(400).json({
                     message: "Cliente não encontrado"
@@ -132,11 +149,11 @@ const ClientsController = {
                 query.email = req.body.email;
             }
 
-            if (req.body.img != null) {
-                query.img = req.body.img;
+            if (urlImage != null) {
+                query.img = urlImage.imageUrl;
             }
 
-            const updatedClient = await Clients.update(
+            const modifyClient = await Clients.update(
                 query, {
                     where: {
                         id_client,
@@ -145,10 +162,21 @@ const ClientsController = {
                 }
             );
 
-            return res.status(200).json({
-                ...clientToUpdate,
-                ...query
-            });
+            if (modifyClient != 1) {
+                return
+            }
+
+            const updatedClient = await Clients.findOne({
+                attributes: {
+                    exclude: ['password', 'data_status']
+                },
+                where: {
+                    id_client,
+                    data_status: 1
+                }
+            })
+
+            return res.status(200).json(updatedClient);
 
         } catch (error) {
             console.log(error);
@@ -190,7 +218,7 @@ const ClientsController = {
         }
     },
 
-    
+
 
 }
 

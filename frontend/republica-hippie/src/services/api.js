@@ -22,6 +22,14 @@ export const getProductsById = async (id) => {
   }
 }
 
+export const searchByTerm = async (term) => {
+  try {
+    return await baseUrl.get(`/products/search/${term}`)
+  } catch (error) {
+    toast.warn(`Erro ao carregar os produtos: ${error.response.data}`)
+  }
+}
+
 //Expositores
 export const getExpositores = async () => {
   try {
@@ -61,6 +69,32 @@ export const loginClient = async (email, password) => {
   try{
     const response = await baseUrl.post("/login/clients", { email, password })
     return response.data;
+  } catch(error) {
+    toast.warn("Error: "+ error.response.data)
+  }
+}
+
+export const getClientById = async (id) => {
+  try {
+    return await baseUrl.get(`/clients/${id}`)
+  } catch(error) {
+    toast.warn("Error: "+ error.response.data)
+  }
+}
+
+//Orders
+export const createOrder = async (client_id, zip_cod, st, house_number, city, state, district, items_order) => {
+  try{
+    const response = await baseUrl.post(`/orders/${client_id}`, { zip_cod, st, house_number, city, state, district, items_order })
+    return response.data;
+  } catch(error) {
+    toast.warn("Error: "+ error.response.data)
+  }
+}
+
+export const getOrder = async (client_id, order_id) => {
+  try {
+    return await baseUrl.get(`/orders/${client_id}/${order_id}`)
   } catch(error) {
     toast.warn("Error: "+ error.response.data)
   }

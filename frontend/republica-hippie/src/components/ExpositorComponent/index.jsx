@@ -39,21 +39,20 @@ const ExpositorComponent = () => {
   return (
     <>
       <S.Container>
-        <h1>{(`${expositor.name}`).toUpperCase()}</h1>
+        <S.ExpositorTitle>{(`${expositor.name}`).toUpperCase()}</S.ExpositorTitle>
 
         <p>{expositor.profession}, 67 anos</p>
         <p>Contato: {expositor.phone}</p>
 
-        <cite>"{expositor.phrase}"</cite>
+        <S.ExpositorCite>"{expositor.phrase}"</S.ExpositorCite>
 
-        <img
+        <S.ExpositorImg
           src={expositor.img}
-          style={{ width: "350px", height: "350px" }}
-        ></img>
+        ></S.ExpositorImg>
 
-        <p>{expositor.description}</p>
+        <S.ExpositorDescription>{expositor.description}</S.ExpositorDescription>
 
-        <h3>{(`PRODUTOS POPULARES DE ${expositor.name}`).toUpperCase()}</h3>
+        <S.ExpositorProductTitle>{(`PRODUTOS POPULARES DE ${expositor.name}`).toUpperCase()}</S.ExpositorProductTitle>
         <ProductListItemContainer>
 
             {expositorProductsObject?.filter((item, idx) => idx < 3).map((product) => {

@@ -1,6 +1,9 @@
 const supertest = require("supertest");
 const { app } = require("../../..");
 const ExhibitorsController = require("./Exhibitors.controller");
+const idExhibitorsValid = 3
+const createEmail = `testExhibitors${idExhibitorsValid}@gmail${idExhibitorsValid*22}.com`
+const updateEmail = `testExhibitors${idExhibitorsValid}@gmail${idExhibitorsValid*33}.com`
 
 describe('metodo ()', () => {
     test('deve ser do type function', () => {
@@ -36,7 +39,7 @@ describe('No controller, ao executar função', () => {
                     phone: "(11)91234-5678",
                     phrase: "Imaginar minha vida sem fazer cerâmica seria a mesma coisa de imaginar uma árvore vivendo sem água",
                     description: "Pintora com vasta experiência no mercado",
-                    email: "Geovanea.Farias@hotamail.com",
+                    email: createEmail,
                     password: "12345678",
                     img: "string"
                 })
@@ -50,27 +53,27 @@ describe('No controller, ao executar função', () => {
             expect(res.status).toBe(200)
         })
         test('Recuperando expositor por ID get /exhibitors/:idExhibitors', async () => {
-            const res = await supertest(app).get('/exhibitors/2')
+            const res = await supertest(app).get(`/exhibitors/${idExhibitorsValid}`)
             expect(res.status).toBe(200)
         })
     })
     describe('Teste de rotas get produtos por expositores ()', () => {
         test('Recuperando todos os produtos por expositores com get /exhibitors', async () => {
-            const res = await supertest(app).get('/exhibitors/2/products')
+            const res = await supertest(app).get(`/exhibitors/${idExhibitorsValid}/products`)
             expect(res.status).toBe(200)
         })
         test('Recuperando expositor por ID get /exhibitors/:idExhibitors', async () => {
-            const res = await supertest(app).get('/exhibitors/2')
+            const res = await supertest(app).get(`/exhibitors/${idExhibitorsValid}`)
             expect(res.status).toBe(200)
         })
     })
     describe('Atualizando user', () => {
         test('em caso de sucesso, deve retornar 201', async () => {
             const res = await supertest(app)
-                .put('/exhibitors/2')
+                .put(`/exhibitors/${idExhibitorsValid}`)
                 .send({
                     name: "Augusto Nino",
-                    email: "NiNoAugusto@outlook.com.br",
+                    email: updateEmail,
                     password: "12345678",
                     profession: "Pintora - Pintura em azulejos",
                     birth_date: "2022-06-30 05:21:47",
@@ -84,7 +87,7 @@ describe('No controller, ao executar função', () => {
     describe('Deletando expositor', () => {
         test('em caso de sucesso, deve retornar 204', async () => {
             const res = await supertest(app)
-                .delete('/exhibitors/2/deletar')
+                .delete(`/exhibitors/${idExhibitorsValid}/deletar`)
                 .expect(204);
         })
     })

@@ -1,6 +1,10 @@
 const {
     Orders,
-    ItemOrder
+    ItemOrder,
+    Products,
+    ImagesProducts,
+    Exhibitors,
+    Categories,
 } = require("../models");
 const {
     Clients,
@@ -18,9 +22,9 @@ class OrderService {
             zip_cod,
             st,
             house_number,
+            district,
             city,
-            state,
-            country
+            state
         } = data;
 
         let responseOrder = {
@@ -54,9 +58,9 @@ class OrderService {
             zip_cod,
             st,
             house_number,
+            district,
             city,
             state,
-            country,
             data_status: 1,
         });
 
@@ -116,7 +120,7 @@ class OrderService {
                     data_status: 1
                 },
             });
-            
+
             return updatedOrder
         })
         return newOrder
@@ -187,7 +191,25 @@ class OrderService {
 
         const OrdersClient = await Orders.findOne({
             include: [{
-                model: ItemOrder
+                model: ItemOrder,
+                include: [{
+                    model: Products,
+                    include: [{
+                        model: Categories,
+                        attributes: ["name"],
+                    },
+                    {
+                        model: Exhibitors,
+                        attributes: ["name", "profession", "phrase", "description", "birth_date", "phone", "email"],
+                    },
+                    {
+                        model: ImagesProducts,
+                        attributes: [
+                            "url_img",
+                        ],
+                    },
+                ],
+                }, ],
             }, ],
             where: {
                 order: idOrder,

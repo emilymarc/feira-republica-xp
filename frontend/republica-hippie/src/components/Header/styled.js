@@ -14,15 +14,34 @@ export const LogoArea = styled.div`
     justify-content: space-around;
     gap: 50px;
     align-items: center;
+    @media screen and(max-width: 1470px) {
+        margin: 0 20px;
+    }
+    @media screen and (max-width: 768px) {
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 `
 
-export const SearchContainer = styled.div`
+export const LogoLink = styled(Link)`
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+`
+
+export const SearchContainer = styled.form`
     display: flex;
     border: 1px solid #5AB9F0;
     border-radius: 20px;
     width: 60%;
     align-items: center;
     padding-right: 12px;
+    @media screen and(max-width: 768px) {
+
+    }
 `
 
 export const Search = styled.input`
@@ -43,47 +62,13 @@ export const Search = styled.input`
     }
 `
 
-export const NavArea = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-`
-
-export const Nav = styled.ul`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 20%;
-    list-style: none;
-    margin: 20px auto 40px auto;
-`
-
-export const NavLink = styled(Link)`
-    text-decoration: none;
-`
-
-export const NavItem = styled.li`
-    color:#D8A691;
-    font-size: 20px;
-    transition: .3s;
-    &:hover {
-        color: #C57E5F;
-    }
-`
-
-export const ContainerExpositores = styled.div`
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding-left: 20%;
-    border-left: 3px solid #D8A691;
-`
-
 export const Menu = styled.div`
     display: flex;
     align-items: center;
     gap: 55px;
+    @media screen and (max-width: 768px) {
+        gap: 20px;
+    }
 `
 
 export const Icon = styled.img`
@@ -119,4 +104,61 @@ export const CartBadge = styled.div`
     height: 27px;
     width: 27px;
     border-radius: 50%;
+`
+
+export const NavArea = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+`
+
+export const Nav = styled.ul`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
+    list-style: none;
+    margin: 20px auto 40px auto;
+    @media screen and (max-width: 1280px) {
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+    @media screen and (max-width: 768px) {
+        padding-left: 0;
+    }
+`
+
+export const NavLink = styled(Link)`
+    text-decoration: none;
+    
+`
+
+export const NavItem = styled.li`
+    color:#D8A691;
+    font-size: 20px;
+    transition: .3s;
+    &:hover {
+        color: #C57E5F;
+    }
+`
+
+export const ContainerExpositores = styled.div`
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-left: 20%;
+    border-left: 3px solid #D8A691;
+    @media screen and (max-width: 1280px) {
+        padding-left: 0;
+        border-left: none;
+        width: 100%;
+        justify-content: center;
+    }
+`
+
+export const SearchButton = styled.button`
+    background: none;
+    border: none;
+    outline: none;
 `

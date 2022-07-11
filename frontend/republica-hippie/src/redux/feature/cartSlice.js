@@ -15,17 +15,19 @@ const cartSlice = createSlice({
       const itemIndex = state.Items.findIndex(item => item.code_product === action.payload.code_product);
       if (itemIndex >= 0) {
         state.Items[itemIndex].quantity += 1;
+        state.Items[itemIndex].stock_product -= 1;
         toast(`Produto adicionado ao carrinho!`, {
           position: 'top-center'
         })
       } else {
         let newItem = { ...action.payload, quantity: 1 };
+        newItem.stock_product -= 1;
         state.Items.push(newItem);
         toast(`Produto adicionado ao carrinho!`, {
           position: 'top-center'
         })
       }
-      
+      // state.Items[itemIndex].stock_product -= 1;
       localStorage.setItem('cart', JSON.stringify(state.Items));
     },
     removeItem: (state, action) => {
@@ -39,9 +41,13 @@ const cartSlice = createSlice({
       const itemIndex = state.Items.findIndex(item => item.code_product === action.payload.code_product);
       if (state.Items[itemIndex].quantity > 1) {
         state.Items[itemIndex].quantity -= 1;
+        state.Items[itemIndex].stock_product += 1;
       } else if (state.Items[itemIndex].quantity === 1) {
+        state.Items[itemIndex].stock_product += 1;
         state.Items.splice(itemIndex, 1);
-    }
+
+      }
+      // state.Items[itemIndex].stock_product += 1;
       localStorage.setItem('cart', JSON.stringify(state.Items));
     },
     getTotal: (state) => {
