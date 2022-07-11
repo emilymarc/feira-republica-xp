@@ -59,7 +59,7 @@
 
   O time de Front-ends utilizou JavaScript, CSS, React, Styled Components e Redux. A linguagem de marcação de texto escolhida foi HTML. 
   
-  O time de Back-ends utilizou JavaScript, o framework Node JS, o ORM Sequelize. 
+  O time de Back-ends utilizou Node.js, o framework Express, o ORM Sequelize.
   
   Para criptografia de senhas, o bcriptjs e para token, o padrão de autenticação JWT.
   
