@@ -32,7 +32,7 @@
   
   Cada time (designer UX, front-end, back-end) detinha uma etiqueta de diferente coloração, de modo a facilitar a identificação de seus cards. Os cards foram separados em colunas "to do", "doing", "testing" e "done", facilitando um acompanhamento real de cada etapa do projeto. 
   
-  Além disso, a squad se comunicava via aplicativo "slack", agendando reuniões por time e reuniões de toda a squad. 
+  Além disso, a squad se comunicava via aplicativo "slack", agendando reuniões por time e reuniões gerais. 
   
   Houve a criação de backlog, com tarefas a serem realizadas para a entrega do trabalho e ideias de features a serem feitas no futuro.
   
