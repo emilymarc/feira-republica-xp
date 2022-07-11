@@ -6,6 +6,8 @@
 
 ## Projeto de Conclusão do Curso Gama Experience Turma 41 - XP41
 
+<br>
+
 ### 1 - Objetivo do Trabalho  :bulb:
 
    Na primeira reunião do trabalho, os integrantes do grupo decidiram pelo projeto Feira da República. 
@@ -21,21 +23,22 @@
    Na ideia de negócio projetada pela nossa cliente (Associação de Artesãos), ela cadastra de forma centralizada os produtos e organiza as entregas. 
    
    O cliente, por sua vez, se cadastra na plataforma e, logado, pode comprar produtos.
-   
+ 
+  <br>
    
 ### 2 - Organização e metodologia  :office:
   
-  O projeto foi elaborado utilizando a metodologia ágil kanban. Para tanto, além do respeito aos cerimoniais exigidos pelo método e ensinados durante o curso, a squad optou pelo uso do aplicativo Trello como ferramenta de registro e organização visual. 
+  O projeto foi elaborado utilizando a metodologia ágil kanban. Para tanto, além do respeito aos cerimoniais exigidos pelo método e ensinados durante o curso, a squad optou pelo uso do aplicativo [Trello](https://trello.com/b/9W8Uz2is/xpha41-grupo-7-feira-republica) como ferramenta de registro e organização visual. 
   
   Cada time (designer UX, front-end, back-end) detinha uma etiqueta de diferente coloração, de modo a facilitar a identificação de seus cards. Os cards foram separados em colunas "to do", "doing", "testing" e "done", facilitando um acompanhamento real de cada etapa do projeto. 
   
-  Além disso, a squad se comunicava via aplicativo "slack", agendando reuniões por time e reuniões de toda a squad. 
+  Além disso, a squad se comunicava via aplicativo "slack", agendando reuniões por time e reuniões gerais. 
   
   Houve a criação de backlog, com tarefas a serem realizadas para a entrega do trabalho e ideias de features a serem feitas no futuro.
   
   Nas reuniões foram criados cards com descrição das tarefas a serem desenvolvidas, indicação da squad responsável, dos membros encarregados da tarefa indicada no card e data de entrega.  
-
- [Trello](https://trello.com/b/JJeQFoZq/kanban-geral-grupo-7)
+ 
+  <br>
 
 ### 3 - O código  :computer:
   
@@ -54,7 +57,7 @@
 
   O time de Front-ends utilizou JavaScript, CSS, React, Styled Components e Redux. A linguagem de marcação de texto escolhida foi HTML. 
   
-  O time de Back-ends utilizou JavaScript, o framework Node JS, o ORM Sequelize. 
+  O time de Back-ends utilizou Node.js, o framework Express, o ORM Sequelize.
   
   Para criptografia de senhas, o bcriptjs e para token, o padrão de autenticação JWT.
   
@@ -68,27 +71,33 @@
   
   O [Deploy](https://feira-republica.herokuapp.com/) back-end foi efetuado por meio do aplicativo Heroku.
   
+   <br>
 
 ### 4 - Como utilizar  :surfer: 
 
   A documentação da API pode ser conferida neste [link](https://documenter.getpostman.com/view/8182997/UzJPMafP)
   
   Segue prévia da aplicação:
+   
+  <br>
   
   <div>
 <img src="https://github.com/emilymarc/feira-republica-xp/blob/main/Republica%20Hippie.gif" alt="preview"/>
 </div>
-
-
+ 
+ <br>
  
   Para acessar a página da web fruto deste projeto, [clique aqui](https://feira-republica.netlify.app/)
 
-
-  Para **clonar o projeto** :
+ <br>
+   
+  *Para **clonar o projeto** :*
   
   ```$ git clone https://github.com/emilymarc/feira-republica-xp.git```
   
-  Para **INICIAR O BACK-END**, acessar a pasta backend, abrir o terminal e executar:
+  <br>
+  
+  *Para **INICIAR O BACK-END**, acessar a pasta backend, abrir o terminal e executar:*
   
   ```$ npm install```
   
@@ -113,16 +122,24 @@
   Por fim, para ativar o seed e assim popular o banco de dados, execute o comando abaixo :
   
   ```npx sequelize-cli db:seed:all```
+
+  <br>
   
   
-  
-  Para **INICIAR O FRONT-END** , após abrir a pasta frontend, executar na linha de comando:
+  *Para **INICIAR O FRONT-END**, após abrir a pasta frontend, ingressar no diretório republica-hippie e, após, na pasta src, executar na linha de comando:*
   
   ```$ npm start```
   
+  
+ <br>
+ 
+  :warning: Mas atenção: Não esqueça do comando ```npm run dev``` para manter o servidor ativo. 
+  
+ <br> 
 
   Agora já sabe como navegar por essa maravilha  :ship: 
   
+  <br>
   
 ### 5 - Integrantes da equipe  :crown:
    
