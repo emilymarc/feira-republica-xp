@@ -128,10 +128,16 @@
   <br>
   
   
-  *Para **INICIAR O FRONT-END** , após abrir a pasta frontend, executar na linha de comando:*
+  *Para **INICIAR O FRONT-END**, após abrir a pasta frontend, ingressar no diretório republica-hippie e, após, na pasta src, executar na linha de comando:*
   
   ```$ npm start```
   
+  
+ <br>
+ 
+  :warning: Mas atenção: Não esqueça do comando ```npm run dev``` para manter o servidor ativo. 
+  
+ <br> 
 
   Agora já sabe como navegar por essa maravilha  :ship: 
   
