@@ -28,7 +28,7 @@
    
 ### 2 - Organização e metodologia  :office:
   
-  O projeto foi elaborado utilizando a metodologia ágil kanban. Para tanto, além do respeito aos cerimoniais exigidos pelo método e ensinados durante o curso, a squad optou pelo uso do aplicativo Trello como ferramenta de registro e organização visual. 
+  O projeto foi elaborado utilizando a metodologia ágil kanban. Para tanto, além do respeito aos cerimoniais exigidos pelo método e ensinados durante o curso, a squad optou pelo uso do aplicativo [Trello](https://trello.com/b/9W8Uz2is/xpha41-grupo-7-feira-republica) como ferramenta de registro e organização visual. 
   
   Cada time (designer UX, front-end, back-end) detinha uma etiqueta de diferente coloração, de modo a facilitar a identificação de seus cards. Os cards foram separados em colunas "to do", "doing", "testing" e "done", facilitando um acompanhamento real de cada etapa do projeto. 
   
@@ -37,8 +37,6 @@
   Houve a criação de backlog, com tarefas a serem realizadas para a entrega do trabalho e ideias de features a serem feitas no futuro.
   
   Nas reuniões foram criados cards com descrição das tarefas a serem desenvolvidas, indicação da squad responsável, dos membros encarregados da tarefa indicada no card e data de entrega.  
-
- [Trello](https://trello.com/b/9W8Uz2is/xpha41-grupo-7-feira-republica)
  
   <br>
 
