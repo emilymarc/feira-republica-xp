@@ -35,7 +35,7 @@
   
   Nas reuniões foram criados cards com descrição das tarefas a serem desenvolvidas, indicação da squad responsável, dos membros encarregados da tarefa indicada no card e data de entrega.  
 
- [Trello](url aqui)
+ [Trello](https://trello.com/b/JJeQFoZq/kanban-geral-grupo-7)
 
 ### 3 - O código  :computer:
   
@@ -74,7 +74,12 @@
   A documentação da API pode ser conferida neste [link](https://documenter.getpostman.com/view/8182997/UzJPMafP)
   
   Segue prévia da aplicação:
- 
+  
+  <div align="center">
+<img src="" alt="preview"/>
+</div>
+
+
  
   Para acessar a página da web fruto deste projeto, [clique aqui](https://feira-republica.netlify.app/)
 
