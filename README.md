@@ -95,6 +95,7 @@ Modelo DER do banco de dados em mysql
 ```
 # dentro da pasta backend
 npx sequelize-cli db:create
+npx sequelize-cli db:migrate
 
 # Por fim, para ativar o seed e assim popular o banco de dados, execute o comando abaixo :
 npx sequelize-cli db:seed:all
@@ -105,17 +106,16 @@ npx sequelize-cli db:seed:all
 ```
 
 # Para iniciar o Frontend
-cd frontend
+cd frontend/republica-hippie
 npm start
+npm install -g
 
-# para ligar o servidor
+# da pasta raiz: para ligar o servidor do backend
 cd backend
 npm run dev 
 ```
 
-
 :warning: Mas atenção: Não esqueça do comando ```npm run dev``` para manter o servidor ativo.
-
 
 Agora já sabe como navegar por essa maravilha  :ship:
 
